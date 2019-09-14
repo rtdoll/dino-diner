@@ -31,7 +31,8 @@ namespace DinoDiner.Menu.Entrees
 
         public void AddNugget()
         {
-            this.Calories += 56;
+            nuggetCount++;
+            this.Calories += 59;
             this.Price += 0.25;
         }
     }
