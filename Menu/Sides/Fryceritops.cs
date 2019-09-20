@@ -3,10 +3,11 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Menu.Sides
+namespace DinoDiner.Menu.Sides
 {
     public class Fryceritops : Side
     {
+        private Size size { get; set;  }
         public Fryceritops()
         {
             this.Price = 0.99;
@@ -18,16 +19,24 @@ namespace Menu.Sides
         {
             get
             {
-                return this.Size;
+                return this.size;
             }
             set
             {
-                Size = value;
-                switch (Size)
+                size = value;
+                switch (size)
                 {
+                    case Size.Small:
+                        this.Price = 0.99;
+                        this.Calories = 222;
+                        break;
+                    case Size.Medium:
+                        this.Price = 1.45;
+                        this.Calories = 365;
+                        break;
                     case Size.Large:
-                        Price = 1.95;
-                        Calories = 420;
+                        this.Price = 1.95;
+                        this.Calories = 480;
                         break;
                 }
             }
