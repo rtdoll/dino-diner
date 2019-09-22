@@ -7,7 +7,7 @@ namespace DinoDiner.Menu.Entrees
     public class PterodactylWings : Entree
     {
         /// <summary>
-        /// Gets Ingredients based on bools
+        /// Gets ingredients based on bools
         /// </summary>
         public override List<string> Ingredients
         {
@@ -18,6 +18,9 @@ namespace DinoDiner.Menu.Entrees
             }
         }
 
+        /// <summary>
+        /// Constructor, Sets price and calories
+        /// </summary>
         public PterodactylWings()
         {
             this.Price = 7.21;

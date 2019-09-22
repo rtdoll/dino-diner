@@ -38,7 +38,7 @@ namespace DinoDiner.Menu.Entrees
         }
 
         /// <summary>
-        /// Sets peanutButter to false if customer does not want peanut butter
+        /// Removes peanut butter from ingredients list
         /// </summary>
         public void HoldPeanutButter()
         {
@@ -46,7 +46,7 @@ namespace DinoDiner.Menu.Entrees
         }
 
         /// <summary>
-        /// Sets jelly to false if customer does not want jelly
+        /// removes jelly from ingredients list
         /// </summary>
         public void HoldJelly()
         {

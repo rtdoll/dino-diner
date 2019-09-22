@@ -7,14 +7,24 @@ namespace DinoDiner.Menu.Sides
 {
     public class MeteorMacAndCheese : Side
     {
+        /// <summary>
+        /// Size of side
+        /// </summary>
         private Size size { get; set; }
 
+        /// <summary>
+        /// Constructor, sets price, calories, and ingredients
+        /// </summary>
         public MeteorMacAndCheese()
         {
             this.Price = 0.99;
             this.Calories = 420;
             this.Ingredients = new List<string>() { "Macaroni Noodles", "Cheese Product", "Pork Sausage" };
         }
+
+        /// <summary>
+        /// Gets current size, or changes size and sets new price/calories based on what size
+        /// </summary>
         public override Size Size
         {
             get

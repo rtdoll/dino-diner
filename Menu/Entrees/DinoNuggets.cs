@@ -6,7 +6,11 @@ namespace DinoDiner.Menu.Entrees
 {
     public class DinoNuggets : Entree
     {
+        /// <summary>
+        /// Adds amount of nuggets to ingredients list
+        /// </summary>
         private uint nuggetCount = 6;
+
         /// <summary>
         /// Gets Ingredients based on bools
         /// </summary>
@@ -23,12 +27,18 @@ namespace DinoDiner.Menu.Entrees
             }
         }
 
+        /// <summary>
+        /// Constructor, sets price and calories
+        /// </summary>
         public DinoNuggets()
         {
             this.Price = 4.25;
             this.Calories = 59 * nuggetCount;
         }
 
+        /// <summary>
+        /// Adds one nugget, increases calories and price
+        /// </summary>
         public void AddNugget()
         {
             nuggetCount++;

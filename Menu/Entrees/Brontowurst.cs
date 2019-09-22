@@ -6,9 +6,21 @@ namespace DinoDiner.Menu.Entrees
 {
     public class Brontowurst : Entree
     {
+        /// <summary>
+        /// Adds whole wheat bun to ingredients list
+        /// </summary>
         private bool wholeWheatBun = true;
+
+        /// <summary>
+        /// Adds peppers to ingredients list
+        /// </summary>
         private bool peppers = true;
+
+        /// <summary>
+        /// Adds onions to ingredients list
+        /// </summary>
         private bool onions = true;
+
         /// <summary>
         /// Gets Ingredients based on bools
         /// </summary>
@@ -24,20 +36,34 @@ namespace DinoDiner.Menu.Entrees
             }
         }
 
+        /// <summary>
+        /// Constructor, Sets price and calories
+        /// </summary>
         public Brontowurst()
         {
             this.Price = 5.36;
             this.Calories = 498;
         }
 
+        /// <summary>
+        /// Removes whole wheat bun from ingredients list
+        /// </summary>
         public void HoldBun()
         {
             this.wholeWheatBun = false;
         }
+
+        /// <summary>
+        /// Removes peppers from ingredients list
+        /// </summary>
         public void HoldPeppers()
         {
             this.peppers = false;
         }
+
+        /// <summary>
+        /// Removes peppers from ingredients list
+        /// </summary>
         public void HoldOnion()
         {
             this.onions = false;
