@@ -4,13 +4,13 @@ using System.Text;
 
 namespace DinoDiner.Menu.Entrees
 {
-    public class DinoNuggets
+    public class DinoNuggets : Entree
     {
         private uint nuggetCount = 6;
-        public double Price { get; set; }
-        public uint Calories { get; set; }
-
-        public List<string> Ingredients
+        /// <summary>
+        /// Gets Ingredients based on bools
+        /// </summary>
+        public override List<string> Ingredients
         {
             get
             {

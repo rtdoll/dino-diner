@@ -12,7 +12,7 @@ namespace DinoDiner.Menu.Sides
         {
             this.Price = 0.99;
             this.Calories = 352;
-            this.Ingredients = new List<string>() { "Potatoes", "Salt", "Vegetable Oil" };
+            this.Ingredients = new List<string>() { "Potato", "Salt", "Vegetable Oil" };
         }
         public override Size Size
         {

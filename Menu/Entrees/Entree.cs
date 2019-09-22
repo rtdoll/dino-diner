@@ -17,8 +17,8 @@ namespace DinoDiner.Menu.Entrees
         public uint Calories { get; set; }
 
         /// <summary>
-        /// Gets or sets the size
+        /// Gets or sets the Ingredients
         /// </summary>
-        public List<string> Ingredients { get; protected set; }
+        public virtual List<string> Ingredients { get; }
     }
 }

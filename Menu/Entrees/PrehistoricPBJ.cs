@@ -2,15 +2,22 @@
 
 namespace DinoDiner.Menu.Entrees
 {
-    public class PrehistoricPBJ
+    public class PrehistoricPBJ : Entree
     {
+        /// <summary>
+        /// Boolean to determine if peanut butter goes on sandwich
+        /// </summary>
         private bool peanutButter = true;
+
+        /// <summary>
+        /// Boolean to determine if jelly goes on sandwich
+        /// </summary>
         private bool jelly = true;
 
-        public double Price { get; set; }
-        public uint Calories { get; set; }
-
-        public List<string> Ingredients
+        /// <summary>
+        /// Gets Ingredients based on bools
+        /// </summary>
+        public override List<string> Ingredients
         {
             get
             {
@@ -21,17 +28,26 @@ namespace DinoDiner.Menu.Entrees
             }
         }
 
+        /// <summary>
+        /// Constructor for PrehistoricPBJ
+        /// </summary>
         public PrehistoricPBJ()
         {
             this.Price = 6.52;
             this.Calories = 483;
         }
 
+        /// <summary>
+        /// Sets peanutButter to false if customer does not want peanut butter
+        /// </summary>
         public void HoldPeanutButter()
         {
             this.peanutButter = false;
         }
 
+        /// <summary>
+        /// Sets jelly to false if customer does not want jelly
+        /// </summary>
         public void HoldJelly()
         {
             this.jelly = false;
