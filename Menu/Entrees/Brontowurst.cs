@@ -46,7 +46,7 @@ namespace DinoDiner.Menu.Entrees
         }
 
         /// <summary>
-        /// Removes whole wheat bun from ingredients list
+        /// Removes whole wheat bun from order
         /// </summary>
         public void HoldBun()
         {
@@ -54,7 +54,7 @@ namespace DinoDiner.Menu.Entrees
         }
 
         /// <summary>
-        /// Removes peppers from ingredients list
+        /// Removes peppers from order
         /// </summary>
         public void HoldPeppers()
         {
@@ -62,7 +62,7 @@ namespace DinoDiner.Menu.Entrees
         }
 
         /// <summary>
-        /// Removes peppers from ingredients list
+        /// Removes peppers from order
         /// </summary>
         public void HoldOnion()
         {
