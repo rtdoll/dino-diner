@@ -33,8 +33,37 @@ namespace DinoDiner.Menu
         {
             get
             {
-
+                return this.Drink.Price + this.Side.Price + this.Entree.Price - 0.25;
             }
+        }
+
+        public uint Calories
+        {
+            get
+            {
+                return this.Drink.Calories + this.Side.Calories + this.Entree.Calories;
+            }
+        }
+
+        public List<string> Ingredients
+        {
+            get
+            {
+                List<string> ingredients = new List<string>();
+                ingredients.AddRange(this.Drink.Ingredients);
+                ingredients.AddRange(this.Entree.Ingredients);
+                ingredients.AddRange(this.Side.Ingredients);
+                return ingredients;
+            }
+        }
+
+        private CretaceousCombo() {  }
+
+        public CretaceousCombo(Entree entree, Side side, Drink drink)
+        {
+            this.Entree = entree;
+            this.Side = side;
+            this.Drink = drink;
         }
     }
 }
