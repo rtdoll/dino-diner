@@ -19,7 +19,7 @@ namespace DinoDiner.Menu.Drinks
         /// <summary>
         /// Lemon for the water
         /// </summary>
-        private bool Lemon = false;
+        public bool Lemon = false;
 
         /// <summary>
         /// Gets ingredients based on bool
@@ -37,8 +37,8 @@ namespace DinoDiner.Menu.Drinks
 
         public Tyrannotea()
         {
-            this.Price = 1.5;
-            this.Calories = 112;
+            this.Price = 0.99;
+            this.Calories = 8;
         }
 
         /// <summary>
