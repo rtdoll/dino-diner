@@ -83,6 +83,14 @@ namespace DinoDiner.Menu.Drinks
         }
 
         /// <summary>
+        /// Removes Sweetener to tea
+        /// </summary>
+        public void RemoveSweetener()
+        {
+            this.Sweet = false;
+        }
+
+        /// <summary>
         /// Adds Lemon to tea
         /// </summary>
         public void AddLemon()

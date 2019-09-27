@@ -41,7 +41,7 @@ namespace MenuTest.Drinks
         public void ShouldHaveCorrectDefaultCalories()
         {
             Sodasaurus soda = new Sodasaurus();
-            Assert.Equal<double>(112, soda.Calories);
+            Assert.Equal<uint>(112, soda.Calories);
         }
 
         [Fact]
