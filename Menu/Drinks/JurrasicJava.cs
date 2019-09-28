@@ -19,6 +19,18 @@ namespace DinoDiner.Menu.Drinks
         private bool Decaf = false;
 
         /// <summary>
+        /// Gets ingredients based on bool
+        /// </summary>
+        public override List<string> Ingredients
+        {
+            get
+            {
+                List<string> ingredients = new List<string>() { "Water", "Coffee" };
+                return ingredients;
+            }
+        }
+
+        /// <summary>
         /// Constructor, Sets price and calories and ice
         /// </summary>
         public JurrasicJava()
@@ -47,11 +59,11 @@ namespace DinoDiner.Menu.Drinks
                         this.Calories = 2;
                         break;
                     case Size.Medium:
-                        this.Price = 1.49;
+                        this.Price = 0.99;
                         this.Calories = 4;
                         break;
                     case Size.Large:
-                        this.Price = 2.00;
+                        this.Price = 1.49;
                         this.Calories = 8;
                         break;
                 }

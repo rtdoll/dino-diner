@@ -39,6 +39,7 @@ namespace DinoDiner.Menu.Drinks
         {
             this.Price = 0.99;
             this.Calories = 8;
+            this.Ice = true;
         }
 
         /// <summary>
@@ -56,19 +57,16 @@ namespace DinoDiner.Menu.Drinks
                 switch (size)
                 {
                     case Size.Small:
-                        this.Price = .99;
+                        this.Price = 0.99;
                         this.Calories = 8;
-                        if (Sweet) this.Calories *= 2;
                         break;
                     case Size.Medium:
                         this.Price = 1.49;
                         this.Calories = 16;
-                        if (Sweet) this.Calories *= 2;
                         break;
                     case Size.Large:
                         this.Price = 1.99;
                         this.Calories = 32;
-                        if (Sweet) this.Calories *= 2;
                         break;
                 }
             }
@@ -80,6 +78,7 @@ namespace DinoDiner.Menu.Drinks
         public void AddSweetener()
         {
             this.Sweet = true;
+            this.Calories *= 2;
         }
 
         /// <summary>
@@ -88,6 +87,7 @@ namespace DinoDiner.Menu.Drinks
         public void RemoveSweetener()
         {
             this.Sweet = false;
+            this.Calories /= 2;
         }
 
         /// <summary>

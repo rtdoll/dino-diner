@@ -36,6 +36,7 @@ namespace DinoDiner.Menu.Drinks
             this.Price = 1.5;
             this.Calories = 112;
             this.Ingredients = new List<string>() { "Water", "Natural Flavors", "Cane Sugar" };
+            this.Ice = true;
         }
 
         /// <summary>

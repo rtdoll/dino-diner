@@ -20,7 +20,7 @@ namespace DinoDiner.Menu.Drinks
         /// <summary>
         /// Gets and sets if drink has Ice
         /// </summary>
-        public bool Ice = true;
+        public bool Ice { get; set; }
 
         /// <summary>
         /// Gets the ingredients list

@@ -14,7 +14,7 @@ namespace DinoDiner.Menu.Drinks
         /// <summary>
         /// Lemon for the water
         /// </summary>
-        private bool Lemon = false;
+        public bool Lemon = false;
 
         /// <summary>
         /// Gets Ingredients based on bools
@@ -36,6 +36,7 @@ namespace DinoDiner.Menu.Drinks
         {
             this.Price = .10;
             this.Calories = 0;
+            this.Ice = true;
         }
 
         /// <summary>
@@ -74,6 +75,11 @@ namespace DinoDiner.Menu.Drinks
         public void AddLemon()
         {
             this.Lemon = true;
+        }
+
+        public void HoldIce()
+        {
+            this.Ice = false;
         }
     }
 }
