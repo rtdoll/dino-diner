@@ -59,7 +59,7 @@ namespace MenuTest.Drinks
             tea.Size = Size.Medium;
             tea.Size = Size.Small;
             Assert.Equal<double>(0.99, tea.Price);
-            Assert.Equal(Size.Small, tea.Size);
+            Assert.Equal<uint>(8, tea.Calories);
         }
 
         [Fact]
@@ -68,7 +68,7 @@ namespace MenuTest.Drinks
             Tyrannotea tea = new Tyrannotea();
             tea.Size = Size.Medium;
             Assert.Equal<double>(1.49, tea.Price);
-            Assert.Equal(Size.Medium, tea.Size);
+            Assert.Equal<uint>(16, tea.Calories);
         }
 
         [Fact]
@@ -76,8 +76,8 @@ namespace MenuTest.Drinks
         {
             Tyrannotea tea = new Tyrannotea();
             tea.Size = Size.Large;
-            Assert.Equal<double>(2.00, tea.Price);
-            Assert.Equal(Size.Large, tea.Size);
+            Assert.Equal<double>(1.99, tea.Price);
+            Assert.Equal<uint>(32, tea.Calories);
         }
         //That invoking HoldIce() results in the Ice property being false
         [Fact]
@@ -108,6 +108,7 @@ namespace MenuTest.Drinks
         public void ShouldHaveCorrectSweetTeaCaloriesForMedium()
         {
             Tyrannotea tea = new Tyrannotea();
+            tea.Size = Size.Medium;
             tea.AddSweetener();
             Assert.Equal<uint>(32, tea.Calories);
         }
@@ -116,6 +117,7 @@ namespace MenuTest.Drinks
         public void ShouldHaveCorrectSweetTeaCaloriesForLarge()
         {
             Tyrannotea tea = new Tyrannotea();
+            tea.Size = Size.Large;
             tea.AddSweetener();
             Assert.Equal<uint>(64, tea.Calories);
         }
