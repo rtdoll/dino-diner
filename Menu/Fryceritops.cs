@@ -1,24 +1,26 @@
-﻿using System;
+﻿/* Fryceritops.cs
+ * Author: Ryan Doll
+ */
+using System;
 using System.Collections.Generic;
 using System.Text;
-using DinoDiner.Menu.Sides;
 
-namespace DinoDiner.Menu.Sides
+namespace DinoDiner.Menu
 {
-    public class Triceritots : Side
+    public class Fryceritops : Side
     {
         /// <summary>
         /// Size of side
         /// </summary>
-        private Size size { get; set; }
+        private Size size { get; set;  }
 
         /// <summary>
         /// Constructor, sets price, calories, and ingredients
         /// </summary>
-        public Triceritots()
+        public Fryceritops()
         {
             this.Price = 0.99;
-            this.Calories = 352;
+            this.Calories = 222;
             this.Ingredients = new List<string>() { "Potato", "Salt", "Vegetable Oil" };
         }
 
@@ -38,15 +40,15 @@ namespace DinoDiner.Menu.Sides
                 {
                     case Size.Small:
                         this.Price = 0.99;
-                        this.Calories = 352;
+                        this.Calories = 222;
                         break;
                     case Size.Medium:
                         this.Price = 1.45;
-                        this.Calories = 410;
+                        this.Calories = 365;
                         break;
                     case Size.Large:
                         this.Price = 1.95;
-                        this.Calories = 590;
+                        this.Calories = 480;
                         break;
                 }
             }

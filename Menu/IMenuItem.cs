@@ -1,24 +1,27 @@
-﻿using System;
+﻿/* IMenuItem.cs
+ * Author: Ryan Doll
+ */
+using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Entrees
+namespace DinoDiner.Menu
 {
-    public abstract class Entree
+    public interface IMenuItem
     {
         /// <summary>
         /// Gets and sets the price
         /// </summary>
-        public double Price { get; set; }
+        double Price { get; }
 
         /// <summary>
         /// Gets and sets the calories
         /// </summary>
-        public uint Calories { get; set; }
+        uint Calories { get; }
 
         /// <summary>
-        /// Gets or sets the Ingredients
+        /// Gets the ingredients list
         /// </summary>
-        public virtual List<string> Ingredients { get; }
+        List<string> Ingredients { get; }
     }
 }

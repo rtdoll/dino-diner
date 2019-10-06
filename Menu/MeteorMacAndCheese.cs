@@ -1,25 +1,27 @@
-﻿using DinoDiner.Menu.Sides;
+﻿/* MeteorMacAndCheese.cs
+ * Author: Ryan Doll
+ */
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Sides
+namespace DinoDiner.Menu
 {
-    public class Fryceritops : Side
+    public class MeteorMacAndCheese : Side
     {
         /// <summary>
         /// Size of side
         /// </summary>
-        private Size size { get; set;  }
+        private Size size { get; set; }
 
         /// <summary>
         /// Constructor, sets price, calories, and ingredients
         /// </summary>
-        public Fryceritops()
+        public MeteorMacAndCheese()
         {
             this.Price = 0.99;
-            this.Calories = 222;
-            this.Ingredients = new List<string>() { "Potato", "Salt", "Vegetable Oil" };
+            this.Calories = 420;
+            this.Ingredients = new List<string>() { "Macaroni Noodles", "Cheese Product", "Pork Sausage" };
         }
 
         /// <summary>
@@ -38,15 +40,15 @@ namespace DinoDiner.Menu.Sides
                 {
                     case Size.Small:
                         this.Price = 0.99;
-                        this.Calories = 222;
+                        this.Calories = 420;
                         break;
                     case Size.Medium:
                         this.Price = 1.45;
-                        this.Calories = 365;
+                        this.Calories = 490;
                         break;
                     case Size.Large:
                         this.Price = 1.95;
-                        this.Calories = 480;
+                        this.Calories = 520;
                         break;
                 }
             }

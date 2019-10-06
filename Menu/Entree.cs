@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Sides
+namespace DinoDiner.Menu
 {
-    public abstract class Side
+    public abstract class Entree
     {
         /// <summary>
         /// Gets and sets the price
@@ -17,13 +17,8 @@ namespace DinoDiner.Menu.Sides
         public uint Calories { get; set; }
 
         /// <summary>
-        /// Gets the ingredients list
+        /// Gets or sets the Ingredients
         /// </summary>
-        public List<string> Ingredients { get; protected set; }
-
-        /// <summary>
-        /// Gets or sets the size
-        /// </summary>
-        public abstract Size Size { get; set; }
+        public virtual List<string> Ingredients { get; }
     }
 }

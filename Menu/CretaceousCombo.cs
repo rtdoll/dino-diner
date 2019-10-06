@@ -1,9 +1,9 @@
-﻿using System;
+﻿/* CretaceousCombo.cs
+ * Author: Ryan Doll
+ */
+using System;
 using System.Collections.Generic;
 using System.Text;
-using DinoDiner.Menu.Entrees;
-using DinoDiner.Menu.Drinks;
-using DinoDiner.Menu.Sides;
 
 namespace DinoDiner.Menu
 {

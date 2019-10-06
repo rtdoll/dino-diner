@@ -1,10 +1,13 @@
-﻿using System;
+﻿/* Tyrannotea.cs
+ * Author: Ryan Doll
+ */
+using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Drinks
+namespace DinoDiner.Menu
 {
-    public class Water : Drink
+    public class Tyrannotea : Drink
     {
         /// <summary>
         /// Size of drink
@@ -12,30 +15,33 @@ namespace DinoDiner.Menu.Drinks
         private Size size { get; set; }
 
         /// <summary>
+        /// If tea is sweet
+        /// </summary>
+        public bool Sweet = false;
+
+        /// <summary>
         /// Lemon for the water
         /// </summary>
         public bool Lemon = false;
 
         /// <summary>
-        /// Gets Ingredients based on bools
+        /// Gets ingredients based on bool
         /// </summary>
         public override List<string> Ingredients
         {
             get
             {
-                List<string> ingredients = new List<string>() { "Water" };
+                List<string> ingredients = new List<string>() { "Water", "Tea" };
+                if (Sweet) ingredients.Add("Cane Sugar");
                 if (Lemon) ingredients.Add("Lemon");
                 return ingredients;
             }
         }
 
-        /// <summary>
-        /// Constructor, Sets price and calories
-        /// </summary>
-        public Water()
+        public Tyrannotea()
         {
-            this.Price = .10;
-            this.Calories = 0;
+            this.Price = 0.99;
+            this.Calories = 8;
             this.Ice = true;
         }
 
@@ -54,32 +60,45 @@ namespace DinoDiner.Menu.Drinks
                 switch (size)
                 {
                     case Size.Small:
-                        this.Price = .10;
-                        this.Calories = 0;
+                        this.Price = 0.99;
+                        this.Calories = 8;
                         break;
                     case Size.Medium:
-                        this.Price = .10;
-                        this.Calories = 0;
+                        this.Price = 1.49;
+                        this.Calories = 16;
                         break;
                     case Size.Large:
-                        this.Price = .10;
-                        this.Calories = 0;
+                        this.Price = 1.99;
+                        this.Calories = 32;
                         break;
                 }
             }
         }
 
         /// <summary>
-        /// Adds Lemon to order 
+        /// Adds Sweetener to tea
+        /// </summary>
+        public void AddSweetener()
+        {
+            this.Sweet = true;
+            this.Calories *= 2;
+        }
+
+        /// <summary>
+        /// Removes Sweetener to tea
+        /// </summary>
+        public void RemoveSweetener()
+        {
+            this.Sweet = false;
+            this.Calories /= 2;
+        }
+
+        /// <summary>
+        /// Adds Lemon to tea
         /// </summary>
         public void AddLemon()
         {
             this.Lemon = true;
-        }
-
-        public void HoldIce()
-        {
-            this.Ice = false;
         }
     }
 }

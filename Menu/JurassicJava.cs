@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Drinks
+namespace DinoDiner.Menu
 {
-    public class JurrasicJava : Drink
+    public class JurassicJava : Drink
     {
         /// <summary>
         /// Size of drink
@@ -16,7 +16,7 @@ namespace DinoDiner.Menu.Drinks
         /// </summary>
         public bool RoomForCream = false;
 
-        private bool Decaf = false;
+        public bool Decaf = false;
 
         /// <summary>
         /// Gets ingredients based on bool
@@ -33,7 +33,7 @@ namespace DinoDiner.Menu.Drinks
         /// <summary>
         /// Constructor, Sets price and calories and ice
         /// </summary>
-        public JurrasicJava()
+        public JurassicJava()
         {
             this.Price = .59;
             this.Calories = 2;

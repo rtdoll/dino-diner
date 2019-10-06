@@ -1,9 +1,12 @@
-﻿using System;
+﻿/* MezzorellaSticks.cs
+ * Author: Ryan Doll
+ */
+using System;
 using System.Collections.Generic;
-using DinoDiner.Menu.Sides;
+using DinoDiner.Menu;
 using System.Text;
 
-namespace DinoDiner.Menu.Sides
+namespace DinoDiner.Menu
 {
     public class MezzorellaSticks : Side
     {

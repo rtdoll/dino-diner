@@ -1,11 +1,14 @@
-﻿using System;
-using DinoDiner.Menu.Sides;
+﻿/* Triceritots.cs
+ * Author: Ryan Doll
+ */
+using System;
 using System.Collections.Generic;
 using System.Text;
+using DinoDiner.Menu;
 
-namespace DinoDiner.Menu.Sides
+namespace DinoDiner.Menu
 {
-    public class MeteorMacAndCheese : Side
+    public class Triceritots : Side
     {
         /// <summary>
         /// Size of side
@@ -15,11 +18,11 @@ namespace DinoDiner.Menu.Sides
         /// <summary>
         /// Constructor, sets price, calories, and ingredients
         /// </summary>
-        public MeteorMacAndCheese()
+        public Triceritots()
         {
             this.Price = 0.99;
-            this.Calories = 420;
-            this.Ingredients = new List<string>() { "Macaroni Noodles", "Cheese Product", "Pork Sausage" };
+            this.Calories = 352;
+            this.Ingredients = new List<string>() { "Potato", "Salt", "Vegetable Oil" };
         }
 
         /// <summary>
@@ -38,15 +41,15 @@ namespace DinoDiner.Menu.Sides
                 {
                     case Size.Small:
                         this.Price = 0.99;
-                        this.Calories = 420;
+                        this.Calories = 352;
                         break;
                     case Size.Medium:
                         this.Price = 1.45;
-                        this.Calories = 490;
+                        this.Calories = 410;
                         break;
                     case Size.Large:
                         this.Price = 1.95;
-                        this.Calories = 520;
+                        this.Calories = 590;
                         break;
                 }
             }
