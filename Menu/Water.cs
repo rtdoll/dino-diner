@@ -1,10 +1,16 @@
-﻿using System;
+﻿/* Water.cs
+ * Author: Ryan Doll
+ */
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace DinoDiner.Menu
 {
-    public class Water : Drink
+    /// <summary>
+    /// Water class, is a Drink
+    /// </summary>
+    public class Water : Drink, IMenuItem
     {
         /// <summary>
         /// Size of drink
@@ -80,6 +86,15 @@ namespace DinoDiner.Menu
         public void HoldIce()
         {
             this.Ice = false;
+        }
+
+        /// <summary>
+        /// returns the name of item
+        /// </summary>
+        /// <returns>string</returns>
+        public override string ToString()
+        {
+            return this.Size.ToString() + " Water";
         }
     }
 }

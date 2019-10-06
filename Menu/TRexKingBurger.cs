@@ -1,10 +1,16 @@
-﻿using System;
+﻿/* TRexKingBurger.cs
+ * Author: Ryan Doll
+ */
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace DinoDiner.Menu
 {
-    public class TRexKingBurger : Entree
+    /// <summary>
+    /// TRexKingBurger class, is a Entree
+    /// </summary>
+    public class TRexKingBurger : Entree, IMenuItem
     {
         /// <summary>
         /// Adds whole wheat bun to ingredients list
@@ -137,6 +143,15 @@ namespace DinoDiner.Menu
         public void HoldMayo()
         {
             this.mayo = false;
+        }
+
+        /// <summary>
+        /// returns the name of item
+        /// </summary>
+        /// <returns>string</returns>
+        public override string ToString()
+        {
+            return "T-Rex King Burger";
         }
     }
 }

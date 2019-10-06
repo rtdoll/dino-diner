@@ -44,6 +44,7 @@ namespace MenuTest.Drinks
             Assert.False(water.Lemon);
         }
         //The correct price and calories after changing to small, medium, and large sizes.
+        [Fact]
         public void ShouldHaveCorrectPriceAndCaloriesForSmall()
         {
             Water water = new Water();

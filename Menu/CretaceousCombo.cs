@@ -7,14 +7,34 @@ using System.Text;
 
 namespace DinoDiner.Menu
 {
-    public class CretaceousCombo
+    /// <summary>
+    /// Creates a Combo of Menu item using Entree Drink and Side
+    /// </summary>
+    public class CretaceousCombo : IMenuItem
     {
+        /// <summary>
+        /// Entree item for combo
+        /// </summary>
         public Entree Entree { get; set; }
+        
+        /// <summary>
+        /// Drink item for combo
+        /// </summary>
         public Drink Drink { get; set; }
+
+        /// <summary>
+        /// Side item for combo
+        /// </summary>
         public Side Side { get; set; }
 
+        /// <summary>
+        /// keep track of size of combo
+        /// </summary>
         private Size size = Size.Small;
 
+        /// <summary>
+        /// Change size of combo
+        /// </summary>
         public Size Size
         {
             get
@@ -29,6 +49,9 @@ namespace DinoDiner.Menu
             }
         }
 
+        /// <summary>
+        /// price of combo - .25 discount
+        /// </summary>
         public double Price
         {
             get
@@ -37,6 +60,9 @@ namespace DinoDiner.Menu
             }
         }
 
+        /// <summary>
+        /// Combined calories of combo items
+        /// </summary>
         public uint Calories
         {
             get
@@ -45,6 +71,9 @@ namespace DinoDiner.Menu
             }
         }
 
+        /// <summary>
+        /// combined ingredients of combo items
+        /// </summary>
         public List<string> Ingredients
         {
             get
@@ -57,13 +86,40 @@ namespace DinoDiner.Menu
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         private CretaceousCombo() {  }
 
+        /// <summary>
+        /// entree only constructor
+        /// </summary>
+        /// <param name="entree">Chosen entree</param>
+        public CretaceousCombo(Entree entree)
+        {
+            this.Entree = entree;
+        }
+
+        /// <summary>
+        /// Constructor for entree drink and side combo
+        /// </summary>
+        /// <param name="entree">Chosen Entree</param>
+        /// <param name="side">Chosen Side</param>
+        /// <param name="drink">Chosen Drink</param>
         public CretaceousCombo(Entree entree, Side side, Drink drink)
         {
             this.Entree = entree;
             this.Side = side;
             this.Drink = drink;
+        }
+
+        /// <summary>
+        /// return name of combo
+        /// </summary>
+        /// <returns>string</returns>
+        public override string ToString()
+        {
+            return this.Entree.ToString() + " Combo";
         }
     }
 }

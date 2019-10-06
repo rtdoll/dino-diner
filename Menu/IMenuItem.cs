@@ -7,15 +7,18 @@ using System.Text;
 
 namespace DinoDiner.Menu
 {
+    /// <summary>
+    /// IMenuItem Interface, Requires Price, Calories, and Ingredients for every menu item
+    /// </summary>
     public interface IMenuItem
     {
         /// <summary>
-        /// Gets and sets the price
+        /// Gets the price
         /// </summary>
         double Price { get; }
 
         /// <summary>
-        /// Gets and sets the calories
+        /// Gets the calories
         /// </summary>
         uint Calories { get; }
 

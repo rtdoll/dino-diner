@@ -1,10 +1,15 @@
-﻿using System;
+﻿/* Drink.cs
+ * Author: Ryan Doll
+ */
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace DinoDiner.Menu
 {
-    
+    /// <summary>
+    /// Drink abstract class, keeps track of Price, Calories, Ice, Ingredients, and Size
+    /// </summary>
     public abstract class Drink
     {
         /// <summary>

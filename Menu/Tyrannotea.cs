@@ -7,7 +7,10 @@ using System.Text;
 
 namespace DinoDiner.Menu
 {
-    public class Tyrannotea : Drink
+    /// <summary>
+    /// Tyrannotea class, is a Drink
+    /// </summary>
+    public class Tyrannotea : Drink, IMenuItem
     {
         /// <summary>
         /// Size of drink
@@ -99,6 +102,18 @@ namespace DinoDiner.Menu
         public void AddLemon()
         {
             this.Lemon = true;
+        }
+
+        /// <summary>
+        /// returns the name of item
+        /// </summary>
+        /// <returns>string</returns>
+        public override string ToString()
+        {
+            if (Sweet)
+                return this.Size.ToString() + " Sweet Tyrannotea";
+            else
+                return this.Size.ToString() + " Tyrannotea";
         }
     }
 }

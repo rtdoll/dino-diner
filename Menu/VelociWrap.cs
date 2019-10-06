@@ -1,10 +1,16 @@
-﻿using System;
+﻿/* VelociWrap.cs
+ * Author: Ryan Doll
+ */
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace DinoDiner.Menu
 {
-    public class VelociWrap : Entree
+    /// <summary>
+    /// Velociwrap class, is a Entree
+    /// </summary>
+    public class VelociWrap : Entree, IMenuItem
     {
         /// <summary>
         /// Adds dressing to ingredients list
@@ -67,6 +73,15 @@ namespace DinoDiner.Menu
         public void HoldCheese()
         {
             this.cheese = false;
+        }
+
+        /// <summary>
+        /// returns the name of item
+        /// </summary>
+        /// <returns>string</returns>
+        public override string ToString()
+        {
+            return "Veloci-Wrap";
         }
     }
 }

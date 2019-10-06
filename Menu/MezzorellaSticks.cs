@@ -8,12 +8,27 @@ using System.Text;
 
 namespace DinoDiner.Menu
 {
-    public class MezzorellaSticks : Side
+    /// <summary>
+    /// MezzorellaSticks class, is a side
+    /// </summary>
+    public class MezzorellaSticks : Side, IMenuItem
     {
         /// <summary>
         /// Size of side
         /// </summary>
         private Size size { get; set; }
+
+        /// <summary>
+        /// Gets Ingredients based on bools
+        /// </summary>
+        public override List<string> Ingredients
+        {
+            get
+            {
+                List<string> ingredients = new List<string>() { "Cheese Product", "Breading", "Vegetable Oil" };
+                return ingredients;
+            }
+        }
 
         /// <summary>
         /// Constructor, sets price, calories, and ingredients
@@ -22,7 +37,6 @@ namespace DinoDiner.Menu
         {
             this.Price = 0.99;
             this.Calories = 540;
-            this.Ingredients = new List<string>() { "Cheese Product", "Breading", "Vegetable Oil" };
         }
         
         /// <summary>
@@ -53,6 +67,15 @@ namespace DinoDiner.Menu
                         break;
                 }
             }
+        }
+
+        /// <summary>
+        /// returns the name of item
+        /// </summary>
+        /// <returns>string</returns>
+        public override string ToString()
+        {
+            return this.Size.ToString() + " Mezzorella Sticks";
         }
     }
 }
