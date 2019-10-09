@@ -1,10 +1,16 @@
-﻿using System;
+﻿/* Brontowurst.cs
+ * Author: Ryan Doll
+ */
+using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Entrees
+namespace DinoDiner.Menu
 {
-    public class Brontowurst : Entree
+    /// <summary>
+    /// Brontowurst class, is a Entree
+    /// </summary>
+    public class Brontowurst : Entree, IMenuItem
     {
         /// <summary>
         /// Adds whole wheat bun to ingredients list
@@ -46,7 +52,7 @@ namespace DinoDiner.Menu.Entrees
         }
 
         /// <summary>
-        /// Removes whole wheat bun from ingredients list
+        /// Removes whole wheat bun from order
         /// </summary>
         public void HoldBun()
         {
@@ -54,7 +60,7 @@ namespace DinoDiner.Menu.Entrees
         }
 
         /// <summary>
-        /// Removes peppers from ingredients list
+        /// Removes peppers from order
         /// </summary>
         public void HoldPeppers()
         {
@@ -62,12 +68,19 @@ namespace DinoDiner.Menu.Entrees
         }
 
         /// <summary>
-        /// Removes peppers from ingredients list
+        /// Removes peppers from order
         /// </summary>
         public void HoldOnion()
         {
             this.onions = false;
         }
-
+        /// <summary>
+        /// returns the name of item
+        /// </summary>
+        /// <returns>string</returns>
+        public override string ToString()
+        {
+            return "Brontowurst";
+        }
     }
 }

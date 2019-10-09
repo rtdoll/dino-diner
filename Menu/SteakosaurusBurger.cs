@@ -1,30 +1,21 @@
-﻿using System;
+﻿/* SteakosaurusBurger.cs
+ * Author: Ryan Doll
+ */
+using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Entrees
+namespace DinoDiner.Menu
 {
-    public class TRexKingBurger : Entree
+    /// <summary>
+    /// SteakosaurusBurger class, is a Entree
+    /// </summary>
+    public class SteakosaurusBurger : Entree, IMenuItem
     {
         /// <summary>
         /// Adds whole wheat bun to ingredients list
         /// </summary>
         private bool wholeWheatBun = true;
-
-        /// <summary>
-        /// Adds lettuce to ingredients list
-        /// </summary>
-        private bool lettuce = true;
-
-        /// <summary>
-        /// Adds tomato to ingredients list
-        /// </summary>
-        private bool tomato = true;
-
-        /// <summary>
-        /// Adds onion to ingredients list
-        /// </summary>
-        private bool onion = true;
 
         /// <summary>
         /// Adds pickle to ingredients list
@@ -42,37 +33,28 @@ namespace DinoDiner.Menu.Entrees
         private bool mustard = true;
 
         /// <summary>
-        /// Adds mayo to ingredients list
-        /// </summary>
-        private bool mayo = true;
-
-        /// <summary>
         /// Gets Ingredients based on bools
         /// </summary>
         public override List<string> Ingredients
         {
             get
             {
-                List<string> ingredients = new List<string>() { "Steakburger Pattie", "Steakburger Pattie", "Steakburger Pattie" };
+                List<string> ingredients = new List<string>() { "Steakburger Pattie" };
                 if (wholeWheatBun) ingredients.Add("Whole Wheat Bun");
-                if (lettuce) ingredients.Add("Lettuce");
-                if (tomato) ingredients.Add("Tomato");
-                if (onion) ingredients.Add("Onion");
                 if (pickle) ingredients.Add("Pickle");
                 if (ketchup) ingredients.Add("Ketchup");
                 if (mustard) ingredients.Add("Mustard");
-                if (mayo) ingredients.Add("Mayo");
                 return ingredients;
             }
         }
 
         /// <summary>
-        /// Constructor, sets price and calories
+        /// Constructor. Sets the price and calories
         /// </summary>
-        public TRexKingBurger()
+        public SteakosaurusBurger()
         {
-            this.Price = 8.45;
-            this.Calories = 728;
+            this.Price = 5.15;
+            this.Calories = 621;
         }
 
         /// <summary>
@@ -81,30 +63,6 @@ namespace DinoDiner.Menu.Entrees
         public void HoldBun()
         {
             this.wholeWheatBun = false;
-        }
-
-        /// <summary>
-        /// Removes lettuce from ingredients list
-        /// </summary>
-        public void HoldLettuce()
-        {
-            this.lettuce = false;
-        }
-
-        /// <summary>
-        /// Removes tomato from ingredients list
-        /// </summary>
-        public void HoldTomato()
-        {
-            this.tomato = false;
-        }
-
-        /// <summary>
-        /// Removes onion from ingredients list
-        /// </summary>
-        public void HoldOnion()
-        {
-            this.onion = false;
         }
 
         /// <summary>
@@ -132,11 +90,12 @@ namespace DinoDiner.Menu.Entrees
         }
 
         /// <summary>
-        /// Removes mayo from ingredients list
+        /// returns the name of item
         /// </summary>
-        public void HoldMayo()
+        /// <returns>string</returns>
+        public override string ToString()
         {
-            this.mayo = false;
+            return "Steakosaurus Burger";
         }
     }
 }

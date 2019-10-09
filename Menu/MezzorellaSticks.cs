@@ -1,11 +1,17 @@
-﻿using System;
-using DinoDiner.Menu.Sides;
+﻿/* MezzorellaSticks.cs
+ * Author: Ryan Doll
+ */
+using System;
 using System.Collections.Generic;
+using DinoDiner.Menu;
 using System.Text;
 
-namespace DinoDiner.Menu.Sides
+namespace DinoDiner.Menu
 {
-    public class MeteorMacAndCheese : Side
+    /// <summary>
+    /// MezzorellaSticks class, is a side
+    /// </summary>
+    public class MezzorellaSticks : Side, IMenuItem
     {
         /// <summary>
         /// Size of side
@@ -13,15 +19,26 @@ namespace DinoDiner.Menu.Sides
         private Size size { get; set; }
 
         /// <summary>
-        /// Constructor, sets price, calories, and ingredients
+        /// Gets Ingredients based on bools
         /// </summary>
-        public MeteorMacAndCheese()
+        public override List<string> Ingredients
         {
-            this.Price = 0.99;
-            this.Calories = 420;
-            this.Ingredients = new List<string>() { "Macaroni Noodles", "Cheese Product", "Pork Sausage" };
+            get
+            {
+                List<string> ingredients = new List<string>() { "Cheese Product", "Breading", "Vegetable Oil" };
+                return ingredients;
+            }
         }
 
+        /// <summary>
+        /// Constructor, sets price, calories, and ingredients
+        /// </summary>
+        public MezzorellaSticks()
+        {
+            this.Price = 0.99;
+            this.Calories = 540;
+        }
+        
         /// <summary>
         /// Gets current size, or changes size and sets new price/calories based on what size
         /// </summary>
@@ -38,18 +55,27 @@ namespace DinoDiner.Menu.Sides
                 {
                     case Size.Small:
                         this.Price = 0.99;
-                        this.Calories = 420;
+                        this.Calories = 540;
                         break;
                     case Size.Medium:
                         this.Price = 1.45;
-                        this.Calories = 490;
+                        this.Calories = 610;
                         break;
                     case Size.Large:
                         this.Price = 1.95;
-                        this.Calories = 520;
+                        this.Calories = 720;
                         break;
                 }
             }
+        }
+
+        /// <summary>
+        /// returns the name of item
+        /// </summary>
+        /// <returns>string</returns>
+        public override string ToString()
+        {
+            return this.Size.ToString() + " Mezzorella Sticks";
         }
     }
 }

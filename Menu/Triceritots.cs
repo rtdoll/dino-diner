@@ -1,16 +1,34 @@
-﻿using System;
+﻿/* Triceritots.cs
+ * Author: Ryan Doll
+ */
+using System;
 using System.Collections.Generic;
 using System.Text;
-using DinoDiner.Menu.Sides;
+using DinoDiner.Menu;
 
-namespace DinoDiner.Menu.Sides
+namespace DinoDiner.Menu
 {
-    public class Triceritots : Side
+    /// <summary>
+    /// Triceritots class, is a side
+    /// </summary>
+    public class Triceritots : Side, IMenuItem
     {
         /// <summary>
         /// Size of side
         /// </summary>
         private Size size { get; set; }
+
+        /// <summary>
+        /// Gets Ingredients
+        /// </summary>
+        public override List<string> Ingredients
+        {
+            get
+            {
+                List<string> ingredients = new List<string>() { "Potato", "Salt", "Vegetable Oil" };
+                return ingredients;
+            }
+        }
 
         /// <summary>
         /// Constructor, sets price, calories, and ingredients
@@ -19,7 +37,6 @@ namespace DinoDiner.Menu.Sides
         {
             this.Price = 0.99;
             this.Calories = 352;
-            this.Ingredients = new List<string>() { "Potato", "Salt", "Vegetable Oil" };
         }
 
         /// <summary>
@@ -50,6 +67,15 @@ namespace DinoDiner.Menu.Sides
                         break;
                 }
             }
+        }
+
+        /// <summary>
+        /// returns the name of item
+        /// </summary>
+        /// <returns>string</returns>
+        public override string ToString()
+        {
+            return this.Size.ToString() + " Triceritots";
         }
     }
 }

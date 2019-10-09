@@ -1,13 +1,19 @@
-﻿using System;
+﻿/* PterodactylWings.cs
+ * Author: Ryan Doll
+ */
+using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Entrees
+namespace DinoDiner.Menu
 {
-    public class PterodactylWings : Entree
+    /// <summary>
+    /// Pterodactyl Wings class, is a Entree
+    /// </summary>
+    public class PterodactylWings : Entree, IMenuItem
     {
         /// <summary>
-        /// Gets ingredients based on bools
+        /// Gets Ingredients based on bools
         /// </summary>
         public override List<string> Ingredients
         {
@@ -25,6 +31,15 @@ namespace DinoDiner.Menu.Entrees
         {
             this.Price = 7.21;
             this.Calories = 318;
+        }
+
+        /// <summary>
+        /// returns the name of item
+        /// </summary>
+        /// <returns>string</returns>
+        public override string ToString()
+        {
+            return "Pterodactyl Wings";
         }
     }
 }

@@ -1,5 +1,8 @@
-﻿using Xunit;
-using DinoDiner.Menu.Sides;
+﻿/* MeteorMacAndCheeseTest.cs
+ * Author: Ryan Doll
+ */
+using Xunit;
+using DinoDiner.Menu;
 
 namespace MenuTest.Sides
 {

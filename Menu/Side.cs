@@ -2,39 +2,30 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Sides
+namespace DinoDiner.Menu
 {
     /// <summary>
-    /// Size of side
+    /// Side abstract class, keeps track of Price, Calories, Size, and Ingredients
     /// </summary>
-    public enum Size
-    {
-        Small,
-        Medium, 
-        Large
-    }
-
     public abstract class Side
     {
         /// <summary>
-        /// Gets and sets the price
+        /// Gets and setsthe price
         /// </summary>
         public double Price { get; set; }
-
         /// <summary>
-        /// Gets and sets the calories
+        /// Gets and setsthe price
         /// </summary>
         public uint Calories { get; set; }
 
         /// <summary>
-        /// Gets the ingredients list
-        /// </summary>
-        public List<string> Ingredients { get; protected set; }
-
-        /// <summary>
-        /// Gets or sets the size
+        /// Size of side
         /// </summary>
         public abstract Size Size { get; set; }
 
+        /// <summary>
+        /// Gets Ingredients based on bools
+        /// </summary>
+        public virtual List<string> Ingredients { get; protected set; }
     }
 }
