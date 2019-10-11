@@ -15,9 +15,25 @@
                 <Setter Property="Height" Value="200"/>
             </Style>
         </WrapPanel.Resources>
-        <Button>Jurassic Java</Button>
-        <Button Click="SelectFlavor">Sodasaurus</Button>
-        <Button>Tyrannotea</Button>
-        <Button>Water</Button>
+        <Button>Jurassic Java
+            <Button.Background>
+                <ImageBrush ImageSource="Assets/DinoDiner-13.png"></ImageBrush>
+            </Button.Background>
+        </Button>
+        <Button Click="SelectFlavor">Sodasaurus
+            <Button.Background>
+                <ImageBrush ImageSource="Assets/DinoDiner-14.png"></ImageBrush>
+            </Button.Background>
+        </Button>
+        <Button>Tyrannotea
+            <Button.Background>
+                <ImageBrush ImageSource="Assets/DinoDiner-12.png"></ImageBrush>
+            </Button.Background>
+        </Button>
+        <Button>Water
+            <Button.Background>
+                <ImageBrush ImageSource="Assets/DinoDiner-15.png"></ImageBrush>
+            </Button.Background>
+        </Button>
     </WrapPanel>
 </Page>
