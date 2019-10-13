@@ -189,9 +189,9 @@ namespace MenuTest
         }
 
         #endregion
-
+        
         #region Combos
-
+        
         [Theory]
         [InlineData(typeof(Brontowurst), "Brontowurst Combo")]
         [InlineData(typeof(DinoNuggets), "Dino-Nuggets Combo")]

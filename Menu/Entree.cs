@@ -1,9 +1,15 @@
-﻿using System;
+﻿/* Entree.cs
+ * Author: Ryan Doll
+ */
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace DinoDiner.Menu
 {
+    /// <summary>
+    /// Entree abstract class, keeps track of Price, Calories, and Ingredients
+    /// </summary>
     public abstract class Entree
     {
         /// <summary>

@@ -1,16 +1,25 @@
-﻿using System;
+﻿/* Sodasaurus.cs
+ * Author: Ryan Doll
+ */
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace DinoDiner.Menu
 {
-    public class Sodasaurus : Drink
+    /// <summary>
+    /// Sodasaurus class, is a Drink
+    /// </summary>
+    public class Sodasaurus : Drink, IMenuItem
     {
         /// <summary>
         /// Size of drink
         /// </summary>
         private Size size { get; set; }
 
+        /// <summary>
+        /// keeps track of flavor of drink
+        /// </summary>
         private SodasaurusFlavor flavor = SodasaurusFlavor.Cola;
 
         /// <summary>
@@ -29,13 +38,24 @@ namespace DinoDiner.Menu
         }
 
         /// <summary>
+        /// Gets Ingredients based on bools
+        /// </summary>
+        public override List<string> Ingredients
+        {
+            get
+            {
+                List<string> ingredients = new List<string>() { "Water", "Natural Flavors", "Cane Sugar" };
+                return ingredients;
+            }
+        }
+
+        /// <summary>
         /// Constructor, Sets price and calories and ingredients
         /// </summary>
         public Sodasaurus()
         {
             this.Price = 1.5;
             this.Calories = 112;
-            this.Ingredients = new List<string>() { "Water", "Natural Flavors", "Cane Sugar" };
             this.Ice = true;
         }
 
@@ -67,6 +87,15 @@ namespace DinoDiner.Menu
                         break;
                 }
             }
+        }
+
+        /// <summary>
+        /// returns the name of item
+        /// </summary>
+        /// <returns>string</returns>
+        public override string ToString()
+        {
+            return this.Size.ToString() + " " + this.Flavor.ToString() + " Sodasaurus";
         }
     }
 }

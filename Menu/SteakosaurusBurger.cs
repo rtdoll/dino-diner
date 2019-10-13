@@ -1,10 +1,16 @@
-﻿using System;
+﻿/* SteakosaurusBurger.cs
+ * Author: Ryan Doll
+ */
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace DinoDiner.Menu
 {
-    public class SteakosaurusBurger : Entree
+    /// <summary>
+    /// SteakosaurusBurger class, is a Entree
+    /// </summary>
+    public class SteakosaurusBurger : Entree, IMenuItem
     {
         /// <summary>
         /// Adds whole wheat bun to ingredients list
@@ -81,6 +87,15 @@ namespace DinoDiner.Menu
         public void HoldMustard()
         {
             this.mustard = false;
+        }
+
+        /// <summary>
+        /// returns the name of item
+        /// </summary>
+        /// <returns>string</returns>
+        public override string ToString()
+        {
+            return "Steakosaurus Burger";
         }
     }
 }

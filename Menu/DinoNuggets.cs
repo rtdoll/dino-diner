@@ -1,10 +1,16 @@
-﻿using System;
+﻿/* DinoNuggets.cs
+ * Author: Ryan Doll
+ */
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace DinoDiner.Menu
 {
-    public class DinoNuggets : Entree
+    /// <summary>
+    /// Dino Nuggets class, is a Entree
+    /// </summary>
+    public class DinoNuggets : Entree, IMenuItem
     {
         /// <summary>
         /// Adds amount of nuggets to ingredients list
@@ -44,6 +50,15 @@ namespace DinoDiner.Menu
             nuggetCount++;
             this.Calories += 59;
             this.Price += 0.25;
+        }
+
+        /// <summary>
+        /// returns the name of item
+        /// </summary>
+        /// <returns>string</returns>
+        public override string ToString()
+        {
+            return "Dino-Nuggets";
         }
     }
 }

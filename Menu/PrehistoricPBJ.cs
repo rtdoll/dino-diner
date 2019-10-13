@@ -1,8 +1,14 @@
-﻿using System.Collections.Generic;
+﻿/* PrehistoricPBJ.cs
+ * Author: Ryan Doll
+ */
+using System.Collections.Generic;
 
 namespace DinoDiner.Menu
 {
-    public class PrehistoricPBJ : Entree
+    /// <summary>
+    /// Prehistoric PBJ class, is a Entree
+    /// </summary>
+    public class PrehistoricPBJ : Entree, IMenuItem
     {
         /// <summary>
         /// Boolean to determine if peanut butter goes on sandwich
@@ -51,6 +57,15 @@ namespace DinoDiner.Menu
         public void HoldJelly()
         {
             this.jelly = false;
+        }
+
+        /// <summary>
+        /// returns the name of item
+        /// </summary>
+        /// <returns>string</returns>
+        public override string ToString()
+        {
+            return "Prehistoric PB&J";
         }
     }
 }
