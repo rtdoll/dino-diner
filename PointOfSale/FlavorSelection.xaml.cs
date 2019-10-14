@@ -1,4 +1,7 @@
-﻿using System;
+﻿/* FlavorSelection.xaml.cs
+ * Author: Ryan Doll
+ */
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

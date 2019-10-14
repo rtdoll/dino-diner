@@ -8,32 +8,57 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="SideSelection">
 
-    <WrapPanel>
-        <WrapPanel.Resources>
+    <Grid>
+        <Grid.Resources>
             <Style TargetType="Button">
-                <Setter Property="Width" Value="200"/>
-                <Setter Property="Height" Value="200"/>
+                <Setter Property="Width" Value="150"/>
+                <Setter Property="Height" Value="150"/>
             </Style>
-        </WrapPanel.Resources>
-        <Button>Fryceritops
+        </Grid.Resources>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"></ColumnDefinition>
+            <ColumnDefinition Width="200"></ColumnDefinition>
+            <ColumnDefinition Width="200"></ColumnDefinition>
+            <ColumnDefinition Width="200"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Button Grid.Column="0" Grid.Row="1">
+            Fryceritops
             <Button.Background>
                 <ImageBrush ImageSource="Assets/DinoDiner-08.png"></ImageBrush>
             </Button.Background>
         </Button>
-        <Button>Meteor Mac and Cheese
+        <Button Grid.Column="1" Grid.Row="1">
+            Meteor Mac and Cheese
             <Button.Background>
                 <ImageBrush ImageSource="Assets/DinoDiner-09.png"></ImageBrush>
             </Button.Background>
         </Button>
-        <Button>Mezzorella Sticks
+        <Button Grid.Column="2" Grid.Row="1">
+            Mezzorella Sticks
             <Button.Background>
                 <ImageBrush ImageSource="Assets/DinoDiner-10.png"></ImageBrush>
             </Button.Background>
         </Button>
-        <Button>Triceritots
+        <Button Grid.Column="3" Grid.Row="1">
+            Triceritots
             <Button.Background>
                 <ImageBrush ImageSource="Assets/DinoDiner-11.png"></ImageBrush>
             </Button.Background>
         </Button>
-    </WrapPanel>
+        <RadioButton Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center">
+            Small
+        </RadioButton>
+        <RadioButton Grid.Column="2" Grid.Row="0" HorizontalAlignment="Left">
+            Medium
+        </RadioButton>
+        <RadioButton Grid.Column="2" Grid.Row="0" HorizontalAlignment="Right">
+            Large
+        </RadioButton>
+    </Grid>
+
+    
 </Page>

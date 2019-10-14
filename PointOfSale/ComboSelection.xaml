@@ -15,39 +15,44 @@
                 <Setter Property="Height" Value="200"/>
             </Style>
         </WrapPanel.Resources>
-        <Button>
+        <Button Click="CustomizeCombo" VerticalContentAlignment="Top">
             Brontowurst Combo
             <Button.Background>
                 <ImageBrush ImageSource="Assets/DinoDiner-01.png"></ImageBrush>
             </Button.Background>
         </Button>
-        <Button>
+        <Button Click="CustomizeCombo" VerticalContentAlignment="Top">
             Dino-Nuggets Combo
             <Button.Background>
                 <ImageBrush ImageSource="Assets/DinoDiner-02.png"></ImageBrush>
             </Button.Background>
         </Button>
-        <Button>Prehistoric PB&amp;J Combo
+        <Button Click="CustomizeCombo" VerticalContentAlignment="Top">
+            Prehistoric PB&amp;J Combo
             <Button.Background>
                 <ImageBrush ImageSource="Assets/DinoDiner-03.png"></ImageBrush>
             </Button.Background>
         </Button>
-        <Button>Pterodactyl Wings Combo
+        <Button Click="CustomizeCombo" VerticalContentAlignment="Top">
+            Pterodactyl Wings Combo
             <Button.Background>
                 <ImageBrush ImageSource="Assets/DinoDiner-04.png"></ImageBrush>
             </Button.Background>
         </Button>
-        <Button>Steakosaurus Combo
+        <Button Click="CustomizeCombo" VerticalContentAlignment="Top">
+            Steakosaurus Combo
             <Button.Background>
                 <ImageBrush ImageSource="Assets/DinoDiner-05.png"></ImageBrush>
             </Button.Background>
         </Button>
-        <Button>T-Rex King Burger Combo
+        <Button Click="CustomizeCombo" VerticalContentAlignment="Top">
+            T-Rex King Burger Combo
             <Button.Background>
                 <ImageBrush ImageSource="Assets/DinoDiner-06.png"></ImageBrush>
             </Button.Background>
         </Button>
-        <Button>VelociWrap Combo
+        <Button Click="CustomizeCombo" VerticalContentAlignment="Top">
+            VelociWrap Combo
             <Button.Background>
                 <ImageBrush ImageSource="Assets/DinoDiner-07.png"></ImageBrush>
             </Button.Background>
