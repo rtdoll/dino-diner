@@ -8,32 +8,92 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="DrinkSelection">
 
-    <WrapPanel>
-        <WrapPanel.Resources>
+    <Grid Name="Drinks">
+        <Grid.Resources>
             <Style TargetType="Button">
-                <Setter Property="Width" Value="200"/>
-                <Setter Property="Height" Value="200"/>
+                <Setter Property="Width" Value="150"/>
+                <Setter Property="Height" Value="150"/>
             </Style>
-        </WrapPanel.Resources>
-        <Button>Jurassic Java
+        </Grid.Resources>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"></ColumnDefinition>
+            <ColumnDefinition Width="200"></ColumnDefinition>
+            <ColumnDefinition Width="200"></ColumnDefinition>
+            <ColumnDefinition Width="200"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Button Click="SelectJava" Grid.Column="0" Grid.Row="1">
+            Jurassic Java
             <Button.Background>
                 <ImageBrush ImageSource="Assets/DinoDiner-13.png"></ImageBrush>
             </Button.Background>
         </Button>
-        <Button Click="SelectFlavor">Sodasaurus
+        <Button Click="SelectSoda" Grid.Column="1" Grid.Row="1">
+            Sodasaurus
             <Button.Background>
                 <ImageBrush ImageSource="Assets/DinoDiner-14.png"></ImageBrush>
             </Button.Background>
         </Button>
-        <Button>Tyrannotea
+        <Button Click="SelectTea" Grid.Column="2" Grid.Row="1">
+            Tyrannotea
             <Button.Background>
                 <ImageBrush ImageSource="Assets/DinoDiner-12.png"></ImageBrush>
             </Button.Background>
         </Button>
-        <Button>Water
+        <Button Click="SelectWater" Grid.Column="3" Grid.Row="1">
+            Water
             <Button.Background>
                 <ImageBrush ImageSource="Assets/DinoDiner-15.png"></ImageBrush>
             </Button.Background>
         </Button>
-    </WrapPanel>
+        <RadioButton Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center">
+            Small
+        </RadioButton>
+        <RadioButton Grid.Column="2" Grid.Row="0" HorizontalAlignment="Left">
+            Medium
+        </RadioButton>
+        <RadioButton Grid.Column="2" Grid.Row="0" HorizontalAlignment="Right">
+            Large
+        </RadioButton>
+        <CheckBox Visibility="Hidden" x:Name="JavaCream"  Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center">
+            Room for Cream
+        </CheckBox>
+        <CheckBox Visibility="Hidden" x:Name="JavaDecaf"  Grid.Column="0" Grid.Row="3" HorizontalAlignment="Center">
+            Decaf
+        </CheckBox>
+        <CheckBox Visibility="Hidden" x:Name="JavaIce"  Grid.Column="0" Grid.Row="4" HorizontalAlignment="Center">
+            Ice
+        </CheckBox>
+        <Button Visibility="Hidden" x:Name="SodaFlavor"  Click="SelectFlavor" Grid.Column="1" Grid.Row="2" Margin="25,0,25,3.8" Height="Auto">
+            Flavor
+        </Button>
+        <CheckBox Visibility="Hidden" x:Name="SodaIce"  Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center">
+            Ice
+        </CheckBox>
+        <CheckBox Visibility="Hidden" x:Name="TeaIce"  Grid.Column="2" Grid.Row="2" HorizontalAlignment="Center">
+            Ice
+        </CheckBox>
+        <CheckBox Visibility="Hidden" x:Name="TeaLemon"  Grid.Column="2" Grid.Row="3" HorizontalAlignment="Center">
+            Lemon
+        </CheckBox>
+        <CheckBox Visibility="Hidden" x:Name="TeaSweet"  Grid.Column="2" Grid.Row="4" HorizontalAlignment="Center">
+            Sweet
+        </CheckBox>
+        <CheckBox Visibility="Hidden" x:Name="WaterIce" Grid.Column="3" Grid.Row="2" HorizontalAlignment="Center">
+            Ice
+        </CheckBox>
+        <CheckBox Visibility="Hidden" x:Name="WaterLemon" Grid.Column="3" Grid.Row="3" HorizontalAlignment="Center">
+            Lemon
+        </CheckBox>
+
+    </Grid>
+
+
 </Page>

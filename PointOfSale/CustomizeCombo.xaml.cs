@@ -1,4 +1,7 @@
-﻿using System;
+﻿/* CustomizeCombo.xaml.cs
+ * Author: Ryan Doll
+ */
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,5 +27,24 @@ namespace PointOfSale
         {
             InitializeComponent();
         }
+        /// <summary>
+        /// Create new Drink Selection page
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void SelectDrink(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new DrinkSelection());
+        }
+        /// <summary>
+        /// Create new SideSelection page
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void SelectSide(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new SideSelection());
+        }
+
     }
 }
