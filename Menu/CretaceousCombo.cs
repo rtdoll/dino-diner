@@ -79,17 +79,12 @@ namespace DinoDiner.Menu
             get
             {
                 List<string> ingredients = new List<string>();
-                ingredients.AddRange(this.Drink.Ingredients);
                 ingredients.AddRange(this.Entree.Ingredients);
                 ingredients.AddRange(this.Side.Ingredients);
+                ingredients.AddRange(this.Drink.Ingredients);
                 return ingredients;
             }
         }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        private CretaceousCombo() {  }
 
         /// <summary>
         /// entree only constructor
@@ -119,7 +114,32 @@ namespace DinoDiner.Menu
         /// <returns>string</returns>
         public override string ToString()
         {
-            return this.Entree.ToString() + " Combo";
+            return $"{Size} {Entree} Combo";
+        }
+
+        /// <summary>
+        /// What comes with the Combo
+        /// </summary>
+        public string Description
+        {
+            get
+            {
+                return this.ToString();
+            }
+        }
+
+        public string[] Special
+        {
+            get
+            {
+                List<string> ingredients = new List<string>();
+                ingredients.AddRange(Entree.Special);
+                ingredients.Add(Side.ToString());
+                ingredients.AddRange(Side.Special);
+                ingredients.Add(Drink.ToString());
+                ingredients.AddRange(Drink.Special);
+                return ingredients.ToArray();
+            }
         }
     }
 }

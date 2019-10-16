@@ -33,6 +33,11 @@ namespace DinoDiner.Menu
         public virtual List<string> Ingredients { get; protected set; }
 
         /// <summary>
+        /// Gets special requests
+        /// </summary>
+        public virtual string[] Special { get; }
+
+        /// <summary>
         /// Gets or sets the size
         /// </summary>
         public abstract Size Size { get; set; }

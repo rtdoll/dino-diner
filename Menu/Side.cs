@@ -27,5 +27,10 @@ namespace DinoDiner.Menu
         /// Gets Ingredients based on bools
         /// </summary>
         public virtual List<string> Ingredients { get; protected set; }
+
+        /// <summary>
+        /// Gets special requests
+        /// </summary>
+        public virtual string[] Special { get; }
     }
 }

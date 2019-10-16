@@ -2,13 +2,14 @@
  * Author: Ryan Doll
  */
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
     /// <summary>
     /// Prehistoric PBJ class, is a Entree
     /// </summary>
-    public class PrehistoricPBJ : Entree, IMenuItem
+    public class PrehistoricPBJ : Entree, IMenuItem, INotifyPropertyChanged
     {
         /// <summary>
         /// Boolean to determine if peanut butter goes on sandwich
@@ -19,6 +20,17 @@ namespace DinoDiner.Menu
         /// Boolean to determine if jelly goes on sandwich
         /// </summary>
         private bool jelly = true;
+
+        /// <summary>
+        /// Property changed event handler
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        //Helper function for notifying of property changes
+        private void NotifyOfPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
 
         /// <summary>
         /// Gets Ingredients based on bools
@@ -49,6 +61,8 @@ namespace DinoDiner.Menu
         public void HoldPeanutButter()
         {
             this.peanutButter = false;
+            NotifyOfPropertyChange("Special");
+            NotifyOfPropertyChange("Ingredients");
         }
 
         /// <summary>
@@ -57,6 +71,8 @@ namespace DinoDiner.Menu
         public void HoldJelly()
         {
             this.jelly = false;
+            NotifyOfPropertyChange("Special");
+            NotifyOfPropertyChange("Ingredients");
         }
 
         /// <summary>
@@ -67,5 +83,32 @@ namespace DinoDiner.Menu
         {
             return "Prehistoric PB&J";
         }
+
+        /// <summary>
+        /// gets the description
+        /// </summary>
+        /// <returns></returns>
+        public string Description()
+        {
+            return this.ToString();
+        }
+
+        /// <summary>
+        /// Get any special insturctions
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (!peanutButter)
+                    special.Add("Hold Peanut Butter");
+                if (!jelly)
+                    special.Add("Hold Jelly");
+                return special.ToArray();
+            }
+        }
+
+        
     }
 }
