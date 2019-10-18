@@ -49,30 +49,6 @@ namespace DinoDiner.Menu
             }
         }
 
-        /// <summary>
-        /// Gets description of order item
-        /// </summary>
-        public string Description
-        {
-            get
-            {
-                return this.ToString();
-            }
-        }
-
-        /// <summary>
-        /// Get any special instructions for order item
-        /// </summary>
-        public string[] Special
-        {
-            get
-            {
-                List<string> special = new List<string>();
-                if (!Ice)
-                    special.Add("Hold Ice");
-                return special.ToArray();
-            }
-        }
 
         /// <summary>
         /// Constructor, Sets price and calories and ingredients
@@ -121,6 +97,32 @@ namespace DinoDiner.Menu
         public override string ToString()
         {
             return $"{Size} {Flavor} Sodasaurus";
+        }
+
+
+        /// <summary>
+        /// Gets description of order item
+        /// </summary>
+        public string Description
+        {
+            get
+            {
+                return this.ToString();
+            }
+        }
+
+        /// <summary>
+        /// Get any special instructions for order item
+        /// </summary>
+        public string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (!Ice)
+                    special.Add("Hold Ice");
+                return special.ToArray();
+            }
         }
     }
 }

@@ -51,7 +51,7 @@ namespace MenuTest.Entrees
         public void HoldPeanutButterShouldNotifyOfSPecialPropertyChange()
         {
             PrehistoricPBJ pbj = new PrehistoricPBJ();
-            Assert.PropertyChanged(new PrehistoricPBJ(), "Special", () =>
+            Assert.PropertyChanged(pbj, "Special", () =>
                 {
                     pbj.HoldPeanutButter();
                 }
@@ -62,7 +62,7 @@ namespace MenuTest.Entrees
         public void HoldJellyShouldNotifyOfSPecialPropertyChange()
         {
             PrehistoricPBJ pbj = new PrehistoricPBJ();
-            Assert.PropertyChanged(new PrehistoricPBJ(), "Special", () =>
+            Assert.PropertyChanged(pbj, "Special", () =>
                 {
                     pbj.HoldJelly();
                 }
@@ -106,16 +106,16 @@ namespace MenuTest.Entrees
         public void SpecialShouldHoldPeanutButterAndJelly()
         {
             PrehistoricPBJ pbj = new PrehistoricPBJ();
-            pbj.HoldJelly();
             pbj.HoldPeanutButter();
+            pbj.HoldJelly();
             Assert.Collection<string>(pbj.Special,
                 item =>
                 {
-                    Assert.Equal("Hold Jelly", item);
+                    Assert.Equal("Hold Peanut Butter", item);
                 },
                 item =>
                 {
-                    Assert.Equal("Holy Peanut Butter", item);
+                    Assert.Equal("Hold Jelly", item);
                 }
                 );
         }
