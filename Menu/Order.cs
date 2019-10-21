@@ -16,12 +16,7 @@ namespace DinoDiner.Menu
         /// <summary>
         /// Collection of items added to order
         /// </summary>
-        public ObservableCollection<IOrderItem> Items { get; set; }
-
-        public Order()
-        {
-            Items = new ObservableCollection<IOrderItem>();
-        }
+        public ObservableCollection<IOrderItem> Items { get; set; } = new ObservableCollection<IOrderItem>();
 
         /// <summary>
         /// Get the subtotal of order

@@ -25,37 +25,37 @@
             <RowDefinition Height="100"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
-        <Button Grid.Column="0" Grid.Row="1">
+        <Button Name="BtnAddFryceritops" Click="AddFryceritops" Grid.Column="0" Grid.Row="1">
             Fryceritops
             <Button.Background>
                 <ImageBrush ImageSource="Assets/DinoDiner-08.png"></ImageBrush>
             </Button.Background>
         </Button>
-        <Button Grid.Column="1" Grid.Row="1">
+        <Button Name="BtnAddMeteorMacAndCheese" Click="AddMeteorMacAndCheese" Grid.Column="1" Grid.Row="1">
             Meteor Mac and Cheese
             <Button.Background>
                 <ImageBrush ImageSource="Assets/DinoDiner-09.png"></ImageBrush>
             </Button.Background>
         </Button>
-        <Button Grid.Column="2" Grid.Row="1">
+        <Button Name="BtnAddMezzorellaSticks" Click="AddMezzorellaSticks" Grid.Column="2" Grid.Row="1">
             Mezzorella Sticks
             <Button.Background>
                 <ImageBrush ImageSource="Assets/DinoDiner-10.png"></ImageBrush>
             </Button.Background>
         </Button>
-        <Button Grid.Column="3" Grid.Row="1">
+        <Button Name="BtnAddTriceritots" Click="AddTriceritots" Grid.Column="3" Grid.Row="1">
             Triceritots
             <Button.Background>
                 <ImageBrush ImageSource="Assets/DinoDiner-11.png"></ImageBrush>
             </Button.Background>
         </Button>
-        <RadioButton Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center">
+        <RadioButton Name="BtnSmall" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center">
             Small
         </RadioButton>
-        <RadioButton Grid.Column="2" Grid.Row="0" HorizontalAlignment="Left">
+        <RadioButton Name="BtnMedium" Grid.Column="2" Grid.Row="0" HorizontalAlignment="Left">
             Medium
         </RadioButton>
-        <RadioButton Grid.Column="2" Grid.Row="0" HorizontalAlignment="Right">
+        <RadioButton Name="BtnLarge" Grid.Column="2" Grid.Row="0" HorizontalAlignment="Right">
             Large
         </RadioButton>
     </Grid>
