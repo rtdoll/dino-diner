@@ -83,5 +83,82 @@ namespace MenuTest.Sides
             ft.Size = Size.Large;
             Assert.Equal<Size>(Size.Large, ft.Size);
         }
+
+        [Fact]
+        public void ShouldHaveEmptySpecialListByDefault()
+        {
+            Fryceritops ft = new Fryceritops();
+            Assert.Empty(ft.Special);
+        }
+
+        [Fact]
+        public void DescriptionShouldGiveName()
+        {
+            Fryceritops ft = new Fryceritops();
+            Assert.Contains("Fryceritops", ft.Description);
+        }
+
+        [Fact]
+        public void ChangeSizeSmallShouldNotifyOfSPecialPropertyChange()
+        {
+            Fryceritops ft = new Fryceritops();
+            Assert.PropertyChanged(ft, "Size", () =>
+            {
+                ft.Size = Size.Small;
+            }
+            );
+            Assert.PropertyChanged(ft, "Price", () =>
+            {
+                ft.Size = Size.Small;
+            }
+            );
+            Assert.PropertyChanged(ft, "Calories", () =>
+            {
+                ft.Size = Size.Small;
+            }
+            );
+        }
+
+        [Fact]
+        public void ChangeSizeMediumShouldNotifyOfSPecialPropertyChange()
+        {
+            Fryceritops ft = new Fryceritops();
+            Assert.PropertyChanged(ft, "Size", () =>
+            {
+                ft.Size = Size.Medium;
+            }
+            );
+            Assert.PropertyChanged(ft, "Price", () =>
+            {
+                ft.Size = Size.Medium;
+            }
+            );
+            Assert.PropertyChanged(ft, "Calories", () =>
+            {
+                ft.Size = Size.Medium;
+            }
+            );
+        }
+
+        [Fact]
+        public void ChangeSizeLargeShouldNotifyOfSPecialPropertyChange()
+        {
+            Fryceritops ft = new Fryceritops();
+            Assert.PropertyChanged(ft, "Size", () =>
+            {
+                ft.Size = Size.Large;
+            }
+            );
+            Assert.PropertyChanged(ft, "Price", () =>
+            {
+                ft.Size = Size.Large;
+            }
+            );
+            Assert.PropertyChanged(ft, "Calories", () =>
+            {
+                ft.Size = Size.Large;
+            }
+            );
+        }
     }
 }

@@ -83,7 +83,7 @@ namespace MenuTest.Drinks
         public void ShouldHaveNoIce()
         {
             Tyrannotea tea = new Tyrannotea();
-            tea.holdIce();
+            tea.HoldIce();
             Assert.False(tea.Ice);
         }
         //That invoking AddLemon() sets results in the Lemon property being true.
@@ -168,6 +168,169 @@ namespace MenuTest.Drinks
             Assert.Contains<string>("Tea", tea.Ingredients);
             Assert.Contains<string>("Lemon", tea.Ingredients);
             Assert.Contains<string>("Cane Sugar", tea.Ingredients);
+        }
+
+        [Fact]
+        public void ShouldHaveEmptySpecialListByDefault()
+        {
+            Tyrannotea tea = new Tyrannotea();
+            Assert.Empty(tea.Special);
+        }
+
+        [Fact]
+        public void SpecialShouldAddSweetner()
+        {
+            Tyrannotea tea = new Tyrannotea();
+            tea.AddSweetener();
+            Assert.Collection<string>(tea.Special,
+                item =>
+                {
+                    Assert.Equal("Add Sweetener", item);
+                }
+                );
+        }
+
+        [Fact]
+        public void SpecialShouldAddLemon()
+        {
+            Tyrannotea tea = new Tyrannotea();
+            tea.AddLemon();
+            Assert.Collection<string>(tea.Special,
+                item =>
+                {
+                    Assert.Equal("Add Lemon", item);
+                }
+                );
+        }
+
+        [Fact]
+        public void SpecialShouldHoldIce()
+        {
+            Tyrannotea tea = new Tyrannotea();
+            tea.HoldIce();
+            Assert.Collection<string>(tea.Special,
+                item =>
+                {
+                    Assert.Equal("Hold Ice", item);
+                }
+                );
+        }
+
+        [Fact]
+        public void SpecialShouldAddSweetenerAndAddLemon()
+        {
+            Tyrannotea tea = new Tyrannotea();
+            tea.AddSweetener();
+            tea.AddLemon();
+            Assert.Collection<string>(tea.Special,
+                item =>
+                {
+                    Assert.Equal("Add Sweetener", item);
+                },
+                item =>
+                {
+                    Assert.Equal("Add Lemon", item);
+                }
+                );
+        }
+
+        [Fact]
+        public void SpecialShouldAddSweetenerAndHoldIce()
+        {
+            Tyrannotea tea = new Tyrannotea();
+            tea.AddSweetener();
+            tea.HoldIce();
+            Assert.Collection<string>(tea.Special,
+                item =>
+                {
+                    Assert.Equal("Add Sweetener", item);
+                },
+                item =>
+                {
+                    Assert.Equal("Hold Ice", item);
+                }
+                );
+        }
+
+        [Fact]
+        public void SpecialShouldAddSeetenerAndAddLemonAndHoldIce()
+        {
+            Tyrannotea tea = new Tyrannotea();
+            tea.AddSweetener();
+            tea.AddLemon();
+            tea.HoldIce();
+            Assert.Collection<string>(tea.Special,
+                item =>
+                {
+                    Assert.Equal("Add Sweetener", item);
+                },
+                item =>
+                {
+                    Assert.Equal("Add Lemon", item);
+                },
+                item =>
+                {
+                    Assert.Equal("Hold Ice", item);
+                }
+                );
+        }
+
+        [Fact]
+        public void SpecialShouldAddLemonAndHoldIce()
+        {
+            Tyrannotea tea = new Tyrannotea();
+            tea.AddLemon();
+            tea.HoldIce();
+            Assert.Collection<string>(tea.Special,
+                item =>
+                {
+                    Assert.Equal("Add Lemon", item);
+                },
+                item =>
+                {
+                    Assert.Equal("Hold Ice", item);
+                }
+                );
+        }
+
+        [Fact]
+        public void DescriptionShouldGiveName()
+        {
+            Tyrannotea tea = new Tyrannotea();
+            Assert.Contains("Tyrannotea", tea.Description);
+        }
+
+        [Fact]
+        public void HoldIceShouldNotifyOfSPecialPropertyChange()
+        {
+            Tyrannotea tea = new Tyrannotea();
+            Assert.PropertyChanged(tea, "Special", () =>
+            {
+                tea.HoldIce();
+            }
+            );
+        }
+
+        [Fact]
+        public void AddSweetenerShouldNotifyOfSPecialPropertyChange()
+        {
+            Tyrannotea tea = new Tyrannotea();
+            Assert.PropertyChanged(tea, "Special", () =>
+            {
+                tea.AddSweetener();
+            }
+            );
+        }
+
+        [Fact]
+        public void AddLemonShouldNotifyOfSPecialPropertyChange()
+        {
+            Tyrannotea tea = new Tyrannotea();
+            Assert.PropertyChanged(tea, "Special", () =>
+            {
+                tea.AddLemon();
+            }
+            );
         }
     }
 }

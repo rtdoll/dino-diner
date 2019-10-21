@@ -86,5 +86,84 @@ namespace MenuTest.Sides
             mmc.Size = Size.Large;
             Assert.Equal<Size>(Size.Large, mmc.Size);
         }
+
+        [Fact]
+        public void ShouldHaveEmptySpecialListByDefault()
+        {
+            MeteorMacAndCheese mmc = new MeteorMacAndCheese();
+            Assert.Empty(mmc.Special);
+        }
+
+        [Fact]
+        public void DescriptionShouldGiveName()
+        {
+            MeteorMacAndCheese mmc = new MeteorMacAndCheese();
+            Assert.Contains("Meteor Mac and Cheese", mmc.Description);
+        }
+
+        [Fact]
+        public void ChangeSizeSmallShouldNotifyOfSPecialPropertyChange()
+        {
+            MeteorMacAndCheese mmc = new MeteorMacAndCheese();
+            mmc.Size = Size.Medium;
+            Assert.PropertyChanged(mmc, "Size", () =>
+            {
+                mmc.Size = Size.Small;
+            }
+            );
+            Assert.PropertyChanged(mmc, "Price", () =>
+            {
+                mmc.Size = Size.Small;
+            }
+            );
+            Assert.PropertyChanged(mmc, "Calories", () =>
+            {
+                mmc.Size = Size.Small;
+            }
+            );
+        }
+
+        [Fact]
+        public void ChangeSizeMediumShouldNotifyOfSPecialPropertyChange()
+        {
+            MeteorMacAndCheese mmc = new MeteorMacAndCheese();
+            Assert.PropertyChanged(mmc, "Size", () =>
+            {
+                mmc.Size = Size.Medium;
+            }
+            );
+            Assert.PropertyChanged(mmc, "Price", () =>
+            {
+                mmc.Size = Size.Medium;
+            }
+            );
+            Assert.PropertyChanged(mmc, "Calories", () =>
+            {
+                mmc.Size = Size.Medium;
+            }
+            );
+        }
+
+        [Fact]
+        public void ChangeSizeLargeShouldNotifyOfSPecialPropertyChange()
+        {
+            MeteorMacAndCheese mmc = new MeteorMacAndCheese();
+            Assert.PropertyChanged(mmc, "Size", () =>
+            {
+                mmc.Size = Size.Large;
+            }
+            );
+            Assert.PropertyChanged(mmc, "Price", () =>
+            {
+                mmc.Size = Size.Large;
+            }
+            );
+            Assert.PropertyChanged(mmc, "Calories", () =>
+            {
+                mmc.Size = Size.Large;
+            }
+            );
+        }
+
     }
 }

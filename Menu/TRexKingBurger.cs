@@ -4,13 +4,14 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
     /// <summary>
     /// TRexKingBurger class, is a Entree
     /// </summary>
-    public class TRexKingBurger : Entree, IMenuItem
+    public class TRexKingBurger : Entree, IMenuItem, IOrderItem, INotifyPropertyChanged
     {
         /// <summary>
         /// Adds whole wheat bun to ingredients list
@@ -53,6 +54,18 @@ namespace DinoDiner.Menu
         private bool mayo = true;
 
         /// <summary>
+        /// Property changed event handler
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        //Helper function for notifying of property changes
+        private void NotifyOfPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+
+        /// <summary>
         /// Gets Ingredients based on bools
         /// </summary>
         public override List<string> Ingredients
@@ -87,6 +100,7 @@ namespace DinoDiner.Menu
         public void HoldBun()
         {
             this.wholeWheatBun = false;
+            NotifyOfPropertyChange("Special");
         }
 
         /// <summary>
@@ -95,6 +109,7 @@ namespace DinoDiner.Menu
         public void HoldLettuce()
         {
             this.lettuce = false;
+            NotifyOfPropertyChange("Special");
         }
 
         /// <summary>
@@ -103,6 +118,7 @@ namespace DinoDiner.Menu
         public void HoldTomato()
         {
             this.tomato = false;
+            NotifyOfPropertyChange("Special");
         }
 
         /// <summary>
@@ -111,6 +127,7 @@ namespace DinoDiner.Menu
         public void HoldOnion()
         {
             this.onion = false;
+            NotifyOfPropertyChange("Special");
         }
 
         /// <summary>
@@ -119,6 +136,7 @@ namespace DinoDiner.Menu
         public void HoldPickle()
         {
             this.pickle = false;
+            NotifyOfPropertyChange("Special");
         }
 
         /// <summary>
@@ -127,6 +145,7 @@ namespace DinoDiner.Menu
         public void HoldKetchup()
         {
             this.ketchup = false;
+            NotifyOfPropertyChange("Special");
         }
 
         /// <summary>
@@ -135,6 +154,7 @@ namespace DinoDiner.Menu
         public void HoldMustard()
         {
             this.mustard = false;
+            NotifyOfPropertyChange("Special");
         }
 
         /// <summary>
@@ -143,6 +163,7 @@ namespace DinoDiner.Menu
         public void HoldMayo()
         {
             this.mayo = false;
+            NotifyOfPropertyChange("Special");
         }
 
         /// <summary>
@@ -152,6 +173,46 @@ namespace DinoDiner.Menu
         public override string ToString()
         {
             return "T-Rex King Burger";
+        }
+
+        /// <summary>
+        /// gets the description
+        /// </summary>
+        /// <returns>string</returns>
+        public string Description
+        {
+            get
+            {
+                return this.ToString();
+            }
+        }
+
+        /// <summary>
+        /// Get any special insturctions
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (!wholeWheatBun)
+                    special.Add("Hold Whole Wheat Bun");
+                if (!lettuce)
+                    special.Add("Hold Lettuce");
+                if (!tomato)
+                    special.Add("Hold Tomato");
+                if (!onion)
+                    special.Add("Hold Onion");
+                if (!pickle)
+                    special.Add("Hold Pickle");
+                if (!ketchup)
+                    special.Add("Hold Ketchup");
+                if (!mustard)
+                    special.Add("Hold Mustard");
+                if (!mayo)
+                    special.Add("Hold Mayonnaise");
+                return special.ToArray();
+            }
         }
     }
 }

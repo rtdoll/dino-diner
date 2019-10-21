@@ -70,7 +70,7 @@ namespace MenuTest.Entrees
         }
 
         [Fact]
-        public void SHouldHaveEmptySpecialListByDefault()
+        public void ShouldHaveEmptySpecialListByDefault()
         {
             PrehistoricPBJ pbj = new PrehistoricPBJ();
             Assert.Empty(pbj.Special);
@@ -118,6 +118,13 @@ namespace MenuTest.Entrees
                     Assert.Equal("Hold Jelly", item);
                 }
                 );
+        }
+
+        [Fact]
+        public void DescriptionShouldGiveName()
+        {
+            PrehistoricPBJ pbj = new PrehistoricPBJ();
+            Assert.Contains("Prehistoric PB&J", pbj.Description);
         }
     }
 

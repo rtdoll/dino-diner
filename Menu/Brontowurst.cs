@@ -4,13 +4,14 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
     /// <summary>
     /// Brontowurst class, is a Entree
     /// </summary>
-    public class Brontowurst : Entree, IMenuItem
+    public class Brontowurst : Entree, IMenuItem, IOrderItem, INotifyPropertyChanged
     {
         /// <summary>
         /// Adds whole wheat bun to ingredients list
@@ -26,6 +27,17 @@ namespace DinoDiner.Menu
         /// Adds onions to ingredients list
         /// </summary>
         private bool onions = true;
+
+        /// <summary>
+        /// Property changed event handler
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        //Helper function for notifying of property changes
+        private void NotifyOfPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
 
         /// <summary>
         /// Gets Ingredients based on bools
@@ -57,6 +69,7 @@ namespace DinoDiner.Menu
         public void HoldBun()
         {
             this.wholeWheatBun = false;
+            NotifyOfPropertyChange("Special");
         }
 
         /// <summary>
@@ -65,6 +78,7 @@ namespace DinoDiner.Menu
         public void HoldPeppers()
         {
             this.peppers = false;
+            NotifyOfPropertyChange("Special");
         }
 
         /// <summary>
@@ -73,14 +87,45 @@ namespace DinoDiner.Menu
         public void HoldOnion()
         {
             this.onions = false;
+            NotifyOfPropertyChange("Special");
         }
+
         /// <summary>
-        /// returns the name of item
+        /// return name of entree
         /// </summary>
         /// <returns>string</returns>
         public override string ToString()
         {
             return "Brontowurst";
+        }
+
+        /// <summary>
+        /// What comes with order
+        /// </summary>
+        public string Description
+        {
+            get
+            {
+                return this.ToString();
+            }
+        }
+
+        /// <summary>
+        /// Gets special instructions for item
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> ingredients = new List<string>();
+                if (!wholeWheatBun)
+                    ingredients.Add("Hold Whole Wheat Bun");
+                if (!onions)
+                    ingredients.Add("Hold Onion");
+                if (!peppers)
+                    ingredients.Add("Hold Peppers");
+                return ingredients.ToArray();
+            }
         }
     }
 }

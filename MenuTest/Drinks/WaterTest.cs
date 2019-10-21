@@ -103,5 +103,97 @@ namespace MenuTest.Drinks
             Assert.Contains<string>("Water", water.Ingredients);
             Assert.Contains<string>("Lemon", water.Ingredients);
         }
+
+        [Fact]
+        public void ShouldHaveEmptySpecialListByDefault()
+        {
+            Water water = new Water();
+            Assert.Empty(water.Special);
+        }
+
+        [Fact]
+        public void SpecialShouldHoldIce()
+        {
+            Water water = new Water();
+            water.HoldIce();
+            Assert.Collection<string>(water.Special,
+                item =>
+                {
+                    Assert.Equal("Hold Ice", item);
+                }
+                );
+        }
+
+        [Fact]
+        public void SpecialShouldAddLemon()
+        {
+            Water water = new Water();
+            water.AddLemon();
+            Assert.Collection<string>(water.Special,
+                item =>
+                {
+                    Assert.Equal("Add Lemon", item);
+                }
+                );
+        }
+
+        [Fact]
+        public void SpecialShouldHoldIceAndAddLemon()
+        {
+            Water water = new Water();
+            water.HoldIce();
+            water.AddLemon();
+            Assert.Collection<string>(water.Special,
+                item =>
+                {
+                    Assert.Equal("Hold Ice", item);
+                },
+                item =>
+                {
+                    Assert.Equal("Add Lemon", item);
+                }
+                );
+        }
+
+        [Fact]
+        public void DescriptionShouldGiveName()
+        {
+            Water water = new Water();
+            Assert.Contains("Water", water.Description);
+        }
+
+        [Fact]
+        public void HoldCheeseShouldNotifyOfSPecialPropertyChange()
+        {
+            Water water = new Water();
+            Assert.PropertyChanged(water, "Special", () =>
+            {
+                water.HoldIce();
+            }
+            );
+        }
+
+        [Fact]
+        public void AddLemonShouldNotifyOfSPecialPropertyChange()
+        {
+            Water water = new Water();
+            Assert.PropertyChanged(water, "Special", () =>
+            {
+                water.AddLemon();
+            }
+            );
+        }
+
+        [Fact]
+        public void TestOrder()
+        {
+            Water water = new Water();
+            Order newOrder = new Order();
+            newOrder.Items.Add(water);
+            Assert.Equal<double>(0.10, newOrder.SubtotalCost);
+            Assert.Equal<double>(0.10, newOrder.TotalCost);
+            Assert.Equal<double>(0, newOrder.SalesTaxRate);
+            Assert.Equal<double>(0, newOrder.SalesTaxCost);
+        }
     }
 }

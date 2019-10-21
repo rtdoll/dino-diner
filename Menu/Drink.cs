@@ -42,7 +42,7 @@ namespace DinoDiner.Menu
         /// </summary>
         public abstract Size Size { get; set; }
 
-        public void holdIce()
+        public void HoldIce()
         {
             Ice = false;
         }

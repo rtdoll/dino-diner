@@ -4,13 +4,14 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
     /// <summary>
     /// Water class, is a Drink
     /// </summary>
-    public class Water : Drink, IMenuItem
+    public class Water : Drink, IMenuItem, IOrderItem, INotifyPropertyChanged
     {
         /// <summary>
         /// Size of drink
@@ -21,6 +22,17 @@ namespace DinoDiner.Menu
         /// Lemon for the water
         /// </summary>
         public bool Lemon = false;
+
+        /// <summary>
+        /// Property changed event handler
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        //Helper function for notifying of property changes
+        private void NotifyOfPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
 
         /// <summary>
         /// Gets Ingredients based on bools
@@ -72,6 +84,9 @@ namespace DinoDiner.Menu
                         this.Calories = 0;
                         break;
                 }
+                NotifyOfPropertyChange("Size");
+                NotifyOfPropertyChange("Price");
+                NotifyOfPropertyChange("Calories");
             }
         }
 
@@ -81,11 +96,16 @@ namespace DinoDiner.Menu
         public void AddLemon()
         {
             this.Lemon = true;
+            NotifyOfPropertyChange("Special");
         }
 
+        /// <summary>
+        /// Holds Ice from order
+        /// </summary>
         public void HoldIce()
         {
             this.Ice = false;
+            NotifyOfPropertyChange("Special");
         }
 
         /// <summary>
@@ -94,7 +114,35 @@ namespace DinoDiner.Menu
         /// <returns>string</returns>
         public override string ToString()
         {
-            return this.Size.ToString() + " Water";
+            return $"{Size} Water";
+        }
+
+        /// <summary>
+        /// gets the description
+        /// </summary>
+        /// <returns>string</returns>
+        public string Description
+        {
+            get
+            {
+                return this.ToString();
+            }
+        }
+
+        /// <summary>
+        /// Get any special insturctions
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (!Ice)
+                    special.Add("Hold Ice");
+                if (Lemon)
+                    special.Add("Add Lemon");
+                return special.ToArray();
+            }
         }
     }
 }

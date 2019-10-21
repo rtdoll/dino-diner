@@ -9,7 +9,7 @@ namespace DinoDiner.Menu
     /// <summary>
     /// Prehistoric PBJ class, is a Entree
     /// </summary>
-    public class PrehistoricPBJ : Entree, IMenuItem, INotifyPropertyChanged
+    public class PrehistoricPBJ : Entree, IMenuItem, IOrderItem, INotifyPropertyChanged
     {
         /// <summary>
         /// Boolean to determine if peanut butter goes on sandwich
@@ -87,10 +87,13 @@ namespace DinoDiner.Menu
         /// <summary>
         /// gets the description
         /// </summary>
-        /// <returns></returns>
-        public string Description()
+        /// <returns>string</returns>
+        public string Description
         {
-            return this.ToString();
+            get
+            {
+                return this.ToString();
+            }
         }
 
         /// <summary>
@@ -108,7 +111,5 @@ namespace DinoDiner.Menu
                 return special.ToArray();
             }
         }
-
-        
     }
 }

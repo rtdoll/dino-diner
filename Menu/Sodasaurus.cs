@@ -4,13 +4,14 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
     /// <summary>
     /// Sodasaurus class, is a Drink
     /// </summary>
-    public class Sodasaurus : Drink, IMenuItem
+    public class Sodasaurus : Drink, IMenuItem, IOrderItem, INotifyPropertyChanged
     {
         /// <summary>
         /// Size of drink
@@ -34,7 +35,19 @@ namespace DinoDiner.Menu
             set
             {
                 flavor = value;
+                NotifyOfPropertyChange("Flavor");
             }
+        }
+
+        /// <summary>
+        /// Property changed event handler
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        //Helper function for notifying of property changes
+        private void NotifyOfPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
         /// <summary>
@@ -87,7 +100,19 @@ namespace DinoDiner.Menu
                         this.Calories = 208;
                         break;
                 }
+                NotifyOfPropertyChange("Size");
+                NotifyOfPropertyChange("Price");
+                NotifyOfPropertyChange("Calories");
             }
+        }
+
+        /// <summary>
+        /// Sets Ice to false
+        /// </summary>
+        public void HoldIce()
+        {
+            this.Ice = false;
+            NotifyOfPropertyChange("Ice");
         }
 
         /// <summary>
@@ -114,7 +139,7 @@ namespace DinoDiner.Menu
         /// <summary>
         /// Get any special instructions for order item
         /// </summary>
-        public string[] Special
+        public override string[] Special
         {
             get
             {

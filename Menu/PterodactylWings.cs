@@ -4,14 +4,26 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
     /// <summary>
     /// Pterodactyl Wings class, is a Entree
     /// </summary>
-    public class PterodactylWings : Entree, IMenuItem
+    public class PterodactylWings : Entree, IMenuItem, IOrderItem, INotifyPropertyChanged
     {
+        /// <summary>
+        /// Property changed event handler
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        //Helper function for notifying of property changes
+        private void NotifyOfPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
         /// <summary>
         /// Gets Ingredients based on bools
         /// </summary>
@@ -40,6 +52,30 @@ namespace DinoDiner.Menu
         public override string ToString()
         {
             return "Pterodactyl Wings";
+        }
+
+        /// <summary>
+        /// gets the description
+        /// </summary>
+        /// <returns>string</returns>
+        public string Description
+        {
+            get
+            {
+                return this.ToString();
+            }
+        }
+
+        /// <summary>
+        /// Get any special insturctions
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                return special.ToArray();
+            }
         }
     }
 }

@@ -83,5 +83,83 @@ namespace MenuTest.Sides
             ms.Size = Size.Large;
             Assert.Equal<Size>(Size.Large, ms.Size);
         }
+
+        [Fact]
+        public void ShouldHaveEmptySpecialListByDefault()
+        {
+            MezzorellaSticks ms = new MezzorellaSticks();
+            Assert.Empty(ms.Special);
+        }
+
+        [Fact]
+        public void DescriptionShouldGiveName()
+        {
+            MezzorellaSticks ms = new MezzorellaSticks();
+            Assert.Contains("Mezzorella Sticks", ms.Description);
+        }
+
+        [Fact]
+        public void ChangeSizeSmallShouldNotifyOfSPecialPropertyChange()
+        {
+            MezzorellaSticks ms = new MezzorellaSticks();
+            ms.Size = Size.Medium;
+            Assert.PropertyChanged(ms, "Size", () =>
+            {
+                ms.Size = Size.Small;
+            }
+            );
+            Assert.PropertyChanged(ms, "Price", () =>
+            {
+                ms.Size = Size.Small;
+            }
+            );
+            Assert.PropertyChanged(ms, "Calories", () =>
+            {
+                ms.Size = Size.Small;
+            }
+            );
+        }
+
+        [Fact]
+        public void ChangeSizeMediumShouldNotifyOfSPecialPropertyChange()
+        {
+            MezzorellaSticks ms = new MezzorellaSticks();
+            Assert.PropertyChanged(ms, "Size", () =>
+            {
+                ms.Size = Size.Medium;
+            }
+            );
+            Assert.PropertyChanged(ms, "Price", () =>
+            {
+                ms.Size = Size.Medium;
+            }
+            );
+            Assert.PropertyChanged(ms, "Calories", () =>
+            {
+                ms.Size = Size.Medium;
+            }
+            );
+        }
+
+        [Fact]
+        public void ChangeSizeLargeShouldNotifyOfSPecialPropertyChange()
+        {
+            MezzorellaSticks ms = new MezzorellaSticks();
+            Assert.PropertyChanged(ms, "Size", () =>
+            {
+                ms.Size = Size.Large;
+            }
+            );
+            Assert.PropertyChanged(ms, "Price", () =>
+            {
+                ms.Size = Size.Large;
+            }
+            );
+            Assert.PropertyChanged(ms, "Calories", () =>
+            {
+                ms.Size = Size.Large;
+            }
+            );
+        }
     }
 }

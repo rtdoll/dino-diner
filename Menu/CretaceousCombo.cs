@@ -4,13 +4,14 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
     /// <summary>
     /// Creates a Combo of Menu item using Entree Drink and Side
     /// </summary>
-    public class CretaceousCombo : IMenuItem
+    public class CretaceousCombo : IMenuItem, IOrderItem, INotifyPropertyChanged
     {
         /// <summary>
         /// Entree item for combo
@@ -46,6 +47,7 @@ namespace DinoDiner.Menu
                 this.size = value;
                 this.Drink.Size = value;
                 this.Side.Size = value;
+                NotifyOfPropertyChange("Size");
             }
         }
 
@@ -69,6 +71,17 @@ namespace DinoDiner.Menu
             {
                 return this.Drink.Calories + this.Side.Calories + this.Entree.Calories;
             }
+        }
+
+        /// <summary>
+        /// Property changed event handler
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        //Helper function for notifying of property changes
+        private void NotifyOfPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
         /// <summary>
@@ -114,7 +127,7 @@ namespace DinoDiner.Menu
         /// <returns>string</returns>
         public override string ToString()
         {
-            return $"{Size} {Entree} Combo";
+            return $"{Entree} Combo";
         }
 
         /// <summary>
@@ -128,6 +141,9 @@ namespace DinoDiner.Menu
             }
         }
 
+        /// <summary>
+        /// Gets special instructions for item
+        /// </summary>
         public string[] Special
         {
             get

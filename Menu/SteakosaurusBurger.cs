@@ -4,13 +4,14 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
     /// <summary>
     /// SteakosaurusBurger class, is a Entree
     /// </summary>
-    public class SteakosaurusBurger : Entree, IMenuItem
+    public class SteakosaurusBurger : Entree, IMenuItem, IOrderItem, INotifyPropertyChanged
     {
         /// <summary>
         /// Adds whole wheat bun to ingredients list
@@ -31,6 +32,17 @@ namespace DinoDiner.Menu
         /// Adds mustard to ingredients list
         /// </summary>
         private bool mustard = true;
+
+        /// <summary>
+        /// Property changed event handler
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        //Helper function for notifying of property changes
+        private void NotifyOfPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
 
         /// <summary>
         /// Gets Ingredients based on bools
@@ -63,6 +75,7 @@ namespace DinoDiner.Menu
         public void HoldBun()
         {
             this.wholeWheatBun = false;
+            NotifyOfPropertyChange("Special");
         }
 
         /// <summary>
@@ -71,6 +84,7 @@ namespace DinoDiner.Menu
         public void HoldPickle()
         {
             this.pickle = false;
+            NotifyOfPropertyChange("Special");
         }
 
         /// <summary>
@@ -79,6 +93,7 @@ namespace DinoDiner.Menu
         public void HoldKetchup()
         {
             this.ketchup = false;
+            NotifyOfPropertyChange("Special");
         }
 
         /// <summary>
@@ -87,6 +102,7 @@ namespace DinoDiner.Menu
         public void HoldMustard()
         {
             this.mustard = false;
+            NotifyOfPropertyChange("Special");
         }
 
         /// <summary>
@@ -96,6 +112,38 @@ namespace DinoDiner.Menu
         public override string ToString()
         {
             return "Steakosaurus Burger";
+        }
+
+        /// <summary>
+        /// gets the description
+        /// </summary>
+        /// <returns>string</returns>
+        public string Description
+        {
+            get
+            {
+                return this.ToString();
+            }
+        }
+
+        /// <summary>
+        /// Get any special insturctions
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (!wholeWheatBun)
+                    special.Add("Hold Whole Wheat Bun");
+                if (!pickle)
+                    special.Add("Hold Pickle");
+                if (!ketchup)
+                    special.Add("Hold Ketchup");
+                if (!mustard)
+                    special.Add("Hold Mustard");
+                return special.ToArray();
+            }
         }
     }
 }

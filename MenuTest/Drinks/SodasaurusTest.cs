@@ -57,7 +57,7 @@ namespace MenuTest.Drinks
             Assert.Equal<Size>(Size.Small, soda.Size);
         }
 
-        //The correct price and calories after changing to small, medium, and large sizes.
+        //The correct price and calories asodaer changing to small, medium, and large sizes.
         [Fact]
         public void ShouldHaveCorrectPriceAndCaloriesForSmall()
         {
@@ -91,7 +91,7 @@ namespace MenuTest.Drinks
         public void ShouldHaveNoIce()
         {
             Sodasaurus soda = new Sodasaurus();
-            soda.holdIce();
+            soda.HoldIce();
             Assert.False(soda.Ice);
         }
         //Should have correct Ingredients
@@ -102,6 +102,97 @@ namespace MenuTest.Drinks
             Assert.Contains<string>("Water", soda.Ingredients);
             Assert.Contains<string>("Natural Flavors", soda.Ingredients);
             Assert.Contains<string>("Cane Sugar", soda.Ingredients);
+        }
+
+        [Fact]
+        public void ShouldHaveEmptySpecialListByDefault()
+        {
+            Sodasaurus soda = new Sodasaurus();
+            Assert.Empty(soda.Special);
+        }
+
+        [Fact]
+        public void SpecialShouldHoldIce()
+        {
+            Sodasaurus soda = new Sodasaurus();
+            soda.HoldIce();
+            Assert.Collection<string>(soda.Special,
+                item =>
+                {
+                    Assert.Equal("Hold Ice", item);
+                }
+                );
+        }
+
+        [Fact]
+        public void DescriptionShouldGiveName()
+        {
+            Sodasaurus soda = new Sodasaurus();
+            Assert.Contains("Sodasaurus", soda.Description);
+        }
+
+        [Fact]
+        public void ChangeSizeSmallShouldNotifyOfSPecialPropertyChange()
+        {
+            Sodasaurus soda = new Sodasaurus();
+            soda.Size = Size.Medium;
+            Assert.PropertyChanged(soda, "Size", () =>
+            {
+                soda.Size = Size.Small;
+            }
+            );
+            Assert.PropertyChanged(soda, "Price", () =>
+            {
+                soda.Size = Size.Small;
+            }
+            );
+            Assert.PropertyChanged(soda, "Calories", () =>
+            {
+                soda.Size = Size.Small;
+            }
+            );
+        }
+
+        [Fact]
+        public void ChangeSizeMediumShouldNotifyOfSPecialPropertyChange()
+        {
+            Sodasaurus soda = new Sodasaurus();
+            Assert.PropertyChanged(soda, "Size", () =>
+            {
+                soda.Size = Size.Medium;
+            }
+            );
+            Assert.PropertyChanged(soda, "Price", () =>
+            {
+                soda.Size = Size.Medium;
+            }
+            );
+            Assert.PropertyChanged(soda, "Calories", () =>
+            {
+                soda.Size = Size.Medium;
+            }
+            );
+        }
+
+        [Fact]
+        public void ChangeSizeLargeShouldNotifyOfSPecialPropertyChange()
+        {
+            Sodasaurus soda = new Sodasaurus();
+            Assert.PropertyChanged(soda, "Size", () =>
+            {
+                soda.Size = Size.Large;
+            }
+            );
+            Assert.PropertyChanged(soda, "Price", () =>
+            {
+                soda.Size = Size.Large;
+            }
+            );
+            Assert.PropertyChanged(soda, "Calories", () =>
+            {
+                soda.Size = Size.Large;
+            }
+            );
         }
     }
 }

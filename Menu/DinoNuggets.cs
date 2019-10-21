@@ -4,18 +4,30 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
     /// <summary>
     /// Dino Nuggets class, is a Entree
     /// </summary>
-    public class DinoNuggets : Entree, IMenuItem
+    public class DinoNuggets : Entree, IMenuItem, IOrderItem, INotifyPropertyChanged
     {
         /// <summary>
         /// Adds amount of nuggets to ingredients list
         /// </summary>
         private uint nuggetCount = 6;
+
+        /// <summary>
+        /// Property changed event handler
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        //Helper function for notifying of property changes
+        private void NotifyOfPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
 
         /// <summary>
         /// Gets Ingredients based on bools
@@ -50,6 +62,8 @@ namespace DinoDiner.Menu
             nuggetCount++;
             this.Calories += 59;
             this.Price += 0.25;
+            NotifyOfPropertyChange("Price");
+            NotifyOfPropertyChange("Calories");
         }
 
         /// <summary>
@@ -59,6 +73,29 @@ namespace DinoDiner.Menu
         public override string ToString()
         {
             return "Dino-Nuggets";
+        }
+
+        /// <summary>
+        /// What comes with order
+        /// </summary>
+        public string Description
+        {
+            get
+            {
+                return this.ToString();
+            }
+        }
+
+        /// <summary>
+        /// Gets special instructions for item
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> ingredients = new List<string>();
+                return ingredients.ToArray();
+            }
         }
     }
 }

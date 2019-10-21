@@ -83,5 +83,83 @@ namespace MenuTest.Sides
             tt.Size = Size.Large;
             Assert.Equal<Size>(Size.Large, tt.Size);
         }
+
+        [Fact]
+        public void ShouldHaveEmptySpecialListByDefault()
+        {
+            Triceritots tt = new Triceritots();
+            Assert.Empty(tt.Special);
+        }
+
+        [Fact]
+        public void DescriptionShouldGiveName()
+        {
+            Triceritots tt = new Triceritots();
+            Assert.Contains("Triceritots", tt.Description);
+        }
+
+        [Fact]
+        public void ChangeSizeSmallShouldNotifyOfSPecialPropertyChange()
+        {
+            Triceritots tt = new Triceritots();
+            tt.Size = Size.Medium;
+            Assert.PropertyChanged(tt, "Size", () =>
+            {
+                tt.Size = Size.Small;
+            }
+            );
+            Assert.PropertyChanged(tt, "Price", () =>
+            {
+                tt.Size = Size.Small;
+            }
+            );
+            Assert.PropertyChanged(tt, "Calories", () =>
+            {
+                tt.Size = Size.Small;
+            }
+            );
+        }
+
+        [Fact]
+        public void ChangeSizeMediumShouldNotifyOfSPecialPropertyChange()
+        {
+            Triceritots tt = new Triceritots();
+            Assert.PropertyChanged(tt, "Size", () =>
+            {
+                tt.Size = Size.Medium;
+            }
+            );
+            Assert.PropertyChanged(tt, "Price", () =>
+            {
+                tt.Size = Size.Medium;
+            }
+            );
+            Assert.PropertyChanged(tt, "Calories", () =>
+            {
+                tt.Size = Size.Medium;
+            }
+            );
+        }
+
+        [Fact]
+        public void ChangeSizeLargeShouldNotifyOfSPecialPropertyChange()
+        {
+            Triceritots tt = new Triceritots();
+            Assert.PropertyChanged(tt, "Size", () =>
+            {
+                tt.Size = Size.Large;
+            }
+            );
+            Assert.PropertyChanged(tt, "Price", () =>
+            {
+                tt.Size = Size.Large;
+            }
+            );
+            Assert.PropertyChanged(tt, "Calories", () =>
+            {
+                tt.Size = Size.Large;
+            }
+            );
+        }
     }
 }

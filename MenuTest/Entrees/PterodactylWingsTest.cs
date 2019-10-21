@@ -30,5 +30,11 @@ namespace MenuTest.Entrees
             Assert.Equal<int>(2, ingredients.Count);
         }
 
+        [Fact]
+        public void DescriptionShouldGiveName()
+        {
+            PterodactylWings pw = new PterodactylWings();
+            Assert.Contains("Pterodactyl Wings", pw.Description);
+        }
     }
 }

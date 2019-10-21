@@ -56,5 +56,168 @@ namespace MenuTest.Entrees
             vw.HoldCheese();
             Assert.DoesNotContain<string>("Parmesan Cheese", vw.Ingredients);
         }
+
+        [Fact]
+        public void ShouldHaveEmptySpecialListByDefault()
+        {
+            VelociWrap vw = new VelociWrap();
+            Assert.Empty(vw.Special);
+        }
+
+        [Fact]
+        public void SpecialShouldHoldDressing()
+        {
+            VelociWrap vw = new VelociWrap();
+            vw.HoldDressing();
+            Assert.Collection<string>(vw.Special,
+                item =>
+                {
+                    Assert.Equal("Hold Dressing", item);
+                }
+                );
+        }
+
+        [Fact]
+        public void SpecialShouldHoldLettuce()
+        {
+            VelociWrap vw = new VelociWrap();
+            vw.HoldLettuce();
+            Assert.Collection<string>(vw.Special,
+                item =>
+                {
+                    Assert.Equal("Hold Lettuce", item);
+                }
+                );
+        }
+
+        [Fact]
+        public void SpecialShouldHoldCheese()
+        {
+            VelociWrap vw = new VelociWrap();
+            vw.HoldCheese();
+            Assert.Collection<string>(vw.Special,
+                item =>
+                {
+                    Assert.Equal("Hold Cheese", item);
+                }
+                );
+        }
+
+        [Fact]
+        public void SpecialShouldHoldDressingAndLettuce()
+        {
+            VelociWrap vw = new VelociWrap();
+            vw.HoldDressing();
+            vw.HoldLettuce();
+            Assert.Collection<string>(vw.Special,
+                item =>
+                {
+                    Assert.Equal("Hold Dressing", item);
+                },
+                item =>
+                {
+                    Assert.Equal("Hold Lettuce", item);
+                }
+                );
+        }
+
+        [Fact]
+        public void SpecialShouldHoldDressingAndCheese()
+        {
+            VelociWrap vw = new VelociWrap();
+            vw.HoldDressing();
+            vw.HoldCheese();
+            Assert.Collection<string>(vw.Special,
+                item =>
+                {
+                    Assert.Equal("Hold Dressing", item);
+                },
+                item =>
+                {
+                    Assert.Equal("Hold Cheese", item);
+                }
+                );
+        }
+
+        [Fact]
+        public void SpecialShouldHoldLettuceAndCheese()
+        {
+            VelociWrap vw = new VelociWrap();
+            vw.HoldLettuce();
+            vw.HoldCheese();
+            Assert.Collection<string>(vw.Special,
+                item =>
+                {
+                    Assert.Equal("Hold Lettuce", item);
+                },
+                item =>
+                {
+                    Assert.Equal("Hold Cheese", item);
+                }
+                );
+        }
+
+        [Fact]
+        public void SpecialShouldHoldDressingAndLettuceAndCheese()
+        {
+            VelociWrap vw = new VelociWrap();
+            vw.HoldDressing();
+            vw.HoldLettuce();
+            vw.HoldCheese();
+            Assert.Collection<string>(vw.Special,
+                item =>
+                {
+                    Assert.Equal("Hold Dressing", item);
+                },
+                item =>
+                {
+                    Assert.Equal("Hold Lettuce", item);
+                },
+                item =>
+                {
+                    Assert.Equal("Hold Cheese", item);
+                }
+                );
+        }
+
+        [Fact]
+        public void DescriptionShouldGiveName()
+        {
+            VelociWrap vw = new VelociWrap();
+            Assert.Contains("Veloci-Wrap", vw.Description);
+        }
+
+        [Fact]
+        public void HoldDressingShouldNotifyOfSPecialPropertyChange()
+        {
+            VelociWrap vw = new VelociWrap();
+            Assert.PropertyChanged(vw, "Special", () =>
+            {
+                vw.HoldDressing();
+            }
+            );
+        }
+
+        [Fact]
+        public void HoldLettuceShouldNotifyOfSPecialPropertyChange()
+        {
+            VelociWrap vw = new VelociWrap();
+            Assert.PropertyChanged(vw, "Special", () =>
+            {
+                vw.HoldLettuce();
+            }
+            );
+        }
+
+        [Fact]
+        public void HoldCheeseShouldNotifyOfSPecialPropertyChange()
+        {
+            VelociWrap vw = new VelociWrap();
+            Assert.PropertyChanged(vw, "Special", () =>
+            {
+                vw.HoldCheese();
+            }
+            );
+        }
     }
 }

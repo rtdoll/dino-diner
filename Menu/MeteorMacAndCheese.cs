@@ -4,19 +4,30 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
     /// <summary>
     /// MeteorMacAndCheese class, is a side
     /// </summary>
-    public class MeteorMacAndCheese : Side, IMenuItem
+    public class MeteorMacAndCheese : Side, IMenuItem, IOrderItem, INotifyPropertyChanged
     {
         /// <summary>
         /// Size of side
         /// </summary>
         private Size size { get; set; }
 
+        /// <summary>
+        /// Property changed event handler
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        //Helper function for notifying of property changes
+        private void NotifyOfPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
         /// <summary>
         /// Gets Ingredients based on bools
         /// </summary>
@@ -65,6 +76,9 @@ namespace DinoDiner.Menu
                         this.Calories = 520;
                         break;
                 }
+                NotifyOfPropertyChange("Size");
+                NotifyOfPropertyChange("Price");
+                NotifyOfPropertyChange("Calories");
             }
         }
 
@@ -74,7 +88,30 @@ namespace DinoDiner.Menu
         /// <returns>string</returns>
         public override string ToString()
         {
-            return this.Size.ToString() + " Meteor Mac and Cheese";
+            return $"{Size} Meteor Mac and Cheese";
+        }
+
+        /// <summary>
+        /// What comes with the Side
+        /// </summary>
+        public string Description
+        {
+            get
+            {
+                return this.ToString();
+            }
+        }
+
+        /// <summary>
+        /// Gets special instructions for item
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> ingredients = new List<string>();
+                return ingredients.ToArray();
+            }
         }
     }
 }

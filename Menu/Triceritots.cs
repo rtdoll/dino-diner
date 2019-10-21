@@ -5,18 +5,30 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using DinoDiner.Menu;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
     /// <summary>
     /// Triceritots class, is a side
     /// </summary>
-    public class Triceritots : Side, IMenuItem
+    public class Triceritots : Side, IMenuItem, IOrderItem, INotifyPropertyChanged
     {
         /// <summary>
         /// Size of side
         /// </summary>
         private Size size { get; set; }
+
+        /// <summary>
+        /// Property changed event handler
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        //Helper function for notifying of property changes
+        private void NotifyOfPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
 
         /// <summary>
         /// Gets Ingredients
@@ -66,6 +78,9 @@ namespace DinoDiner.Menu
                         this.Calories = 590;
                         break;
                 }
+                NotifyOfPropertyChange("Size");
+                NotifyOfPropertyChange("Price");
+                NotifyOfPropertyChange("Calories");
             }
         }
 
@@ -75,7 +90,31 @@ namespace DinoDiner.Menu
         /// <returns>string</returns>
         public override string ToString()
         {
-            return this.Size.ToString() + " Triceritots";
+            return $"{Size} Triceritots";
+        }
+
+        /// <summary>
+        /// gets the description
+        /// </summary>
+        /// <returns>string</returns>
+        public string Description
+        {
+            get
+            {
+                return this.ToString();
+            }
+        }
+
+        /// <summary>
+        /// Get any special insturctions
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                return special.ToArray();
+            }
         }
     }
 }
