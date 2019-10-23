@@ -24,37 +24,67 @@ namespace PointOfSale
     /// </summary>
     public partial class SideSelection : Page
     {
+
+        public Side Side { get; set; }
+
         public SideSelection()
         {
             InitializeComponent();
         }
 
-        public void AddFryceritops(object sender, RoutedEventArgs args)
+        public SideSelection(Side side)
         {
-            Order order = (Order)DataContext;
-            order.Items.Add(new Fryceritops());
-            BtnAddFryceritops.IsEnabled = false;
-            BtnAddMeteorMacAndCheese.IsEnabled = false;
-            BtnAddMezzorellaSticks.IsEnabled = false;
-            BtnAddTriceritots.IsEnabled = false;
+            InitializeComponent();
+            Side = side;
         }
 
-        public void AddTriceritots(object sender, RoutedEventArgs args)
+        protected void AddFryceritops(object sender, RoutedEventArgs args)
         {
-            Order order = (Order)DataContext;
-            order.Items.Add(new Triceritots());
+            SelectSide(new Fryceritops());
         }
 
-        public void AddMezzorellaSticks(object sender, RoutedEventArgs args)
+        protected void AddTriceritots(object sender, RoutedEventArgs args)
         {
-            Order order = (Order)DataContext;
-            order.Items.Add(new MezzorellaSticks());
+            SelectSide(new Triceritots());
         }
 
-        public void AddMeteorMacAndCheese(object sender, RoutedEventArgs args)
+        protected void AddMezzorellaSticks(object sender, RoutedEventArgs args)
         {
-            Order order = (Order)DataContext;
-            order.Items.Add(new MeteorMacAndCheese());
+            SelectSide(new MezzorellaSticks());
+        }
+
+        protected void AddMeteorMacAndCheese(object sender, RoutedEventArgs args)
+        {
+            SelectSide(new MeteorMacAndCheese());
+        }
+
+        protected void SelectSide(Side side)
+        {
+            if (DataContext is Order order)
+            {
+                order.Items.Add(side);
+            }
+        }
+
+        protected void SelectSize(DinoDiner.Menu.Size size)
+        {
+            if(Side != null)
+                this.Side.Size = size;
+        }
+
+        protected void OnSelectSmall(object sender, RoutedEventArgs args)
+        {
+            SelectSize(DinoDiner.Menu.Size.Small);
+        }
+
+        protected void OnSelectMedium(object sender, RoutedEventArgs args)
+        {
+            SelectSize(DinoDiner.Menu.Size.Medium);
+        }
+
+        protected void OnSelectLarge(object sender, RoutedEventArgs args)
+        {
+            SelectSize(DinoDiner.Menu.Size.Large);
         }
 
     }

@@ -11,9 +11,9 @@
         <menu:Order/>
     </Window.DataContext>
     <DockPanel>
-        <local:OrderControl x:Name="OrderList" DockPanel.Dock="Right" Width="200"  Background="LightSteelBlue"/>
+        <local:OrderControl x:Name="OrderControl" DockPanel.Dock="Right" Width="200"  Background="LightSteelBlue"/>
         <Frame  
-            Name="OrderInterface"
+            x:Name="OrderInterface"
             Source="MenuCategorySelection.xaml"
             LoadCompleted="OnLoadCompleted"
             DataContextChanged="OnDataContextChanged"></Frame>

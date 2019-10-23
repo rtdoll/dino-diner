@@ -7,7 +7,7 @@ namespace DinoDiner.Menu
     /// <summary>
     /// Side abstract class, keeps track of Price, Calories, Size, and Ingredients
     /// </summary>
-    public abstract class Side
+    public abstract class Side : IOrderItem
     {
         /// <summary>
         /// Gets and setsthe price
@@ -32,5 +32,7 @@ namespace DinoDiner.Menu
         /// Gets special requests
         /// </summary>
         public virtual string[] Special { get; }
+
+        public virtual string Description { get; }
     }
 }
