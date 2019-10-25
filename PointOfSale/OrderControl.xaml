@@ -27,7 +27,7 @@
                                 <ColumnDefinition Width="15"/>
                             </Grid.ColumnDefinitions>
                         </Grid>
-                        <TextBlock Text="{Binding Path=Description}"/>
+                        <TextBlock Text="{Binding Path=Description}" Grid.Column="0"/>
                         <Button Click="OnRemoveItem"
                                 Background="Red"
                                 Foreground="White"
@@ -39,8 +39,8 @@
         </ListBox>
         <Border Grid.Row="2" Height="20" VerticalAlignment="Top">
             <StackPanel Orientation="Horizontal">
-                <TextBox Text="Price: "/>
-                <TextBox Text="$____"/>
+                <TextBlock Text="Price: "/>
+                <TextBlock  Text="{Binding Path=SubtotalCost}"/>
             </StackPanel>
         </Border>
         <TextBox Text="Buttons Go Here" Grid.Row="3"/>
