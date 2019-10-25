@@ -20,9 +20,19 @@
                  SelectionChanged="OnSelectionChanged">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel>
+                    <StackPanel Width="190">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="15"/>
+                            </Grid.ColumnDefinitions>
+                        </Grid>
                         <TextBlock Text="{Binding Path=Description}"/>
-                        <ListBox ItemsSource="{Binding Path=Special}"/>
+                        <Button Click="OnRemoveItem"
+                                Background="Red"
+                                Foreground="White"
+                                Grid.Column="1">Remove</Button>
+                        <ListBox ItemsSource="{Binding Path=Special}" BorderBrush="White"/>
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
