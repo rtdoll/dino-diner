@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace DinoDiner.Menu
@@ -33,6 +34,11 @@ namespace DinoDiner.Menu
         /// </summary>
         public virtual string[] Special { get; }
 
+        /// <summary>
+        /// Gets Description of order item
+        /// </summary>
         public virtual string Description { get; }
+
+        public abstract event PropertyChangedEventHandler PropertyChanged;
     }
 }

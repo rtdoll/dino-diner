@@ -4,13 +4,14 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
     /// <summary>
     /// Drink abstract class, keeps track of Price, Calories, Ice, Ingredients, and Size
     /// </summary>
-    public abstract class Drink
+    public abstract class Drink : IOrderItem
     {
         /// <summary>
         /// Gets and sets the price
@@ -38,13 +39,28 @@ namespace DinoDiner.Menu
         public virtual string[] Special { get; }
 
         /// <summary>
+        /// Gets description of order item
+        /// </summary>
+
+        public virtual string Description { get; }
+
+        /// <summary>
         /// Gets or sets the size
         /// </summary>
         public abstract Size Size { get; set; }
 
+        public abstract event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
+        /// Holds ice from order item
+        /// </summary>
         public void HoldIce()
         {
             Ice = false;
         }
+
+       
+
+        
     }
 }

@@ -21,7 +21,7 @@
             <ColumnDefinition Width="Auto"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="100"></RowDefinition>
+            <RowDefinition Height="200"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
         <Button Click="SelectSide" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center">
@@ -30,14 +30,14 @@
         <Button Click="SelectDrink" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center">
             Drink
         </Button>
-        <RadioButton Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" Margin="203,1,100.2,151" Grid.RowSpan="2">
+        <Button Name="BtnSmall" IsEnabled="False" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center">
             Small
-        </RadioButton>
-        <RadioButton Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left">
+        </Button>
+        <Button Name="BtnMedium" IsEnabled="False"  Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" >
             Medium
-        </RadioButton>
-        <RadioButton Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center">
+        </Button>
+        <Button Name="BtnLarge" IsEnabled="False"  Grid.Column="2" Grid.Row="0" HorizontalAlignment="Right">
             Large
-        </RadioButton>
+        </Button>
     </Grid>
 </Page>

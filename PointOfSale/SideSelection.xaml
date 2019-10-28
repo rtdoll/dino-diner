@@ -49,16 +49,16 @@
                 <ImageBrush ImageSource="Assets/DinoDiner-11.png"></ImageBrush>
             </Button.Background>
         </Button>
-        <Button Name="BtnSmall" Click="OnSelectSmall" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center">
+        <Button Name="BtnSmall" IsEnabled="False" Click="OnSelectSmall" Grid.Row="0" HorizontalAlignment="Center" Grid.ColumnSpan="2" Margin="126,26,124,25">
             Small
         </Button>
-        <Button Name="BtnMedium" Click="OnSelectMedium" Grid.Column="2" Grid.Row="0" HorizontalAlignment="Left">
+        <Button Name="BtnMedium" IsEnabled="False" Click="OnSelectMedium" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" Grid.ColumnSpan="2" Margin="126,26,0,25">
             Medium
         </Button>
-        <Button Name="BtnLarge" Click="OnSelectLarge" Grid.Column="2" Grid.Row="0" HorizontalAlignment="Right">
+        <Button Name="BtnLarge" IsEnabled="False" Click="OnSelectLarge" Grid.Column="2" Grid.Row="0" HorizontalAlignment="Right" Grid.ColumnSpan="2" Margin="0,26,125,25">
             Large
         </Button>
     </Grid>
 
-    
+
 </Page>

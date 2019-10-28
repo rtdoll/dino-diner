@@ -42,7 +42,7 @@ namespace DinoDiner.Menu
         /// <summary>
         /// Property changed event handler
         /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
+        public override event PropertyChangedEventHandler PropertyChanged;
 
         //Helper function for notifying of property changes
         private void NotifyOfPropertyChange(string propertyName)

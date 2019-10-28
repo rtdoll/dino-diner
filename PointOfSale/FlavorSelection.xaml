@@ -15,7 +15,7 @@
                 <Setter Property="Height" Value="200"/>
             </Style>
         </WrapPanel.Resources>
-        <Button>Cola</Button>
+        <Button Click="SelectCola">Cola</Button>
         <Button>Orange</Button>
         <Button>Vanilla</Button>
         <Button>Chocolate</Button>

@@ -189,7 +189,7 @@ namespace MenuTest.Drinks
         {
             Water water = new Water();
             Order newOrder = new Order();
-            newOrder.Items.Add(water);
+            newOrder.Add(water);
             Assert.Equal<double>(0.10, newOrder.SubtotalCost);
             Assert.Equal<double>(0.10, newOrder.TotalCost);
             Assert.Equal<double>(0, newOrder.SalesTaxRate);

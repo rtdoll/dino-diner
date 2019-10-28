@@ -53,45 +53,45 @@
                 <ImageBrush ImageSource="Assets/DinoDiner-15.png"></ImageBrush>
             </Button.Background>
         </Button>
-        <RadioButton Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center">
+        <Button Name="BtnSmall" IsEnabled="False" Click="OnSelectSmall" Grid.Row="0" HorizontalAlignment="Center" Grid.ColumnSpan="2" Margin="126,26,124,10" Height="Auto">
             Small
-        </RadioButton>
-        <RadioButton Grid.Column="2" Grid.Row="0" HorizontalAlignment="Left">
+        </Button>
+        <Button Name="BtnMedium" IsEnabled="False" Click="OnSelectMedium" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" Grid.ColumnSpan="2" Margin="126,26,0,10" Height="Auto">
             Medium
-        </RadioButton>
-        <RadioButton Grid.Column="2" Grid.Row="0" HorizontalAlignment="Right">
+        </Button>
+        <Button Name="BtnLarge" IsEnabled="False" Click="OnSelectLarge" Grid.Column="2" Grid.Row="0" HorizontalAlignment="Right" Grid.ColumnSpan="2" Margin="0,26,125,10" Height="Auto">
             Large
-        </RadioButton>
-        <CheckBox Visibility="Hidden" x:Name="JavaCream"  Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center">
+        </Button>
+        <Button Click="OnrRoomForCream" Visibility="Hidden" x:Name="JavaCream"  Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center">
             Room for Cream
-        </CheckBox>
-        <CheckBox Visibility="Hidden" x:Name="JavaDecaf"  Grid.Column="0" Grid.Row="3" HorizontalAlignment="Center">
+        </Button>
+        <Button Click="OnDecaf" Visibility="Hidden" x:Name="JavaDecaf"  Grid.Column="0" Grid.Row="3" HorizontalAlignment="Center">
             Decaf
-        </CheckBox>
-        <CheckBox Visibility="Hidden" x:Name="JavaIce"  Grid.Column="0" Grid.Row="4" HorizontalAlignment="Center">
+        </Button>
+        <Button Click="OnAddIce" Visibility="Hidden" x:Name="JavaIce"  Grid.Column="0" Grid.Row="4" HorizontalAlignment="Center">
             Ice
-        </CheckBox>
-        <Button Visibility="Hidden" x:Name="SodaFlavor"  Click="SelectFlavor" Grid.Column="1" Grid.Row="2" Margin="25,0,25,3.8" Height="Auto">
+        </Button>
+        <Button Click="OnFlavor" Visibility="Hidden" x:Name="SodaFlavor"  Click="SelectFlavor" Grid.Column="1" Grid.Row="2" Margin="25,0,25,3.8" Height="Auto">
             Flavor
         </Button>
-        <CheckBox Visibility="Hidden" x:Name="SodaIce"  Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center">
+        <Button Click="OnAddIce" Visibility="Hidden" x:Name="SodaIce"  Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center">
             Ice
-        </CheckBox>
-        <CheckBox Visibility="Hidden" x:Name="TeaIce"  Grid.Column="2" Grid.Row="2" HorizontalAlignment="Center">
+        </Button>
+        <Button Click="OnAddIce" Visibility="Hidden" x:Name="TeaIce"  Grid.Column="2" Grid.Row="2" HorizontalAlignment="Center">
             Ice
-        </CheckBox>
-        <CheckBox Visibility="Hidden" x:Name="TeaLemon"  Grid.Column="2" Grid.Row="3" HorizontalAlignment="Center">
+        </Button>
+        <Button Click="OnAddLemon" Visibility="Hidden" x:Name="TeaLemon"  Grid.Column="2" Grid.Row="3" HorizontalAlignment="Center">
             Lemon
-        </CheckBox>
-        <CheckBox Visibility="Hidden" x:Name="TeaSweet"  Grid.Column="2" Grid.Row="4" HorizontalAlignment="Center">
+        </Button>
+        <Button Click="OnAddSweetener" Visibility="Hidden" x:Name="TeaSweet"  Grid.Column="2" Grid.Row="4" HorizontalAlignment="Center">
             Sweet
-        </CheckBox>
-        <CheckBox Visibility="Hidden" x:Name="WaterIce" Grid.Column="3" Grid.Row="2" HorizontalAlignment="Center">
+        </Button>
+        <Button Click="OnAddIce" Visibility="Hidden" x:Name="WaterIce" Grid.Column="3" Grid.Row="2" HorizontalAlignment="Center">
             Ice
-        </CheckBox>
-        <CheckBox Visibility="Hidden" x:Name="WaterLemon" Grid.Column="3" Grid.Row="3" HorizontalAlignment="Center">
+        </Button>
+        <Button Click="OnAddLemon" Visibility="Hidden" x:Name="WaterLemon" Grid.Column="3" Grid.Row="3" HorizontalAlignment="Center">
             Lemon
-        </CheckBox>
+        </Button>
 
     </Grid>
 

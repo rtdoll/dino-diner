@@ -40,36 +40,48 @@ namespace PointOfSale
 
         protected void AddFryceritops(object sender, RoutedEventArgs args)
         {
-            SelectSide(new Fryceritops());
+            Side = new Fryceritops();
+            EnableSizeButtons();
         }
 
         protected void AddTriceritots(object sender, RoutedEventArgs args)
         {
-            SelectSide(new Triceritots());
+            Side = new Triceritots();
+            EnableSizeButtons();
         }
 
         protected void AddMezzorellaSticks(object sender, RoutedEventArgs args)
         {
-            SelectSide(new MezzorellaSticks());
+            Side = new MezzorellaSticks();
+            EnableSizeButtons();
         }
 
         protected void AddMeteorMacAndCheese(object sender, RoutedEventArgs args)
         {
-            SelectSide(new MeteorMacAndCheese());
+            Side = new MeteorMacAndCheese();
+            EnableSizeButtons();
         }
 
         protected void SelectSide(Side side)
         {
             if (DataContext is Order order)
             {
-                order.Items.Add(side);
+                order.Add(side);
             }
         }
 
         protected void SelectSize(DinoDiner.Menu.Size size)
         {
-            if(Side != null)
+            if (Side != null)
+            {
                 this.Side.Size = size;
+                DisableSizeButtons();
+                SelectSide(Side);
+                if(NavigationService.CanGoBack)
+                    NavigationService.GoBack();
+                else
+                    NavigationService.Navigate(new MenuCategorySelection());
+            }
         }
 
         protected void OnSelectSmall(object sender, RoutedEventArgs args)
@@ -85,6 +97,20 @@ namespace PointOfSale
         protected void OnSelectLarge(object sender, RoutedEventArgs args)
         {
             SelectSize(DinoDiner.Menu.Size.Large);
+        }
+
+        protected void EnableSizeButtons()
+        {
+            BtnSmall.IsEnabled = true;
+            BtnMedium.IsEnabled = true;
+            BtnLarge.IsEnabled = true;
+        }
+
+        protected void DisableSizeButtons()
+        {
+            BtnSmall.IsEnabled = false;
+            BtnMedium.IsEnabled = false;
+            BtnLarge.IsEnabled = false;
         }
 
     }

@@ -3,6 +3,7 @@
  */
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace DinoDiner.Menu
@@ -10,7 +11,7 @@ namespace DinoDiner.Menu
     /// <summary>
     /// Entree abstract class, keeps track of Price, Calories, and Ingredients
     /// </summary>
-    public abstract class Entree
+    public abstract class Entree : IOrderItem
     {
         /// <summary>
         /// Gets and sets the price
@@ -31,5 +32,12 @@ namespace DinoDiner.Menu
         /// Gets special requests
         /// </summary>
         public virtual string[] Special { get; }
+
+        /// <summary>
+        /// Gets desciprtion of order item
+        /// </summary>
+        public virtual string Description { get; }
+
+        public abstract event PropertyChangedEventHandler PropertyChanged;
     }
 }
