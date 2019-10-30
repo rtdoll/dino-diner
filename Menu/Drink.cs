@@ -52,15 +52,21 @@ namespace DinoDiner.Menu
         public abstract event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
-        /// Holds ice from order item
+        /// Holds ice from drink
         /// </summary>
         public void HoldIce()
         {
             Ice = false;
         }
 
-       
+        /// <summary>
+        /// Adds ice to drink
+        /// </summary>
+        public void AddIce()
+        {
+            Ice = true;
+        }
 
-        
+
     }
 }

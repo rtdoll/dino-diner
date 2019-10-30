@@ -26,6 +26,7 @@ namespace PointOfSale
     {
         public Drink Drink { get; set; }
 
+
         public DrinkSelection()
         {
             InitializeComponent();
@@ -191,6 +192,11 @@ namespace PointOfSale
         protected void OnRoomForCream(object sender, RoutedEventArgs args)
         {
 
+        }
+
+        protected void OnFlavor(object sender, RoutedEventArgs args)
+        {
+            NavigationService.Navigate(new FlavorSelection());
         }
     }
 }

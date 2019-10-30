@@ -103,7 +103,7 @@ namespace DinoDiner.Menu
         /// gets the description
         /// </summary>
         /// <returns>string</returns>
-        public string Description
+        public override string Description
         {
             get
             {

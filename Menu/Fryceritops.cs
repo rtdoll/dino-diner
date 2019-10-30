@@ -96,7 +96,7 @@ namespace DinoDiner.Menu
         /// <summary>
         /// Gets description of order item
         /// </summary>
-        public string Description
+        public override string Description
         {
             get
             {

@@ -94,7 +94,7 @@ namespace DinoDiner.Menu
         /// <summary>
         /// What comes with the Side
         /// </summary>
-        public string Description
+        public override string Description
         {
             get
             {

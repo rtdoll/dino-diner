@@ -103,14 +103,7 @@ namespace DinoDiner.Menu
             NotifyOfPropertyChange("Special");
         }
 
-        /// <summary>
-        /// Adds Ice to order
-        /// </summary>
-        public void AddIce()
-        {
-            this.Ice = true;
-            NotifyOfPropertyChange("Special");
-        }
+        
 
         /// <summary>
         /// Set decaf to true
@@ -136,7 +129,7 @@ namespace DinoDiner.Menu
         /// <summary>
         /// What comes with the Drink
         /// </summary>
-        public string Description
+        public override string Description
         {
             get
             {
