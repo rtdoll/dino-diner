@@ -25,7 +25,7 @@ namespace PointOfSale
     public partial class FlavorSelection : Page
     {
         public SodasaurusFlavor Flavor { get; set; }
-        public FlavorSelection()
+        public FlavorSelection(Drink drink)
         {
             InitializeComponent();
         }

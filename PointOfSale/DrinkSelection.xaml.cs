@@ -110,7 +110,8 @@ namespace PointOfSale
         /// <param name="args"></param>
         public void SelectFlavor(object sender, RoutedEventArgs args)
         {
-            NavigationService.Navigate(new FlavorSelection());
+            if(Drink is Sodasaurus)
+                NavigationService.Navigate(new FlavorSelection());
         }
 
         protected void SelectSize(DinoDiner.Menu.Size size)
