@@ -21,22 +21,39 @@ namespace PointOfSale
     /// </summary>
     public partial class OrderControl : UserControl
     {
+        /// <summary>
+        /// Gets and sets the navigation service
+        /// </summary>
         public NavigationService NavigationService { get; set; }
 
+        /// <summary>
+        /// initialize order control page
+        /// </summary>
         public OrderControl()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Change selection based on what is clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void OnSelectionChanged(object sender, SelectionChangedEventArgs args)
         {
-            if(OrderItems.SelectedItem is Side side)
-            {
+            if(OrderItems.SelectedItem is Entree entree)
+                NavigationService?.Navigate(new EntreeSelection(entree));
+            if (OrderItems.SelectedItem is Side side)
                 NavigationService?.Navigate(new SideSelection(side));
-            }
-
+            if (OrderItems.SelectedItem is Drink drink)
+                NavigationService?.Navigate(new DrinkSelection(drink));
         }
 
+        /// <summary>
+        /// Remove an order item from order
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void OnRemoveItem(object sender, RoutedEventArgs args)
         {
             if(DataContext is Order order)

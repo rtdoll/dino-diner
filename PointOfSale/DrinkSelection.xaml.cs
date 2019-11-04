@@ -26,18 +26,29 @@ namespace PointOfSale
     {
         public Drink Drink { get; set; }
 
-
+        /// <summary>
+        /// Create an instance of the drinkselection page
+        /// </summary>
         public DrinkSelection()
         {
             InitializeComponent();
         }
-
+        
+        /// <summary>
+        /// Create an instance of drink selection page with a drink that has been selected
+        /// </summary>
+        /// <param name="drink">selected drink</param>
         public DrinkSelection(Drink drink)
         {
             InitializeComponent();
             Drink = drink;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         public void SelectJava(object sender, RoutedEventArgs args)
         {
             HideBoxes();
@@ -111,9 +122,13 @@ namespace PointOfSale
         public void SelectFlavor(object sender, RoutedEventArgs args)
         {
             if(Drink is Sodasaurus)
-                NavigationService.Navigate(new FlavorSelection());
+                NavigationService.Navigate(new FlavorSelection(Drink));
         }
 
+        /// <summary>
+        /// Select Size of drink
+        /// </summary>
+        /// <param name="size">New size</param>
         protected void SelectSize(DinoDiner.Menu.Size size)
         {
             if (Drink != null)
@@ -128,14 +143,22 @@ namespace PointOfSale
             }
         }
 
-        protected void SelectDrink(Drink drink)
+        /// <summary>
+        /// Select drink for order
+        /// </summary>
+        /// <param name="Drink">New Drink</param>
+        protected void SelectDrink(Drink Drink)
         {
             if(DataContext is Order order)
             {
-                order.Add(drink);
+                order.Add(Drink);
+                this.Drink = Drink;
             }   
         }
 
+        /// <summary>
+        /// Enable size buttons
+        /// </summary>
         protected void EnableSizeButtons()
         {
             BtnSmall.IsEnabled = true;
@@ -143,6 +166,9 @@ namespace PointOfSale
             BtnLarge.IsEnabled = true;
         }
 
+        /// <summary>
+        /// Disable size buttons
+        /// </summary>
         protected void DisableSizeButtons()
         {
             BtnSmall.IsEnabled = false;
@@ -150,54 +176,112 @@ namespace PointOfSale
             BtnLarge.IsEnabled = false;
         }
 
+        /// <summary>
+        /// change size of drink to small
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         protected void OnSelectSmall(object sender, RoutedEventArgs args)
         {
             SelectSize(DinoDiner.Menu.Size.Small);
         }
 
+        /// <summary>
+        /// change size of drink to medium
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         protected void OnSelectMedium(object sender, RoutedEventArgs args)
         {
             SelectSize(DinoDiner.Menu.Size.Medium);
         }
 
+        /// <summary>
+        /// change size of drink to large
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         protected void OnSelectLarge(object sender, RoutedEventArgs args)
         {
             SelectSize(DinoDiner.Menu.Size.Large);
         }
 
+        /// <summary>
+        /// Add Ice to order
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         protected void OnAddIce(object sender, RoutedEventArgs args)
         {
             Drink.AddIce();
         }
 
+        /// <summary>
+        /// Hold Ice from order
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        protected void OnHoldIce(object sender, RoutedEventArgs args)
+        {
+            Drink.HoldIce();
+        }
+
+        /// <summary>
+        /// Add Lemon to order
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         protected void OnAddLemon(object sender, RoutedEventArgs args)
         {
-
+            if (Drink is Water water)
+                water.AddLemon();
+            if(Drink is Tyrannotea tea)
+                tea.AddLemon();
         }
-
-        protected void OnAddFlavor(object sender, RoutedEventArgs args)
-        {
-
-        }
-
+        
+        /// <summary>
+        /// Add sweetener to tea
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         protected void OnAddSweetener(object sender, RoutedEventArgs args)
         {
-
+            if (Drink is Tyrannotea Tea)
+                Tea.AddSweetener();
         }
 
+        /// <summary>
+        /// change java to decaf
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         protected void OnDecaf(object sender, RoutedEventArgs args)
         {
-
+            if (Drink is JurassicJava java)
+                java.DecafCoffee();
         }
 
+        /// <summary>
+        /// Leave room for cream on java
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         protected void OnRoomForCream(object sender, RoutedEventArgs args)
         {
-
+            if (Drink is JurassicJava java)
+                java.LeaveRoomForCream();
         }
 
+        /// <summary>
+        /// Navigates to new flavor selection page
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         protected void OnFlavor(object sender, RoutedEventArgs args)
         {
-            NavigationService.Navigate(new FlavorSelection());
+            NavigationService.Navigate(new FlavorSelection(Drink));
         }
+
+
     }
 }

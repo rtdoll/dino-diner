@@ -17,45 +17,59 @@ using DinoDiner.Menu;
 namespace PointOfSale
 {
     /// <summary>
-    /// Interaction logic for CustomizePrehistoricPBJ.xaml
+    /// Interaction logic for CustomizeSteakosaurus.xaml
     /// </summary>
-    public partial class CustomizePrehistoricPBJ : Page
+    public partial class CustomizeSteakosaurus : Page
     {
-        //private backing var
-        private PrehistoricPBJ pbj;
+        /// <summary>
+        /// private backing variable for wurst
+        /// </summary>
+        private SteakosaurusBurger sb;
 
         /// <summary>
-        /// initialize page
+        /// Initialize page
         /// </summary>
-        /// <param name="pbj"></param>
-        public CustomizePrehistoricPBJ(PrehistoricPBJ pbj)
+        /// <param name="wurst"></param>
+        public CustomizeSteakosaurus(SteakosaurusBurger sb)
         {
             InitializeComponent();
-            this.pbj = pbj;
+            this.sb = sb;
         }
 
         /// <summary>
-        /// hold peanut butter from order
+        /// hold bun from wurst
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="args"></param>
-        private void OnHoldPeanutButter(object sender, RoutedEventArgs args)
+        private void HoldBun()
         {
-            pbj.HoldPeanutButter();
+            sb.HoldBun();
         }
 
         /// <summary>
-        /// hold jelly from order
+        /// hold ketchup from order
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="args"></param>
-        private void OnHoldJelly(object sender, RoutedEventArgs args)
+        private void HoldKetchup()
         {
-            pbj.HoldJelly();
+            sb.HoldKetchup();
         }
 
         /// <summary>
-        /// return to previous page
+        /// hold mustard from order
+        /// </summary>
+        private void HoldMustard()
+        {
+            sb.HoldMustard();
+        }
+
+        /// <summary>
+        /// hold pickle from order
+        /// </summary>
+        private void HoldPickle()
+        {
+            sb.HoldPickle();
+        }
+
+        /// <summary>
+        /// 
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="args"></param>

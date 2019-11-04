@@ -17,7 +17,7 @@ namespace DinoDiner.Menu
         /// Entree item for combo
         /// </summary>
         public Entree Entree { get; set; }
-        
+
         /// <summary>
         /// Drink item for combo
         /// </summary>

@@ -17,41 +17,47 @@ using DinoDiner.Menu;
 namespace PointOfSale
 {
     /// <summary>
-    /// Interaction logic for CustomizePrehistoricPBJ.xaml
+    /// Interaction logic for CustomizeBrontowurst.xaml
     /// </summary>
-    public partial class CustomizePrehistoricPBJ : Page
+    public partial class CustomizeBrontowurst : Page
     {
-        //private backing var
-        private PrehistoricPBJ pbj;
+        /// <summary>
+        /// private backing variable for wurst
+        /// </summary>
+        private Brontowurst wurst;
 
         /// <summary>
-        /// initialize page
+        /// Initialize page
         /// </summary>
-        /// <param name="pbj"></param>
-        public CustomizePrehistoricPBJ(PrehistoricPBJ pbj)
+        /// <param name="wurst"></param>
+        public CustomizeBrontowurst(Brontowurst wurst)
         {
             InitializeComponent();
-            this.pbj = pbj;
+            this.wurst = wurst;
         }
 
         /// <summary>
-        /// hold peanut butter from order
+        /// hold bun from wurst
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="args"></param>
-        private void OnHoldPeanutButter(object sender, RoutedEventArgs args)
+        private void HoldBun()
         {
-            pbj.HoldPeanutButter();
+            wurst.HoldBun();
         }
 
         /// <summary>
-        /// hold jelly from order
+        /// hold peppers from wurst
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="args"></param>
-        private void OnHoldJelly(object sender, RoutedEventArgs args)
+        private void HoldPeppers()
         {
-            pbj.HoldJelly();
+            wurst.HoldPeppers();
+        }
+
+        /// <summary>
+        /// Hold onion from wurst
+        /// </summary>
+        private void HoldOnions()
+        {
+            wurst.HoldPeppers();
         }
 
         /// <summary>

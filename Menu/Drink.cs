@@ -31,41 +31,44 @@ namespace DinoDiner.Menu
         /// <summary>
         /// Gets the ingredients list
         /// </summary>
-        public virtual List<string> Ingredients { get; protected set; }
+        public abstract List<string> Ingredients { get; }
 
         /// <summary>
         /// Gets special requests
         /// </summary>
-        public virtual string[] Special { get; }
+        public abstract string[] Special { get; }
 
         /// <summary>
         /// Gets description of order item
         /// </summary>
 
-        public virtual string Description { get; }
+        public abstract string Description { get; }
 
         /// <summary>
         /// Gets or sets the size
         /// </summary>
         public abstract Size Size { get; set; }
 
+        /// <summary>
+        /// Helper function to notify of property changes
+        /// </summary>
+        /// <param name="propertyName">property being changed</param>
+        public abstract void NotifyOfPropertyChange(string propertyName);
+
+        /// <summary>
+        /// PropertyChanged event handler, notifies of properties that get changed
+        /// </summary>
         public abstract event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
         /// Holds ice from drink
         /// </summary>
-        public void HoldIce()
-        {
-            Ice = false;
-        }
+        public abstract void HoldIce();
 
         /// <summary>
         /// Adds ice to drink
         /// </summary>
-        public void AddIce()
-        {
-            Ice = true;
-        }
+        public abstract void AddIce();
 
 
     }

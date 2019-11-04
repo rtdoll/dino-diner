@@ -81,10 +81,12 @@ namespace PointOfSale
             if (DataContext is Order order)
             {
                 order.Add(entree);
+                /*
                 if(NavigationService.CanGoBack)
                     NavigationService.GoBack();
                 else
                     NavigationService.Navigate(new MenuCategorySelection());
+                    */
             }
         }
     }

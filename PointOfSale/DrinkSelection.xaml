@@ -62,34 +62,34 @@
         <Button Name="BtnLarge" IsEnabled="False" Click="OnSelectLarge" Grid.Column="2" Grid.Row="0" HorizontalAlignment="Right" Grid.ColumnSpan="2" Margin="0,26,125,10" Height="Auto">
             Large
         </Button>
-        <Button Click="OnRoomForCream" Visibility="Hidden" x:Name="JavaCream"  Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center">
+        <Button Click="OnRoomForCream" Visibility="Hidden" x:Name="JavaCream"  Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" Height="Auto" Margin="25,0,25,0.2">
             Room for Cream
         </Button>
-        <Button Click="OnDecaf" Visibility="Hidden" x:Name="JavaDecaf"  Grid.Column="0" Grid.Row="3" HorizontalAlignment="Center">
+        <Button Click="OnDecaf" Visibility="Hidden" x:Name="JavaDecaf"  Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" Height="Auto" Margin="25,31,25,0.4" Grid.RowSpan="2">
             Decaf
         </Button>
-        <Button Click="OnAddIce" Visibility="Hidden" x:Name="JavaIce"  Grid.Column="0" Grid.Row="4" HorizontalAlignment="Center">
+        <Button Click="OnAddIce" Visibility="Hidden" x:Name="JavaIce"  Grid.Column="0" Grid.Row="3" HorizontalAlignment="Center" Height="Auto" Margin="25,30.8" Grid.RowSpan="3">
             Ice
         </Button>
         <Button Click="OnFlavor" Visibility="Hidden" x:Name="SodaFlavor"  Grid.Column="1" Grid.Row="2" Margin="25,0,25,3.8" Height="Auto">
             Flavor
         </Button>
-        <Button Click="OnAddIce" Visibility="Visible" x:Name="SodaIce"  Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" Height="Auto" Margin="25,31,25,0.4" Grid.RowSpan="2">
+        <Button Click="OnHoldIce" Visibility="Hidden" x:Name="SodaIce"  Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" Height="Auto" Margin="25,31,25,0.4" Grid.RowSpan="2">
             Ice
         </Button>
-        <Button Click="OnAddIce" Visibility="Hidden" x:Name="TeaIce"  Grid.Column="2" Grid.Row="2" HorizontalAlignment="Center">
+        <Button Click="OnAddIce" Visibility="Hidden" x:Name="TeaIce"  Grid.Column="2" Grid.Row="2" HorizontalAlignment="Center" Height="Auto" Margin="25,0,25,0.2">
             Ice
         </Button>
-        <Button Click="OnAddLemon" Visibility="Hidden" x:Name="TeaLemon"  Grid.Column="2" Grid.Row="3" HorizontalAlignment="Center">
+        <Button Click="OnAddLemon" Visibility="Hidden" x:Name="TeaLemon"  Grid.Column="2" Grid.Row="2" HorizontalAlignment="Center" Height="Auto" Margin="25,31,25,0.4" Grid.RowSpan="2">
             Lemon
         </Button>
-        <Button Click="OnAddSweetener" Visibility="Hidden" x:Name="TeaSweet"  Grid.Column="2" Grid.Row="4" HorizontalAlignment="Center">
+        <Button Click="OnAddSweetener" Visibility="Hidden" x:Name="TeaSweet"  Grid.Column="2" Grid.Row="3" HorizontalAlignment="Center" Height="Auto" Margin="25,30.8" Grid.RowSpan="3">
             Sweet
         </Button>
-        <Button Click="OnAddIce" Visibility="Hidden" x:Name="WaterIce" Grid.Column="3" Grid.Row="2" HorizontalAlignment="Center">
+        <Button Click="OnAddIce" Visibility="Hidden" x:Name="WaterIce" Grid.Column="3" Grid.Row="2" HorizontalAlignment="Center" Height="Auto" Margin="25,0,25,0.2">
             Ice
         </Button>
-        <Button Click="OnAddLemon" Visibility="Hidden" x:Name="WaterLemon" Grid.Column="3" Grid.Row="3" HorizontalAlignment="Center">
+        <Button Click="OnAddLemon" Visibility="Hidden" x:Name="WaterLemon" Grid.Column="3" Grid.Row="2" HorizontalAlignment="Center" Height="Auto" Margin="25,31,25,0.4" Grid.RowSpan="2">
             Lemon
         </Button>
 

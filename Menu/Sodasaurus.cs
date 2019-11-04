@@ -45,7 +45,7 @@ namespace DinoDiner.Menu
         public override event PropertyChangedEventHandler PropertyChanged;
 
         //Helper function for notifying of property changes
-        private void NotifyOfPropertyChange(string propertyName)
+        public override void NotifyOfPropertyChange(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
@@ -62,6 +62,15 @@ namespace DinoDiner.Menu
             }
         }
 
+        /// <summary>
+        /// Changes flavor of soda
+        /// </summary>
+        /// <param name="flavor">new flavor</param>
+        public void NewFlavor(SodasaurusFlavor flavor)
+        {
+            this.flavor = flavor;
+            NotifyOfPropertyChange("Description");
+        }
 
         /// <summary>
         /// Constructor, Sets price and calories and ingredients
@@ -107,11 +116,20 @@ namespace DinoDiner.Menu
         }
 
         /// <summary>
-        /// Sets Ice to false
+        /// Holds ice from order
         /// </summary>
-        public void HoldIce()
+        public override void HoldIce()
         {
             this.Ice = false;
+            NotifyOfPropertyChange("Ice");
+        }
+
+        /// <summary>
+        /// Adds Ice to order
+        /// </summary>
+        public override void AddIce()
+        {
+            this.Ice = true;
             NotifyOfPropertyChange("Ice");
         }
 

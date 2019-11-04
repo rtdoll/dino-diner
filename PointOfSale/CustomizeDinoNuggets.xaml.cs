@@ -17,45 +17,35 @@ using DinoDiner.Menu;
 namespace PointOfSale
 {
     /// <summary>
-    /// Interaction logic for CustomizePrehistoricPBJ.xaml
+    /// Interaction logic for CustomizeDinoNuggets.xaml
     /// </summary>
-    public partial class CustomizePrehistoricPBJ : Page
+    public partial class CustomizeDinoNuggets : Page
     {
-        //private backing var
-        private PrehistoricPBJ pbj;
+        /// <summary>
+        /// private backing variable for wurst
+        /// </summary>
+        private DinoNuggets dn;
 
         /// <summary>
-        /// initialize page
+        /// Initialize
         /// </summary>
-        /// <param name="pbj"></param>
-        public CustomizePrehistoricPBJ(PrehistoricPBJ pbj)
+        /// <param name="wurst"></param>
+        public CustomizeDinoNuggets(DinoNuggets dn)
         {
             InitializeComponent();
-            this.pbj = pbj;
+            this.dn = dn;
         }
 
         /// <summary>
-        /// hold peanut butter from order
+        /// hold bun from wurst
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="args"></param>
-        private void OnHoldPeanutButter(object sender, RoutedEventArgs args)
+        private void AddNugget()
         {
-            pbj.HoldPeanutButter();
+            dn.AddNugget();
         }
-
+        
         /// <summary>
-        /// hold jelly from order
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="args"></param>
-        private void OnHoldJelly(object sender, RoutedEventArgs args)
-        {
-            pbj.HoldJelly();
-        }
-
-        /// <summary>
-        /// return to previous page
+        /// 
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="args"></param>

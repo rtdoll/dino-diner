@@ -16,12 +16,12 @@
             </Style>
         </WrapPanel.Resources>
         <Button Click="SelectCola">Cola</Button>
-        <Button>Orange</Button>
-        <Button>Vanilla</Button>
-        <Button>Chocolate</Button>
-        <Button>Root Beer</Button>
-        <Button>Cherry</Button>
-        <Button>Lime</Button>
+        <Button Click="SelectOrange">Orange</Button>
+        <Button Click="SelectVanilla">Vanilla</Button>
+        <Button Click="SelectChocolate">Chocolate</Button>
+        <Button Click="SelectRootBeer">Root Beer</Button>
+        <Button Click="SelectCherry">Cherry</Button>
+        <Button Click="SelectLime">Lime</Button>
     </WrapPanel>
     
 </Page>

@@ -24,7 +24,7 @@ namespace DinoDiner.Menu
         public override event PropertyChangedEventHandler PropertyChanged;
 
         //Helper function for notifying of property changes
-        private void NotifyOfPropertyChange(string propertyName)
+        public override void NotifyOfPropertyChange(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
@@ -102,8 +102,7 @@ namespace DinoDiner.Menu
             this.RoomForCream = true;
             NotifyOfPropertyChange("Special");
         }
-
-        
+         
 
         /// <summary>
         /// Set decaf to true
@@ -124,6 +123,24 @@ namespace DinoDiner.Menu
                 return $"{Size} Decaf Jurassic Java";
             else
                 return $"{Size} Jurassic Java";
+        }
+
+        /// <summary>
+        /// Holds ice from order
+        /// </summary>
+        public override void HoldIce()
+        {
+            this.Ice = false;
+            NotifyOfPropertyChange("Special");
+        }
+
+        /// <summary>
+        /// Adds Ice to order
+        /// </summary>
+        public override void AddIce()
+        {
+            this.Ice = true;
+            NotifyOfPropertyChange("Special");
         }
 
         /// <summary>
