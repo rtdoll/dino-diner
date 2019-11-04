@@ -112,6 +112,7 @@ namespace DinoDiner.Menu
                 NotifyOfPropertyChange("Size");
                 NotifyOfPropertyChange("Price");
                 NotifyOfPropertyChange("Calories");
+                NotifyOfPropertyChange("Description");
             }
         }
 
@@ -121,7 +122,7 @@ namespace DinoDiner.Menu
         public override void HoldIce()
         {
             this.Ice = false;
-            NotifyOfPropertyChange("Ice");
+            NotifyOfPropertyChange("Special");
         }
 
         /// <summary>
@@ -130,7 +131,7 @@ namespace DinoDiner.Menu
         public override void AddIce()
         {
             this.Ice = true;
-            NotifyOfPropertyChange("Ice");
+            NotifyOfPropertyChange("Special");
         }
 
         /// <summary>

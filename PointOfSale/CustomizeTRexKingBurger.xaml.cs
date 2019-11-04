@@ -39,7 +39,7 @@ namespace PointOfSale
         /// <summary>
         /// hold bun from order
         /// </summary>
-        private void HoldBun()
+        private void HoldBun(object sender, RoutedEventArgs args)
         {
             trex.HoldBun();
         }
@@ -47,7 +47,7 @@ namespace PointOfSale
         /// <summary>
         /// hold ketchup from order
         /// </summary>
-        private void HoldKetchup()
+        private void HoldKetchup(object sender, RoutedEventArgs args)
         {
             trex.HoldKetchup();
         }
@@ -55,7 +55,7 @@ namespace PointOfSale
         /// <summary>
         /// hold mustard from order
         /// </summary>
-        private void HoldMustard()
+        private void HoldMustard(object sender, RoutedEventArgs args)
         {
             trex.HoldMustard();
         }
@@ -63,7 +63,7 @@ namespace PointOfSale
         /// <summary>
         /// hold pickle from order
         /// </summary>
-        private void HoldPickle()
+        private void HoldPickle(object sender, RoutedEventArgs args)
         {
             trex.HoldPickle();
         }
@@ -71,7 +71,7 @@ namespace PointOfSale
         /// <summary>
         /// Hold Lettuce from order
         /// </summary>
-        private void HoldLettuce()
+        private void HoldLettuce(object sender, RoutedEventArgs args)
         {
             trex.HoldLettuce();
         }
@@ -79,7 +79,7 @@ namespace PointOfSale
         /// <summary>
         /// Hold mayo from order
         /// </summary>
-        private void HoldMay()
+        private void HoldMayo(object sender, RoutedEventArgs args)
         {
             trex.HoldMayo();
         }
@@ -87,7 +87,7 @@ namespace PointOfSale
         /// <summary>
         /// hold onion from order
         /// </summary>
-        private void HoldOnion()
+        private void HoldOnion(object sender, RoutedEventArgs args)
         {
             trex.HoldOnion();
         }
@@ -95,7 +95,7 @@ namespace PointOfSale
         /// <summary>
         /// hold tomato from order
         /// </summary>
-        private void HoldTomato()
+        private void HoldTomato(object sender, RoutedEventArgs args)
         {
             trex.HoldTomato();
         }

@@ -33,10 +33,10 @@
         <Button Name="BtnSmall" IsEnabled="False" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center">
             Small
         </Button>
-        <Button Name="BtnMedium" IsEnabled="False"  Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" >
+        <Button Name="BtnMedium" IsEnabled="False" Grid.Row="0" HorizontalAlignment="Left" Grid.ColumnSpan="2" Margin="316,26,0,25" >
             Medium
         </Button>
-        <Button Name="BtnLarge" IsEnabled="False"  Grid.Column="2" Grid.Row="0" HorizontalAlignment="Right">
+        <Button Name="BtnLarge" IsEnabled="False"  Grid.Column="1" Grid.Row="0" HorizontalAlignment="Right" Margin="0,26,10,25">
             Large
         </Button>
     </Grid>

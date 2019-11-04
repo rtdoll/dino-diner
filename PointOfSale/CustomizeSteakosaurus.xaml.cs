@@ -39,7 +39,7 @@ namespace PointOfSale
         /// <summary>
         /// hold bun from wurst
         /// </summary>
-        private void HoldBun()
+        private void HoldBun(object sender, RoutedEventArgs args)
         {
             sb.HoldBun();
         }
@@ -47,7 +47,7 @@ namespace PointOfSale
         /// <summary>
         /// hold ketchup from order
         /// </summary>
-        private void HoldKetchup()
+        private void HoldKetchup(object sender, RoutedEventArgs args)
         {
             sb.HoldKetchup();
         }
@@ -55,7 +55,7 @@ namespace PointOfSale
         /// <summary>
         /// hold mustard from order
         /// </summary>
-        private void HoldMustard()
+        private void HoldMustard(object sender, RoutedEventArgs args)
         {
             sb.HoldMustard();
         }
@@ -63,7 +63,7 @@ namespace PointOfSale
         /// <summary>
         /// hold pickle from order
         /// </summary>
-        private void HoldPickle()
+        private void HoldPickle(object sender, RoutedEventArgs args)
         {
             sb.HoldPickle();
         }

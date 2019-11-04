@@ -1,4 +1,4 @@
-﻿<Page x:Class="PointOfSale.CustomizeDinoNuggets"
+﻿<Page x:Class="PointOfSale.CustomizeVelociWrap"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:PointOfSale"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="650"
-      Title="CustomizeDinoNuggets">
+      Title="CustomizeVelociWrap">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -19,7 +19,9 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Button Click="AddNugget" Grid.Row="0" Grid.Column="0">Add Nugget</Button>
+        <Button Click="HoldDressing" Grid.Row="0" Grid.Column="0">Hold Dressing</Button>
+        <Button Click="HoldCheese" Grid.Row="0" Grid.Column="1">Hold Cheese</Button>
+        <Button Click="HoldLettuce" Grid.Row="0" Grid.Column="2">Hold Lettuce</Button>
         <Button Click="OnDone" Grid.Row="2" Grid.Column="2">Done</Button>
     </Grid>
 </Page>

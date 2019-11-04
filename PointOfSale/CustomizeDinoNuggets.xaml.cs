@@ -39,7 +39,7 @@ namespace PointOfSale
         /// <summary>
         /// hold bun from wurst
         /// </summary>
-        private void AddNugget()
+        private void AddNugget(object sender, RoutedEventArgs args)
         {
             dn.AddNugget();
         }

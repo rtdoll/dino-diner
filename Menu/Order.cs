@@ -108,6 +108,11 @@ namespace DinoDiner.Menu
             NotifyAllPropertiesChanged();
         }
 
+        /// <summary>
+        /// Remove an item from the order list
+        /// </summary>
+        /// <param name="item"></param>
+        /// <returns></returns>
         public bool Remove(IOrderItem item)
         {
             bool removed = items.Remove(item);
@@ -119,6 +124,9 @@ namespace DinoDiner.Menu
             
         }
 
+        /// <summary>
+        /// Notify of all properties changed
+        /// </summary>
         private void NotifyAllPropertiesChanged()
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));

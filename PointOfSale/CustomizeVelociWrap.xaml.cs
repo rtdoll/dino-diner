@@ -17,51 +17,52 @@ using DinoDiner.Menu;
 namespace PointOfSale
 {
     /// <summary>
-    /// Interaction logic for CustomizeBrontowurst.xaml
+    /// Interaction logic for CustomizeVelociWrap.xaml
     /// </summary>
-    public partial class CustomizeBrontowurst : Page
+    public partial class CustomizeVelociWrap : Page
     {
         /// <summary>
-        /// private backing variable for wurst
+        /// private backing variable for VelciWrap
         /// </summary>
-        private Brontowurst wurst;
+        private VelociWrap rap;
 
         /// <summary>
         /// Initialize page
         /// </summary>
         /// <param name="wurst"></param>
-        public CustomizeBrontowurst(Brontowurst wurst)
+        public CustomizeVelociWrap(VelociWrap rap)
         {
             InitializeComponent();
-            this.wurst = wurst;
+            this.rap = rap;
         }
 
         /// <summary>
-        /// hold bun from wurst
+        /// hold dressing from order
         /// </summary>
-        private void HoldBun(object sender, RoutedEventArgs args)
+        private void HoldDressing(object sender, RoutedEventArgs args)
         {
-            wurst.HoldBun();
+            rap.HoldDressing();
         }
 
         /// <summary>
-        /// hold peppers from wurst
+        /// hold Lettuce from order
         /// </summary>
-        private void HoldPeppers(object sender, RoutedEventArgs args)
+        private void HoldLettuce(object sender, RoutedEventArgs args)
         {
-            wurst.HoldPeppers();
+            rap.HoldLettuce();
         }
 
         /// <summary>
-        /// Hold onion from wurst
+        /// hold cheese from order
         /// </summary>
-        private void HoldOnions(object sender, RoutedEventArgs args)
+        private void HoldCheese(object sender, RoutedEventArgs args)
         {
-            wurst.HoldPeppers();
+            rap.HoldCheese();
         }
 
+      
         /// <summary>
-        /// return to previous page
+        /// 
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="args"></param>
