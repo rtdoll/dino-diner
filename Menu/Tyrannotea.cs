@@ -18,10 +18,26 @@ namespace DinoDiner.Menu
         /// </summary>
         private Size size { get; set; }
 
+        private bool sweet = false;
+
         /// <summary>
         /// If tea is sweet
         /// </summary>
-        public bool Sweet = false;
+        public bool Sweet
+        {
+            get
+            {
+                return sweet;
+            }
+            set
+            {
+                if (value)
+                    AddSweetener();
+                else
+                    sweet = false;
+                
+            }
+        }
 
         /// <summary>
         /// Lemon for the water
@@ -89,6 +105,7 @@ namespace DinoDiner.Menu
                 }
                 NotifyOfPropertyChange("Size");
                 NotifyOfPropertyChange("Price");
+                NotifyOfPropertyChange("Description");
                 NotifyOfPropertyChange("Calories");
             }
         }
@@ -98,8 +115,9 @@ namespace DinoDiner.Menu
         /// </summary>
         public void AddSweetener()
         {
-            this.Sweet = true;
+            this.sweet = true;
             this.Calories *= 2;
+            NotifyOfPropertyChange("Description");
             NotifyOfPropertyChange("Special");
         }
 

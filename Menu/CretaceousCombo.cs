@@ -31,7 +31,7 @@ namespace DinoDiner.Menu
         /// <summary>
         /// keep track of size of combo
         /// </summary>
-        private Size size = Size.Small;
+        private Size size;
 
         /// <summary>
         /// Change size of combo
@@ -45,9 +45,12 @@ namespace DinoDiner.Menu
             set
             {
                 this.size = value;
-                this.Drink.Size = value;
-                this.Side.Size = value;
+                //this.Drink.Size = value;
+                //this.Side.Size = value;
                 NotifyOfPropertyChange("Size");
+                NotifyOfPropertyChange("Price");
+                NotifyOfPropertyChange("Description");
+                NotifyOfPropertyChange("Special");
             }
         }
 

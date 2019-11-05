@@ -38,12 +38,22 @@ namespace PointOfSale
 
         protected void AddBrontowurst(object sender, RoutedEventArgs args)
         {
-            SelectEntree(new Brontowurst());
+            if (DataContext is Order order)
+            {
+                Brontowurst brontowurst = new Brontowurst();
+                order.Add(brontowurst);
+                NavigationService.Navigate(new CustomizeBrontowurst(brontowurst));
+            }
         }
 
         protected void AddDinoNuggets(object sender, RoutedEventArgs args)
         {
-            SelectEntree(new DinoNuggets());
+            if (DataContext is Order order)
+            {
+                DinoNuggets dn = new DinoNuggets();
+                order.Add(dn);
+                NavigationService.Navigate(new CustomizeDinoNuggets(dn));
+            }
         }
 
         protected void AddPrehistoricPBJ(object sender, RoutedEventArgs args)
@@ -63,17 +73,32 @@ namespace PointOfSale
 
         protected void AddSteakosaurus(object sender, RoutedEventArgs args)
         {
-            SelectEntree(new SteakosaurusBurger());
+            if (DataContext is Order order)
+            {
+                SteakosaurusBurger sb = new SteakosaurusBurger();
+                order.Add(sb);
+                NavigationService.Navigate(new CustomizeSteakosaurus(sb));
+            }
         }
 
         protected void AddTrexKing(object sender, RoutedEventArgs args)
         {
-            SelectEntree(new TRexKingBurger());
+            if (DataContext is Order order)
+            {
+                TRexKingBurger trex = new TRexKingBurger();
+                order.Add(trex);
+                NavigationService.Navigate(new CustomizeTRexKingBurger(trex));
+            }
         }
 
         protected void AddVelociWrap(object sender, RoutedEventArgs args)
         {
-            SelectEntree(new VelociWrap());
+            if (DataContext is Order order)
+            {
+                VelociWrap vw = new VelociWrap();
+                order.Add(vw);
+                NavigationService.Navigate(new CustomizeVelociWrap(vw));
+            }
         }
 
         protected void SelectEntree(Entree entree)
@@ -81,12 +106,12 @@ namespace PointOfSale
             if (DataContext is Order order)
             {
                 order.Add(entree);
-                /*
+                
                 if(NavigationService.CanGoBack)
                     NavigationService.GoBack();
                 else
                     NavigationService.Navigate(new MenuCategorySelection());
-                    */
+                    
             }
         }
     }

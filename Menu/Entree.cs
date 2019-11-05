@@ -22,7 +22,7 @@ namespace DinoDiner.Menu
         /// Gets and sets the calories
         /// </summary>
         public uint Calories { get; set; }
-
+        
         /// <summary>
         /// Gets or sets the Ingredients
         /// </summary>
