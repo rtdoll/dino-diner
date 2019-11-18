@@ -10,7 +10,8 @@ namespace Website.Pages
 {
     public class MenuModel : PageModel
     {
-        
+        public Menu Menu { get; } = new Menu();
+
         public Brontowurst bw = new Brontowurst();
         public DinoNuggets dn = new DinoNuggets();
         public PrehistoricPBJ pbj = new PrehistoricPBJ();
