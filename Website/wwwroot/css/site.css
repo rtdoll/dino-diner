@@ -15,3 +15,13 @@ body {
 .menu-item p{
     margin-bottom: -10px;
 }
+
+#description{
+    font-weight: bold;
+    padding-top: 5px;
+}
+
+#banner{
+    width: 400px;
+    height: 200px;
+}

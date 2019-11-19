@@ -9,14 +9,72 @@
 
 <h2>Combos</h2>
 @foreach (CretaceousCombo combo in Model.Menu.AvailableCombos)
-    {
+{
     <div class="menu-item">
-        <p>@combo.Description</p>
-        <p>Price: @combo.Price</p>
+        <p id="description">@combo.Description</p>
+        <p>Price: $@combo.Price</p>
         <p>Calories: @combo.Calories</p>
-        <p>Ingredients: 
+        <p>
+            Ingredients:
             <ul>
-            @foreach (var s in @Model.bw.Ingredients)
+                @foreach (var s in @combo.Ingredients)
+                {
+                    <li>@s</li>
+                }
+            </ul>
+        <p>
+    </div>
+}
+
+<h2>Entrees</h2>
+@foreach (Entree entree in Model.Menu.AvailableEntrees)
+{
+    <div class="menu-item">
+        <p id="description">@entree.Description</p>
+        <p>Price: $@entree.Price</p>
+        <p>Calories: @entree.Calories</p>
+        <p>
+            Ingredients:
+            <ul>
+                @foreach (var s in @entree.Ingredients)
+                {
+                    <li>@s</li>
+                }
+            </ul>
+        <p>
+    </div>
+}
+
+<h2>Sides</h2>
+@foreach (Side side in Model.Menu.AvailableSides)
+{
+    <div class="menu-item">
+        <p id="description">@side.Description</p>
+        <p>Price: $@side.Price</p>
+        <p>Calories: @side.Calories</p>
+        <p>
+            Ingredients:
+            <ul>
+                @foreach (var s in @side.Ingredients)
+                {
+                    <li>@s</li>
+                }
+            </ul>
+        <p>
+    </div>
+}
+
+<h2>Drinks</h2>
+@foreach (Drink drink in Model.Menu.AvailableDrinks)
+{
+    <div class="menu-item">
+        <p id="description">@drink.Description</p>
+        <p>Price: $@drink.Price</p>
+        <p>Calories: @drink.Calories</p>
+        <p>
+            Ingredients:
+            <ul>
+                @foreach (var s in @drink.Ingredients)
                 {
                     <li>@s</li>
                 }
@@ -38,213 +96,5 @@
 
 
 
-<br />
 
-
-
-
-
-
-
-
-
-
-
-
-<h2>Combos</h2>
-<div class="menu-item">
-    <p>Brontowurst Combo</p>
-    <p>Price: @Model.bw.Price</p>
-    <p>Calories: @Model.bw.Calories</p>
-    <p>Ingredients:<p>
-        <ul>
-            @foreach (var s in @Model.bw.Ingredients)
-            {
-                <li>@s</li>
-            }
-        </ul>
-</div>
-<h2>Entrees</h2>
-<div class="menu-item">
-    <p>Brontowurst</p>
-    <p>Price: @Model.bw.Price</p>
-    <p>Calories: @Model.bw.Calories</p>
-    <p>Ingredients:<p>
-        <ul>
-            @foreach (var s in @Model.bw.Ingredients)
-            {
-                <li>@s</li>
-            }
-        </ul>
-</div>
-<div class="menu-item">
-    <p>Dino-Nuggets</p>
-    <p>Price: @Model.dn.Price</p>
-    <p>Calories: @Model.dn.Calories</p>
-    <p>Ingredients:<p>
-        <ul>
-            @foreach (var s in @Model.dn.Ingredients)
-            {
-                <li>@s</li>
-            }
-        </ul>
-</div>
-<div class="menu-item">
-    <p>PrehistoricPBJ</p>
-    <p>Price: @Model.pbj.Price</p>
-    <p>Calories: @Model.pbj.Calories</p>
-    <p>Ingredients:<p>
-        <ul>
-            @foreach (var s in @Model.pbj.Ingredients)
-            {
-                <li>@s</li>
-            }
-        </ul>
-</div>
-<div class="menu-item">
-    <p>Pterodactyl Wings</p>
-    <p>Price: @Model.pw.Price</p>
-    <p>Calories: @Model.pw.Calories</p>
-    <p>Ingredients:<p>
-        <ul>
-            @foreach (var s in @Model.pw.Ingredients)
-            {
-                <li>@s</li>
-            }
-        </ul>
-</div>
-<div class="menu-item">
-    <p>Steakosaurus Burger</p>
-    <p>Price: @Model.sb.Price</p>
-    <p>Calories: @Model.sb.Calories</p>
-    <p>Ingredients:<p>
-        <ul>
-            @foreach (var s in @Model.sb.Ingredients)
-            {
-                <li>@s</li>
-            }
-        </ul>
-</div>
-<div class="menu-item">
-    <p>T-Rex King Burger</p>
-    <p>Price: @Model.trex.Price</p>
-    <p>Calories: @Model.trex.Calories</p>
-    <p>Ingredients:<p>
-        <ul>
-            @foreach (var s in @Model.trex.Ingredients)
-            {
-                <li>@s</li>
-            }
-        </ul>
-</div>
-<div class="menu-item">
-    <p>VelociWrap</p>
-    <p>Price: @Model.vw.Price</p>
-    <p>Calories: @Model.vw.Calories</p>
-    <p>Ingredients:<p>
-        <ul>
-            @foreach (var s in @Model.vw.Ingredients)
-            {
-                <li>@s</li>
-            }
-        </ul>
-</div>
-<h2>Sides</h2>
-<div class="menu-item">
-    <p>Fryceritops</p>
-    <p>Price: @Model.ft.Price</p>
-    <p>Calories: @Model.ft.Calories</p>
-    <p>Ingredients:<p>
-        <ul>
-            @foreach (var s in @Model.ft.Ingredients)
-            {
-                <li>@s</li>
-            }
-        </ul>
-</div>
-<div class="menu-item">
-    <p>Meteor Mac and Cheese</p>
-    <p>Price: @Model.mmc.Price</p>
-    <p>Calories: @Model.mmc.Calories</p>
-    <p>Ingredients:<p>
-        <ul>
-            @foreach (var s in @Model.mmc.Ingredients)
-            {
-                <li>@s</li>
-            }
-        </ul>
-</div>
-<div class="menu-item">
-    <p>Mezzorella Sticks</p>
-    <p>Price: @Model.ms.Price</p>
-    <p>Calories: @Model.ms.Calories</p>
-    <p>Ingredients:<p>
-        <ul>
-            @foreach (var s in @Model.ms.Ingredients)
-            {
-                <li>@s</li>
-            }
-        </ul>
-</div>
-<div class="menu-item">
-    <p>Triceritots</p>
-    <p>Price: @Model.tt.Price</p>
-    <p>Calories: @Model.tt.Calories</p>
-    <p>Ingredients:<p>
-        <ul>
-            @foreach (var s in @Model.tt.Ingredients)
-            {
-                <li>@s</li>
-            }
-        </ul>
-</div>
-<h2>Drinks</h2>
-<div class="menu-item">
-    <p>Jurassic Java</p>
-    <p>Price: @Model.jj.Price</p>
-    <p>Calories: @Model.jj.Calories</p>
-    <p>Ingredients:<p>
-        <ul>
-            @foreach (var s in @Model.jj.Ingredients)
-            {
-                <li>@s</li>
-            }
-        </ul>
-</div>
-<div class="menu-item">
-    <p>Sodasaurus</p>
-    <p>Price: @Model.soda.Price</p>
-    <p>Calories: @Model.soda.Calories</p>
-    <p>Ingredients:<p>
-        <ul>
-            @foreach (var s in @Model.soda.Ingredients)
-            {
-                <li>@s</li>
-            }
-        </ul>
-</div>
-<div class="menu-item">
-    <p>Tyrannotea</p>
-    <p>Price: @Model.tt.Price</p>
-    <p>Calories: @Model.tt.Calories</p>
-    <p>Ingredients:<p>
-        <ul>
-            @foreach (var s in @Model.tt.Ingredients)
-            {
-                <li>@s</li>
-            }
-        </ul>
-</div>
-<div class="menu-item">
-    <p>Water</p>
-    <p>Price: @Model.water.Price</p>
-    <p>Calories: @Model.water.Calories</p>
-    <p>Ingredients:<p>
-        <ul>
-            @foreach (var s in @Model.water.Ingredients)
-            {
-                <li>@s</li>
-            }
-        </ul>
-</div>
 
