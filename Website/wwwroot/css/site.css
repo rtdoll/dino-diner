@@ -25,3 +25,14 @@ body {
     width: 400px;
     height: 200px;
 }
+
+#right_sidebar {
+    float: right;
+    position: fixed;
+    right: 0;
+    width: 25%;
+}
+
+div#exclude-ingredients {
+    display: grid;
+}

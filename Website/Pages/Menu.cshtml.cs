@@ -34,5 +34,10 @@ namespace Website.Pages
         {
             
         }
+
+        public void OnPost(string search, List<string> CategoryCheckbox, float minimumPrice, float maximumPrice)
+        {
+
+        }
     }
 }

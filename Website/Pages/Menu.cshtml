@@ -6,6 +6,54 @@
 @using DinoDiner.Menu;
 
 <h1>Menu</h1>
+<div id="right_sidebar">
+    <form method="post">
+        <input type="text" name="search" id="search" value="Text" />
+        <input type="submit" value="Search and Filter"/>
+        <div class="menu_categories_filter">
+            <label>
+                <input type="checkbox" name="CategoryCheckbox" value="combo" />
+                Combo
+            </label>
+            <label>
+                <input type="checkbox" name="CategoryCheckbox" value="entree" />
+                Entree
+            </label>
+            <label>
+                <input type="checkbox" name="CategoryCheckbox" value="side" />
+                Side
+            </label>
+            <label>
+                <input type="checkbox" name="CategoryCheckbox" value="drink" />
+                Drink
+            </label>
+        </div>
+
+        <div id="price_filter">
+            <label>Price</label>
+            <br/>
+            <label>
+                Min
+                <input type="number" name="minimumPrice" id="minimum-price" />
+            </label>
+            <label>
+                Max
+                <input type="number" name="maximumPrice" id="maximum-price" />
+            </label>
+        </div>
+
+        <div id="exclude-ingredients">
+            @foreach(string s in Model.Menu.PossibleIngredients)
+            {
+                <label>
+                    <input type="checkbox" name="@s" value="@s"/>
+                    @s
+                </label>
+            }
+        </div>
+
+    </form>
+</div>
 
 <h2>Combos</h2>
 @foreach (CretaceousCombo combo in Model.Menu.AvailableCombos)

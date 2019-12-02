@@ -109,6 +109,23 @@ namespace DinoDiner.Menu
             }
         }
 
+        public List<string> PossibleIngredients
+        {
+            get
+            {
+                List<string> ing = new List<string>();
+                foreach(IMenuItem item in AvailableMenuItems)
+                {
+                    foreach(string s in item.Ingredients)
+                    {
+                        if(!ing.Contains(s))
+                            ing.Add(s);
+                    }
+                }
+                return ing;
+            }
+        }
+
         /// <summary>
         /// return string of available menu items
         /// </summary>
