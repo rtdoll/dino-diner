@@ -29,10 +29,20 @@ body {
 #right_sidebar {
     float: right;
     position: fixed;
+    margin-top: -35px;
     right: 0;
     width: 25%;
 }
 
+div#price_filter {
+    padding-bottom: 10px;
+}
+
 div#exclude-ingredients {
     display: grid;
+}
+
+.menu_categories_filter {
+    display: grid;
+    padding: 10px 0;
 }
