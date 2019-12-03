@@ -8,24 +8,24 @@
 <h1>Menu</h1>
 <div id="right_sidebar">
     <form method="post">
-        <input type="text" name="search" id="search" value="Text" />
+        <input type="text" name="Search" id="@Model.Search" value="Text" />
         <input type="submit" value="Search and Filter"/>
         <div class="menu_categories_filter">
             <label>
-                <input type="checkbox" name="CategoryCheckbox" value="combo" />
-                Combo
+                <input type="checkbox" name="OrderCategory" value="Combos" />
+                Combos
             </label>
             <label>
-                <input type="checkbox" name="CategoryCheckbox" value="entree" />
-                Entree
+                <input type="checkbox" name="OrderCategory" value="Entrees" />
+                Entrees
             </label>
             <label>
-                <input type="checkbox" name="CategoryCheckbox" value="side" />
-                Side
+                <input type="checkbox" name="OrderCategory" value="Sides" />
+                Sides
             </label>
             <label>
-                <input type="checkbox" name="CategoryCheckbox" value="drink" />
-                Drink
+                <input type="checkbox" name="OrderCategory" value="Drinks" />
+                Drinks
             </label>
         </div>
 
@@ -34,19 +34,20 @@
             <br/>
             <label>
                 Min
-                <input type="number" name="minimumPrice" id="minimum-price" />
+                <input type="number" step="0.5" name="MinimumPrice" id="minimum-price" value="@Model.MinimumPrice"/>
             </label>
             <label>
                 Max
-                <input type="number" name="maximumPrice" id="maximum-price" />
+                <input type="number" step="0.5" name="MaximumPrice" id="maximum-price" value="@Model.MaximumPrice"/>
             </label>
         </div>
 
         <div id="exclude-ingredients">
+            <label>Exclude Ingredients</label>
             @foreach(string s in Model.Menu.PossibleIngredients)
             {
                 <label>
-                    <input type="checkbox" name="@s" value="@s"/>
+                    <input type="checkbox" name="@s" value="@Model.ExcludeIngredients"/>
                     @s
                 </label>
             }
@@ -130,19 +131,3 @@
         <p>
     </div>
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

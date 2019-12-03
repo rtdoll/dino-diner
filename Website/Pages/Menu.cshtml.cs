@@ -12,32 +12,41 @@ namespace Website.Pages
     {
         public Menu Menu { get; } = new Menu();
 
-        public Brontowurst bw = new Brontowurst();
-        public DinoNuggets dn = new DinoNuggets();
-        public PrehistoricPBJ pbj = new PrehistoricPBJ();
-        public PterodactylWings pw = new PterodactylWings();
-        public SteakosaurusBurger sb = new SteakosaurusBurger();
-        public TRexKingBurger trex = new TRexKingBurger();
-        public VelociWrap vw = new VelociWrap();
+        public List<IMenuItem> AvailableMenuItems = new List<IMenuItem>();
 
-        public Fryceritops ft = new Fryceritops();
-        public MeteorMacAndCheese mmc = new MeteorMacAndCheese();
-        public MezzorellaSticks ms = new MezzorellaSticks();
-        public Triceritots tt = new Triceritots();
+        [BindProperty]
+        public string Search { get; set; }
 
-        public JurassicJava jj = new JurassicJava();
-        public Sodasaurus soda = new Sodasaurus();
-        public Tyrannotea tea = new Tyrannotea();
-        public Water water = new Water();
+        [BindProperty]
+        public List<string> OrderCategory { get; set; } = new List<string>();
+
+        [BindProperty]
+        public float? MinimumPrice { get; set; }        
+
+        [BindProperty]
+        public float? MaximumPrice { get; set; }
+
+        [BindProperty]
+        public List<string> ExcludeIngredients { get; set; } = new List<string>();
 
         public void OnGet()
         {
             
         }
 
-        public void OnPost(string search, List<string> CategoryCheckbox, float minimumPrice, float maximumPrice)
+        public void OnPost()
         {
+            AvailableMenuItems = Menu.AvailableMenuItems;
+            SearchAndFilter filter = new SearchAndFilter();
+            if (OrderCategory.Count > 0)
+                AvailableMenuItems = filter.filterCategories(OrderCategory);
 
+            if (Search != null)
+                AvailableMenuItems = filter.filterSearch(AvailableMenuItems, Search);
+
+            AvailableMenuItems = filter.filterByPrice(AvailableMenuItems, MinimumPrice, MaximumPrice);
+
+            AvailableMenuItems = filter.filterIngredients(AvailableMenuItems, ExcludeIngredients);
         }
     }
 }
