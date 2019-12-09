@@ -12,7 +12,8 @@ namespace Website.Pages
     {
         public Menu Menu { get; } = new Menu();
 
-        public List<IMenuItem> AvailableMenuItems = new List<IMenuItem>();
+
+        public List<IMenuItem> AvailableMenuItems = SearchAndFilter.AllItems;
 
         [BindProperty]
         public string Search { get; set; }
@@ -31,12 +32,11 @@ namespace Website.Pages
 
         public void OnGet()
         {
-            
+
         }
 
-        public void OnPost()
+        public void OnPost(string Search, List<string> OrderCategory, float? MinimumPrice, float? MaximumPrice, List<string> ExcludeIngredients)
         {
-            AvailableMenuItems = Menu.AvailableMenuItems;
             SearchAndFilter filter = new SearchAndFilter();
             if (OrderCategory.Count > 0)
                 AvailableMenuItems = filter.filterCategories(OrderCategory);

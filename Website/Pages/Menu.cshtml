@@ -8,23 +8,23 @@
 <h1>Menu</h1>
 <div id="right_sidebar">
     <form method="post">
-        <input type="text" name="Search" id="@Model.Search" value="Text" />
+        <input type="text" name="Search" id="@Model.Search"  />
         <input type="submit" value="Search and Filter"/>
         <div class="menu_categories_filter">
             <label>
-                <input type="checkbox" name="OrderCategory" value="Combos" />
+                <input type="checkbox" name="OrderCategory" class="menu-category" value="Combos" checked="@Model.OrderCategory.Contains("Combos")"/>
                 Combos
             </label>
             <label>
-                <input type="checkbox" name="OrderCategory" value="Entrees" />
+                <input type="checkbox" name="OrderCategory" class="menu-category" value="Entrees" checked="@Model.OrderCategory.Contains("Entrees")"/>
                 Entrees
             </label>
             <label>
-                <input type="checkbox" name="OrderCategory" value="Sides" />
+                <input type="checkbox" name="OrderCategory" class="menu-category" value="Sides" checked="@Model.OrderCategory.Contains("Sides")"/>
                 Sides
             </label>
             <label>
-                <input type="checkbox" name="OrderCategory" value="Drinks" />
+                <input type="checkbox" name="OrderCategory" class="menu-category" value="Drinks" checked="@Model.OrderCategory.Contains("Drinks")"/>
                 Drinks
             </label>
         </div>
@@ -47,7 +47,7 @@
             @foreach(string s in Model.Menu.PossibleIngredients)
             {
                 <label>
-                    <input type="checkbox" name="@s" value="@Model.ExcludeIngredients"/>
+                    <input type="checkbox" name="ExcludeIngredients" checked="@Model.ExcludeIngredients.Contains(@s)" value="@s"/>
                     @s
                 </label>
             }
@@ -57,77 +57,89 @@
 </div>
 
 <h2>Combos</h2>
-@foreach (CretaceousCombo combo in Model.Menu.AvailableCombos)
+@foreach (IMenuItem combo in Model.AvailableMenuItems)
 {
-    <div class="menu-item">
-        <p id="description">@combo.Description</p>
-        <p>Price: $@combo.Price</p>
-        <p>Calories: @combo.Calories</p>
-        <p>
-            Ingredients:
-            <ul>
-                @foreach (var s in @combo.Ingredients)
-                {
-                    <li>@s</li>
-                }
-            </ul>
-        <p>
-    </div>
+    if (combo.Category == "Combo")
+    {
+        <div class="menu-item">
+            <p id="description">@combo.Description</p>
+            <p>Price: $@combo.Price</p>
+            <p>Calories: @combo.Calories</p>
+            <p>
+                Ingredients:
+                <ul>
+                    @foreach (var s in @combo.Ingredients)
+                    {
+                        <li>@s</li>
+                    }
+                </ul>
+            <p>
+        </div>
+    }
 }
 
 <h2>Entrees</h2>
-@foreach (Entree entree in Model.Menu.AvailableEntrees)
+@foreach (IMenuItem entree in Model.AvailableMenuItems)
 {
-    <div class="menu-item">
-        <p id="description">@entree.Description</p>
-        <p>Price: $@entree.Price</p>
-        <p>Calories: @entree.Calories</p>
-        <p>
-            Ingredients:
-            <ul>
-                @foreach (var s in @entree.Ingredients)
-                {
-                    <li>@s</li>
-                }
-            </ul>
-        <p>
-    </div>
+    if (entree.Category == "Entree")
+    {
+        <div class="menu-item">
+            <p id="description">@entree.Description</p>
+            <p>Price: $@entree.Price</p>
+            <p>Calories: @entree.Calories</p>
+            <p>
+                Ingredients:
+                <ul>
+                    @foreach (var s in @entree.Ingredients)
+                    {
+                        <li>@s</li>
+                    }
+                </ul>
+            <p>
+        </div>
+    }
 }
 
 <h2>Sides</h2>
-@foreach (Side side in Model.Menu.AvailableSides)
+@foreach (IMenuItem side in Model.AvailableMenuItems)
 {
-    <div class="menu-item">
-        <p id="description">@side.Description</p>
-        <p>Price: $@side.Price</p>
-        <p>Calories: @side.Calories</p>
-        <p>
-            Ingredients:
-            <ul>
-                @foreach (var s in @side.Ingredients)
-                {
-                    <li>@s</li>
-                }
-            </ul>
-        <p>
-    </div>
+    if (side.Category == "Side")
+    {
+        <div class="menu-item">
+            <p id="description">@side.Description</p>
+            <p>Price: $@side.Price</p>
+            <p>Calories: @side.Calories</p>
+            <p>
+                Ingredients:
+                <ul>
+                    @foreach (var s in @side.Ingredients)
+                    {
+                        <li>@s</li>
+                    }
+                </ul>
+            <p>
+        </div>
+    }
 }
 
 <h2>Drinks</h2>
-@foreach (Drink drink in Model.Menu.AvailableDrinks)
+@foreach (IMenuItem drink in Model.AvailableMenuItems)
 {
-    <div class="menu-item">
-        <p id="description">@drink.Description</p>
-        <p>Price: $@drink.Price</p>
-        <p>Calories: @drink.Calories</p>
-        <p>
-            Ingredients:
-            <ul>
-                @foreach (var s in @drink.Ingredients)
-                {
-                    <li>@s</li>
-                }
-            </ul>
-        <p>
-    </div>
+    if (drink.Category == "Drink")
+    {
+        <div class="menu-item">
+            <p id="description">@drink.Description</p>
+            <p>Price: $@drink.Price</p>
+            <p>Calories: @drink.Calories</p>
+            <p>
+                Ingredients:
+                <ul>
+                    @foreach (var s in @drink.Ingredients)
+                    {
+                        <li>@s</li>
+                    }
+                </ul>
+            <p>
+        </div>
+    }
 }

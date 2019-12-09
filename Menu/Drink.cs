@@ -70,6 +70,16 @@ namespace DinoDiner.Menu
         /// </summary>
         public abstract void AddIce();
 
+        /// <summary>
+        /// Category of item
+        /// </summary>
+        public string Category
+        {
+            get
+            {
+                return "Drink";
+            }
+        }
 
     }
 }

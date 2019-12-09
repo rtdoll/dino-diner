@@ -39,5 +39,16 @@ namespace DinoDiner.Menu
         public virtual string Description { get; }
 
         public abstract event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
+        /// Category of item
+        /// </summary>
+        public string Category
+        {
+            get
+            {
+                return "Entree";
+            }
+        }
     }
 }

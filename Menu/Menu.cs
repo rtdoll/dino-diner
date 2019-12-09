@@ -20,6 +20,13 @@ namespace DinoDiner.Menu
             get
             {
                 List<IMenuItem> menu = new List<IMenuItem>();
+                menu.Add(new CretaceousCombo(new Brontowurst()));
+                menu.Add(new CretaceousCombo(new DinoNuggets()));
+                menu.Add(new CretaceousCombo(new PrehistoricPBJ()));
+                menu.Add(new CretaceousCombo(new PterodactylWings()));
+                menu.Add(new CretaceousCombo(new SteakosaurusBurger()));
+                menu.Add(new CretaceousCombo(new TRexKingBurger()));
+                menu.Add(new CretaceousCombo(new VelociWrap()));
                 menu.Add(new Brontowurst());
                 menu.Add(new DinoNuggets());
                 menu.Add(new Fryceritops());
@@ -98,13 +105,13 @@ namespace DinoDiner.Menu
             get
             {
                 List<IMenuItem> menu = new List<IMenuItem>();
-                menu.Add(new CretaceousCombo(new Brontowurst(), new Fryceritops(), new JurassicJava()));
-                menu.Add(new CretaceousCombo(new DinoNuggets(), new Fryceritops(), new JurassicJava()));
-                menu.Add(new CretaceousCombo(new PrehistoricPBJ(), new Fryceritops(), new JurassicJava()));
-                menu.Add(new CretaceousCombo(new PterodactylWings(), new Fryceritops(), new JurassicJava()));
-                menu.Add(new CretaceousCombo(new SteakosaurusBurger(), new Fryceritops(), new JurassicJava()));
-                menu.Add(new CretaceousCombo(new TRexKingBurger(), new Fryceritops(), new JurassicJava()));
-                menu.Add(new CretaceousCombo(new VelociWrap(), new Fryceritops(), new JurassicJava()));
+                menu.Add(new CretaceousCombo(new Brontowurst()));
+                menu.Add(new CretaceousCombo(new DinoNuggets()));
+                menu.Add(new CretaceousCombo(new PrehistoricPBJ()));
+                menu.Add(new CretaceousCombo(new PterodactylWings()));
+                menu.Add(new CretaceousCombo(new SteakosaurusBurger()));
+                menu.Add(new CretaceousCombo(new TRexKingBurger()));
+                menu.Add(new CretaceousCombo(new VelociWrap()));
                 return menu;
             }
         }

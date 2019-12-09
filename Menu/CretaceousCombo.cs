@@ -61,6 +61,8 @@ namespace DinoDiner.Menu
         {
             get
             {
+                if (Side == null && Drink == null)
+                    return this.Entree.Price - .25;
                 return this.Drink.Price + this.Side.Price + this.Entree.Price - 0.25;
             }
         }
@@ -72,6 +74,8 @@ namespace DinoDiner.Menu
         {
             get
             {
+                if (Side == null && Drink == null)
+                    return this.Entree.Calories;
                 return this.Drink.Calories + this.Side.Calories + this.Entree.Calories;
             }
         }
@@ -96,8 +100,10 @@ namespace DinoDiner.Menu
             {
                 List<string> ingredients = new List<string>();
                 ingredients.AddRange(this.Entree.Ingredients);
-                ingredients.AddRange(this.Side.Ingredients);
-                ingredients.AddRange(this.Drink.Ingredients);
+                if(Side != null)
+                    ingredients.AddRange(this.Side.Ingredients);
+                if(Drink != null)
+                    ingredients.AddRange(this.Drink.Ingredients);
                 return ingredients;
             }
         }
@@ -153,11 +159,29 @@ namespace DinoDiner.Menu
             {
                 List<string> ingredients = new List<string>();
                 ingredients.AddRange(Entree.Special);
-                ingredients.Add(Side.ToString());
-                ingredients.AddRange(Side.Special);
-                ingredients.Add(Drink.ToString());
-                ingredients.AddRange(Drink.Special);
+                if(Side != null)
+                {
+                    ingredients.Add(Side.ToString());
+                    ingredients.AddRange(Side.Special);
+                }
+                if(Drink != null)
+                {
+                    ingredients.Add(Drink.ToString());
+                    ingredients.AddRange(Drink.Special);
+                }
+                
                 return ingredients.ToArray();
+            }
+        }
+
+        /// <summary>
+        /// Category of item
+        /// </summary>
+        public string Category
+        {
+            get
+            {
+                return "Combo";
             }
         }
     }
