@@ -8,7 +8,7 @@ namespace Website
 {
     public class SearchAndFilter
     {
-        Menu Menu = new Menu();
+        static Menu Menu = new Menu();
 
         public SearchAndFilter()
         {
@@ -20,7 +20,7 @@ namespace Website
             List<IMenuItem> filteredMenu = new List<IMenuItem>();
             foreach(IMenuItem item in items)
             {
-                if (item.ToString() == search)
+                if (item.Description != null && item.Description.Contains(search, StringComparison.OrdinalIgnoreCase))
                     filteredMenu.Add(item);
             }
             return filteredMenu;

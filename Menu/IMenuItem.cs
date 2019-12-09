@@ -10,7 +10,7 @@ namespace DinoDiner.Menu
     /// <summary>
     /// IMenuItem Interface, Requires Price, Calories, and Ingredients for every menu item
     /// </summary>
-    public interface IMenuItem
+    public interface IMenuItem : IOrderItem
     {
         /// <summary>
         /// Gets the price
