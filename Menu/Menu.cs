@@ -116,6 +116,9 @@ namespace DinoDiner.Menu
             }
         }
 
+        /// <summary>
+        /// All possible ingredients from every menu item, no duplicates
+        /// </summary>
         public List<string> PossibleIngredients
         {
             get

@@ -8,9 +8,12 @@ namespace Website
 {
     public class SearchAndFilter
     {
+        //Current menu
         static Menu Menu = new Menu();
-
-        public static List<IMenuItem> AllItems
+        /// <summary>
+        /// All items available from Menu
+        /// </summary>
+        public static IEnumerable<IMenuItem> AllItems
         {
             get
             {
@@ -22,10 +25,15 @@ namespace Website
         {
 
         }
-
-        public List<IMenuItem> filterSearch(List<IMenuItem> items, string search)
+        /// <summary>
+        /// filters menu by search term and current items
+        /// </summary>
+        /// <param name="items">current menu items</param>
+        /// <param name="search">string search term</param>
+        /// <returns></returns>
+        public IEnumerable<IMenuItem> filterSearch(IEnumerable<IMenuItem> items, string search)
         {
-            if (items.Count == 0)
+            if (!items.Any())
                 return Menu.AvailableMenuItems;
             List<IMenuItem> filteredMenu = new List<IMenuItem>();
             foreach(IMenuItem item in items)
@@ -36,7 +44,12 @@ namespace Website
             return filteredMenu;
         }
 
-        public List<IMenuItem> filterCategories(List<string> categories)
+        /// <summary>
+        /// filter menu by categories
+        /// </summary>
+        /// <param name="categories">categories selected</param>
+        /// <returns></returns>
+        public IEnumerable<IMenuItem> filterCategories(IEnumerable<string> categories)
         {
             if (!categories.Any())
                 return Menu.AvailableMenuItems;
@@ -58,7 +71,14 @@ namespace Website
             return filtered;
         }
 
-        public List<IMenuItem> filterByPrice(List<IMenuItem> items, float? min, float? max)
+        /// <summary>
+        /// filter by price of current menu items
+        /// </summary>
+        /// <param name="items">current menu items</param>
+        /// <param name="min">minimum price</param>
+        /// <param name="max">maximum price</param>
+        /// <returns></returns>
+        public IEnumerable<IMenuItem> filterByPrice(IEnumerable<IMenuItem> items, float? min, float? max)
         {
             List<IMenuItem> filtered = new List<IMenuItem>();
             foreach(IMenuItem item in items)
@@ -69,9 +89,15 @@ namespace Website
             return filtered;
         }
 
-        public List<IMenuItem> filterIngredients(List<IMenuItem> items, List<string> filtIng)
+        /// <summary>
+        /// filters items out if ingredient is selected
+        /// </summary>
+        /// <param name="items">currently selected items</param>
+        /// <param name="filtIng">ingredients not wanted</param>
+        /// <returns></returns>
+        public IEnumerable<IMenuItem> filterIngredients(IEnumerable<IMenuItem> items, List<string> filtIng)
         {
-            if (filtIng.Count == 0)
+            if (!filtIng.Any())
                 return items;
 
             List<IMenuItem> filtered = new List<IMenuItem>();

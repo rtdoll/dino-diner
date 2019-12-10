@@ -16,9 +16,12 @@ body {
     margin-bottom: -10px;
 }
 
-#description{
+#description {
     font-weight: bold;
     padding-top: 5px;
+    padding-bottom: 15px;
+    color: green;
+    font-size: 22px;
 }
 
 #banner{
@@ -44,4 +47,10 @@ div#exclude-ingredients {
 .menu_categories_filter {
     display: grid;
     padding: 10px 0;
+}
+
+table#combo-table,
+table#combo-table td{
+    border: 1px solid green;
+    padding: 3px;
 }

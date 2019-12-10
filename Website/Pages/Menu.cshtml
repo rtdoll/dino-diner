@@ -57,31 +57,63 @@
 </div>
 
 <h2>Combos</h2>
-@foreach (IMenuItem combo in Model.AvailableMenuItems)
+@foreach (IMenuItem item in Model.AvailableMenuItems)
 {
-    if (combo.Category == "Combo")
+    if (item is DinoDiner.Menu.CretaceousCombo combo)
     {
-        <div class="menu-item">
-            <p id="description">@combo.Description</p>
-            <p>Price: $@combo.Price</p>
-            <p>Calories: @combo.Calories</p>
-            <p>
-                Ingredients:
-                <ul>
-                    @foreach (var s in @combo.Ingredients)
+    <div class="menu-item">
+
+        <p id="description">@combo.Description</p>
+        <table id="combo-table">
+            <tbody>
+                <tr>
+                    <td>
+                        Size
+                    </td>
+                    <td>
+                        Price
+                    </td>
+                    <td>
+                        Calories
+                    </td>
+                </tr>
+            
+                @for (int i = 0; i < 3; i++)
+                {
+                    <tr>
+                        <td>@combo.Size</td>
+                        <td>$@combo.Price</td>
+                        <td>@combo.Calories</td>
+                    </tr>
+                    @if (combo.Size == Size.Small)
                     {
-                        <li>@s</li>
+                        combo.Size = Size.Medium;
                     }
-                </ul>
-            <p>
-        </div>
+                    else
+                    {
+                        combo.Size = Size.Large;
+                    }
+                
+                }
+            </tbody>
+        </table>
+        <p>
+            Ingredients:
+            <ul>
+                @foreach (var s in combo.Ingredients)
+                {
+                    <li>@s</li>
+                }
+            </ul>
+        <p>
+    </div>
     }
 }
 
 <h2>Entrees</h2>
-@foreach (IMenuItem entree in Model.AvailableMenuItems)
+@foreach (IMenuItem item in Model.AvailableMenuItems)
 {
-    if (entree.Category == "Entree")
+    if (item is DinoDiner.Menu.Entree entree)
     {
         <div class="menu-item">
             <p id="description">@entree.Description</p>
@@ -101,14 +133,45 @@
 }
 
 <h2>Sides</h2>
-@foreach (IMenuItem side in Model.AvailableMenuItems)
+@foreach (IMenuItem item in Model.AvailableMenuItems)
 {
-    if (side.Category == "Side")
+    if (item is DinoDiner.Menu.Side side)
     {
         <div class="menu-item">
             <p id="description">@side.Description</p>
-            <p>Price: $@side.Price</p>
-            <p>Calories: @side.Calories</p>
+            <table id="combo-table">
+                <tbody>
+                    <tr>
+                        <td>
+                            Size
+                        </td>
+                        <td>
+                            Price
+                        </td>
+                        <td>
+                            Calories
+                        </td>
+                    </tr>
+
+                    @for (int i = 0; i < 3; i++)
+                    {
+                        <tr>
+                            <td>@side.Size</td>
+                            <td>$@side.Price</td>
+                            <td>@side.Calories</td>
+                        </tr>
+                        @if (side.Size == Size.Small)
+                        {
+                            side.Size = Size.Medium;
+                        }
+                        else
+                        {
+                            side.Size = Size.Large;
+                        }
+
+                    }
+                </tbody>
+            </table>
             <p>
                 Ingredients:
                 <ul>
@@ -123,14 +186,45 @@
 }
 
 <h2>Drinks</h2>
-@foreach (IMenuItem drink in Model.AvailableMenuItems)
+@foreach (IMenuItem item in Model.AvailableMenuItems)
 {
-    if (drink.Category == "Drink")
+    if (item is DinoDiner.Menu.Drink drink)
     {
         <div class="menu-item">
             <p id="description">@drink.Description</p>
-            <p>Price: $@drink.Price</p>
-            <p>Calories: @drink.Calories</p>
+            <table id="combo-table">
+                <tbody>
+                    <tr>
+                        <td>
+                            Size
+                        </td>
+                        <td>
+                            Price
+                        </td>
+                        <td>
+                            Calories
+                        </td>
+                    </tr>
+
+                    @for (int i = 0; i < 3; i++)
+                    {
+                        <tr>
+                            <td>@drink.Size</td>
+                            <td>$@drink.Price</td>
+                            <td>@drink.Calories</td>
+                        </tr>
+                        @if (drink.Size == Size.Small)
+                        {
+                            drink.Size = Size.Medium;
+                        }
+                        else
+                        {
+                            drink.Size = Size.Large;
+                        }
+
+                    }
+                </tbody>
+            </table>
             <p>
                 Ingredients:
                 <ul>

@@ -13,7 +13,7 @@ namespace Website.Pages
         public Menu Menu { get; } = new Menu();
 
 
-        public List<IMenuItem> AvailableMenuItems = SearchAndFilter.AllItems;
+        public IEnumerable<IMenuItem> AvailableMenuItems = SearchAndFilter.AllItems;
 
         [BindProperty]
         public string Search { get; set; }

@@ -31,7 +31,7 @@ namespace DinoDiner.Menu
         /// <summary>
         /// keep track of size of combo
         /// </summary>
-        private Size size;
+        private Size size = Size.Small;
 
         /// <summary>
         /// Change size of combo
@@ -45,6 +45,8 @@ namespace DinoDiner.Menu
             set
             {
                 this.size = value;
+                this.Drink.Size = value;
+                this.Side.Size = value;
                 //this.Drink.Size = value;
                 //this.Side.Size = value;
                 NotifyOfPropertyChange("Size");
@@ -115,6 +117,8 @@ namespace DinoDiner.Menu
         public CretaceousCombo(Entree entree)
         {
             this.Entree = entree;
+            this.Side = new Fryceritops();
+            this.Drink = new Sodasaurus();
         }
 
         /// <summary>
